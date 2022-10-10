@@ -1,0 +1,16 @@
+PODS:
+  - IMSdk-Ios-demo (0.1.0)
+
+DEPENDENCIES:
+  - IMSdk-Ios-demo (from `../`)
+
+EXTERNAL SOURCES:
+  IMSdk-Ios-demo:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  IMSdk-Ios-demo: 283ac52aead5c27f22f59fd1db712c8790591d94
+
+PODFILE CHECKSUM: d7f3c8c267350a68d57601dcf2abe0ebaf362338
+
+COCOAPODS: 1.10.2

@@ -22,7 +22,7 @@ pod 'IMSdk-Ios-demo'
 
 ## Author
 
-admin@tmmtmm.com.tr tmmtmm, Li437277219@gmail.com
+tmmtmm, admin@tmmtmm.com.tr
 
 ## License
 

@@ -21,11 +21,11 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'https://github.com/admin@tmmtmm.com.tr tmmtmm/IMSdk-Ios-demo'
+  s.homepage         = 'https://github.com/TmmTmmIM/IMSdk-Ios-demo'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'admin@tmmtmm.com.tr tmmtmm' => 'Li437277219@gmail.com' }
-  s.source           = { :git => 'https://github.com/admin@tmmtmm.com.tr tmmtmm/IMSdk-Ios-demo.git', :tag => s.version.to_s }
+  s.author           = { 'tmmtmm' => 'admin@tmmtmm.com.tr' }
+  s.source           = { :git => 'https://github.com/TmmTmmIM/IMSdk-Ios-demo.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '10.0'

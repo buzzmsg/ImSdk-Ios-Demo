@@ -6,21 +6,11 @@
 //
 
 import UIKit
-
+import SVProgressHUD
 import IMSdk
 
 
 class TMChatListController: UIViewController, IMDelegate, ConversationDelegate {
-    
-    
-    func onAuth(aUid: String, resolve: @escaping ((_ auth: String) -> ())) {
-        if let info = self.loginInfo {
-            TMDemoGetAuth.execute(token: info.token).then { authRespon -> Promise<Void> in
-                resolve(authRespon.authcode)
-                return Promise<Void>.resolve()
-            }
-        }
-    }
     
 
     var loginInfo: TMDemoLoginResponse?
@@ -31,9 +21,7 @@ class TMChatListController: UIViewController, IMDelegate, ConversationDelegate {
         super.viewDidLoad()
 
         self.title = "聊天"
-        
 
-        
         let btn1=UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 40))
         btn1.setTitle("发消息", for: .normal)
         let item2=UIBarButtonItem(customView: btn1)
@@ -41,8 +29,8 @@ class TMChatListController: UIViewController, IMDelegate, ConversationDelegate {
         
         if let loginInfo = TMUserUtil.getLogin() {
             self.loginInfo = loginInfo
-            //self.kit = TMKit(ak: loginInfo.ak, environment: .development)//TMKit.getSharedInstance(ak: loginInfo.ak, environment: .development)
             self.kit = IMSdk.getInstance(ak: loginInfo.ak, env: .alpha)
+            self.kit?.setAuthCode(auth: loginInfo.authcode)
             self.kit?.setIMDelegate(delegate: self)
             self.kit?.initUser(aUid: loginInfo.auid)
         }
@@ -58,8 +46,24 @@ class TMChatListController: UIViewController, IMDelegate, ConversationDelegate {
         if let loginInfo = TMUserUtil.getLogin() {
             IMSdk.getInstance(ak: loginInfo.ak, env: .alpha).startSocket()
         }
+        
+        
     }
     
+    func onShowUserInfo(aUids: [String]) {
+        
+        let value = Int(arc4random()%47) + 1
+
+        let image = UIImage.init(named: "head_" + String(value))
+        
+        if let data = image?.pngData() {
+            let userProfile = UserProfile(avatar: data, format: "jpg", name: "小胖子")
+            let model = UserInfoModel(aUid: aUids.first ?? "", profile: userProfile)
+            self.kit?.setUserInfo(userInfos: [model])
+        }
+
+        
+    }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -74,11 +78,47 @@ class TMChatListController: UIViewController, IMDelegate, ConversationDelegate {
         let item2=UIBarButtonItem(customView: btn1)
         self.navigationItem.rightBarButtonItem = item2
         
+        let btn2 = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 40))
+        btn2.setTitle("加入测试群", for: .normal)
+        btn2.addTarget(self, action: #selector(addMassageClick), for: .touchUpInside)
+        btn2.setTitleColor(UIColor.blue, for: .normal)
+        let item3=UIBarButtonItem(customView: btn2)
+        self.navigationItem.leftBarButtonItem = item3
+        
         let originY: CGFloat = 0.0
         let tabbarH: CGFloat = self.tabBarController?.tabBar.frame.height ?? 0.0
         let height: CGFloat = self.view.frame.height - originY - tabbarH
         self.chatView.frame = CGRect(x: 0, y: originY, width: screenWidth, height: height)
     }
+    
+    @objc private func addMassageClick() {
+        SVProgressHUD.show()
+        
+        if let loginInfo = TMUserUtil.getLogin() {
+            IMSdk.getInstance(ak: loginInfo.ak, env: .alpha).joinTestGroup {[weak self] (aChatId) in
+                guard let self = self else { return }
+                SVProgressHUD.popActivity()
+                let vc = TMChatDetailController()
+                vc.hidesBottomBarWhenPushed = true
+                vc.aChatId = aChatId
+                self.navigationController?.pushViewController(vc, animated: true)
+            } fail: { str in
+                SVProgressHUD.popActivity()
+                SVProgressHUD.showError(withStatus: str)
+            }
+        }
+
+
+//        if let loginInfo = TMUserUtil.getLogin() {
+//            JoinChat.execute(aUid: loginInfo.auid)
+//                .then { s -> Promise<Void> in
+//                    SVProgressHUD.popActivity()
+//                    return Promise<Void>.resolve()
+//                }
+//        }
+    }
+    
+    
     
     @objc private func sendMassageClick() {
 //        let vc = TMCreateGroupViewController()
@@ -86,6 +126,11 @@ class TMChatListController: UIViewController, IMDelegate, ConversationDelegate {
 //        self.navigationController?.pushViewController(vc, animated: true)
         self.renameAlert()
 
+//        let xmlParser: TMXMLParser = TMXMLParser(xml: "千言万语只能无语<a id='button1' color='#333333'>爱是天时地利的迷信</a>原来你也在这里<a id='button1' color='#333333'>爱是天时地利的迷信</a>")
+//        let res = xmlParser.getResult()
+//        print("\(res)")
+//        let str = xmlParser.getString()
+//        print("最终解析结果： \(str)")
     }
     
     // ConversationDelegate
@@ -114,7 +159,7 @@ class TMChatListController: UIViewController, IMDelegate, ConversationDelegate {
                     IMSdk.getInstance(ak: loginInfo.ak, env: .alpha).createChat(aChatId: chat, chatName: chat, auids: [otherAuid]) {
                         let vc = TMChatDetailController()
                         vc.hidesBottomBarWhenPushed = true
-                        vc.aChatId = str
+                        vc.aChatId = chat
                         self.navigationController?.pushViewController(vc, animated: true)
                     } fail: { errorString in
                         //create fail

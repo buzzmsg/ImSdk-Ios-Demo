@@ -29,6 +29,36 @@ class TMSendMessageFootView: UIView {
 //        sendMessageBtn.addTarget(self, action: #selector(createGroupClick), for: .touchUpInside)
         return sendMessageBtn
     }()
+
+//    public lazy var chooseMediaBtn: UIButton = {
+//        let sendMessageBtn = UIButton(type: .roundedRect)
+//        sendMessageBtn.setTitle("选择图片", for: .normal)
+//        sendMessageBtn.setTitleColor(UIColor.white, for: .normal)
+//        sendMessageBtn.layer.cornerRadius = 5.0
+//        sendMessageBtn.layer.masksToBounds = true
+//        sendMessageBtn.backgroundColor = UIColor.orange
+//        return sendMessageBtn
+//    }()
+//
+//    public lazy var chooseFileBtn: UIButton = {
+//        let sendMessageBtn = UIButton(type: .roundedRect)
+//        sendMessageBtn.setTitle("选择附件", for: .normal)
+//        sendMessageBtn.setTitleColor(UIColor.white, for: .normal)
+//        sendMessageBtn.layer.cornerRadius = 5.0
+//        sendMessageBtn.layer.masksToBounds = true
+//        sendMessageBtn.backgroundColor = UIColor.orange
+//        return sendMessageBtn
+//    }()
+//
+//    public lazy var sendCardMsgBtn: UIButton = {
+//        let sendMessageBtn = UIButton(type: .roundedRect)
+//        sendMessageBtn.setTitle("发送卡片消息", for: .normal)
+//        sendMessageBtn.setTitleColor(UIColor.white, for: .normal)
+//        sendMessageBtn.layer.cornerRadius = 5.0
+//        sendMessageBtn.layer.masksToBounds = true
+//        sendMessageBtn.backgroundColor = UIColor.orange
+//        return sendMessageBtn
+//    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -42,12 +72,35 @@ class TMSendMessageFootView: UIView {
         
         self.addSubview(self.sendMessageBtn)
         self.sendMessageBtn.snp_makeConstraints { make in
-            make.centerX.equalToSuperview()
+            make.centerX.equalTo(self.snp.centerX)
             make.top.equalTo(self.tipLab.snp_bottom).offset(0)
-            make.width.equalTo(200)
-            make.height.equalTo(42)
+            make.width.equalTo(100)
+            make.height.equalTo(44)
         }
+        
+//        self.addSubview(self.chooseMediaBtn)
+//        self.chooseMediaBtn.snp_makeConstraints { make in
+//            make.width.height.equalTo(sendMessageBtn)
+//            make.top.equalTo(sendMessageBtn)
+//            make.right.equalTo(self.snp.centerX).offset(-5)
+//        }
+//        
+//        self.addSubview(self.chooseFileBtn)
+//        self.chooseFileBtn.snp_makeConstraints { make in
+//            make.left.width.height.equalTo(chooseMediaBtn)
+//            make.top.equalTo(chooseMediaBtn.snp.bottom).offset(5)
+//        }
+//        
+//        
+//        self.addSubview(self.sendCardMsgBtn)
+//        self.sendCardMsgBtn.snp_makeConstraints { make in
+//            make.width.height.equalTo(sendMessageBtn)
+//            make.top.equalTo(sendMessageBtn.snp.bottom).offset(5)
+//            make.right.equalTo(sendMessageBtn.snp.right)
+//        }
     }
+    
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

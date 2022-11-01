@@ -1,16 +1,32 @@
 PODS:
   - Alamofire (4.9.1)
+  - AliyunOSSiOS (2.10.15)
+  - AWSCore (2.25.0)
+  - AWSS3 (2.25.0):
+    - AWSCore (= 2.25.0)
   - CocoaLumberjack/Core (3.7.4)
   - CocoaLumberjack/Swift (3.7.4):
     - CocoaLumberjack/Core
   - HandyJSON (5.0.2)
-  - IMSdk (0.0.1):
+  - IMSdk (0.0.3):
     - Alamofire (~> 4.9.1)
+    - AliyunOSSiOS (~> 2.10.15)
+    - AWSS3 (~> 2.25.0)
+    - CocoaLumberjack/Swift (~> 3.7.2)
     - HandyJSON (~> 5.0.2)
+    - Localize-Swift (~> 3.2.0)
+    - Masonry (~> 1.1.0)
     - MMKV (~> 1.2.10)
     - RxSwiftExt (~> 6.0.1)
     - SnapKit (~> 4.2.0)
     - WCDB.swift (~> 1.0.8.2)
+  - Localize-Swift (3.2.0):
+    - Localize-Swift/LocalizeSwiftCore (= 3.2.0)
+    - Localize-Swift/UIKit (= 3.2.0)
+  - Localize-Swift/LocalizeSwiftCore (3.2.0)
+  - Localize-Swift/UIKit (3.2.0):
+    - Localize-Swift/LocalizeSwiftCore
+  - Masonry (1.1.0)
   - MMKV (1.2.14):
     - MMKVCore (~> 1.2.14)
   - MMKVCore (1.2.14)
@@ -342,21 +358,27 @@ PODS:
   - SnapKit (4.2.0)
   - SQLiteRepairKit (1.2.2):
     - WCDBOptimizedSQLCipher (~> 1.2.0)
+  - SVProgressHUD (2.2.5)
   - WCDB.swift (1.0.8.2):
     - SQLiteRepairKit (~> 1.2.0)
     - WCDBOptimizedSQLCipher (~> 1.2.0)
   - WCDBOptimizedSQLCipher (1.2.1)
 
 DEPENDENCIES:
-  - CocoaLumberjack/Swift (~> 3.7.2)
   - IMSdk (from `https://github.com/TmmTmmIM/IMSdk-iOS.git`)
-  - QMUIKit (= 4.3.0)
+  - QMUIKit
+  - SVProgressHUD
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
+    - AliyunOSSiOS
+    - AWSCore
+    - AWSS3
     - CocoaLumberjack
     - HandyJSON
+    - Localize-Swift
+    - Masonry
     - MMKV
     - MMKVCore
     - QMUIKit
@@ -366,6 +388,7 @@ SPEC REPOS:
     - RxSwiftExt
     - SnapKit
     - SQLiteRepairKit
+    - SVProgressHUD
     - WCDB.swift
     - WCDBOptimizedSQLCipher
 
@@ -375,14 +398,19 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   IMSdk:
-    :commit: ec625c64bd836997fd5d83f8b542c50eb5e34223
+    :commit: 8c776f2277b72d50c190bd7d91aaedef33a85b99
     :git: https://github.com/TmmTmmIM/IMSdk-iOS.git
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  AliyunOSSiOS: 5d7c50ce7b39b2b0b10f603a5971cccb0f25eee2
+  AWSCore: 9c51a3004e9e91528160ea978fd0c5d92780a45e
+  AWSS3: 2c211728c36d1dbf4d0075d0e8ba317a561bc80c
   CocoaLumberjack: 543c79c114dadc3b1aba95641d8738b06b05b646
   HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
-  IMSdk: 902bae93c8cd2ce7a0febd9c7b3598fc06c0966a
+  IMSdk: e5fb8fac9ca3e83e2e0b82e68a2579125598ce87
+  Localize-Swift: 6f4475136bdb0d7b2882ea3d4ea919d70142b232
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MMKV: 9c4663aa7ca255d478ff10f2f5cb7d17c1651ccd
   MMKVCore: 89f5c8a66bba2dcd551779dea4d412eeec8ff5bb
   QMUIKit: 67888be9aa0ee0b12b8a219fcea2eec900afd841
@@ -392,9 +420,10 @@ SPEC CHECKSUMS:
   RxSwiftExt: d61c4b9b06e0a448041b1c659e0f1b5c5a035afc
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SQLiteRepairKit: 35aaae5a8838adb85f5b1eb4d796055be6060a4b
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   WCDB.swift: 05d509d7a0e60fb6e11c34eb7e4027c0fab5849f
   WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
 
-PODFILE CHECKSUM: 5513e7cc1c19b897b0ec621130ff9dbd1c446170
+PODFILE CHECKSUM: 3bca0157ec1267ef78c4fc0d1da371ded6ec595b
 
-COCOAPODS: 1.10.2
+COCOAPODS: 1.11.3

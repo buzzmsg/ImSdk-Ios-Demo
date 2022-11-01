@@ -1,6 +1,6 @@
 {
   "name": "IMSdk",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "summary": "imsdk",
   "description": "imsdk",
   "homepage": "https://github.com/TmmTmmIM/IMSdk-iOS",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/TmmTmmIM/IMSdk-iOS.git",
-    "tag": "0.0.1"
+    "tag": "0.0.3"
   },
   "source_files": "IMSdk-iOS/IMSdk.framework/Headers/*.{h,m}",
   "frameworks": [
@@ -22,9 +22,7 @@
   ],
   "libraries": "z",
   "vendored_frameworks": "IMSdk-iOS/IMSdk.framework",
-  "pod_target_xcconfig": {
-    "VALID_ARCHS": "x86_64 armv7 arm64"
-  },
+  "resources": "IMSdk-iOS/Class/Resources/*",
   "dependencies": {
     "WCDB.swift": [
       "~> 1.0.8.2"
@@ -43,6 +41,21 @@
     ],
     "SnapKit": [
       "~> 4.2.0"
+    ],
+    "AliyunOSSiOS": [
+      "~> 2.10.15"
+    ],
+    "AWSS3": [
+      "~> 2.25.0"
+    ],
+    "Masonry": [
+      "~> 1.1.0"
+    ],
+    "CocoaLumberjack/Swift": [
+      "~> 3.7.2"
+    ],
+    "Localize-Swift": [
+      "~> 3.2.0"
     ]
   }
 }

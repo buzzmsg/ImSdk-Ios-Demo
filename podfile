@@ -4,8 +4,8 @@ target 'IMSdk-Ios-demo' do
   use_frameworks!
 
   pod 'IMSdk',:git =>"https://github.com/TmmTmmIM/IMSdk-iOS.git"
-  pod 'CocoaLumberjack/Swift', '~> 3.7.2'
-  pod 'QMUIKit', '4.3.0'
+  pod 'QMUIKit'
+  pod 'SVProgressHUD'
 
 
 end

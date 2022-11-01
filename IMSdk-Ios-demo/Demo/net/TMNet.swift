@@ -7,7 +7,7 @@
 
 import Foundation
 
-public let IMServerName = "https://dev-sdkdemo.tmmtmm.com.tr:7504"
+public let IMServerName = "https://dev-sdkdemo.imtmm.com:7504"
 
 public class TMNet: NSObject {
     private(set) var mIs401 = false

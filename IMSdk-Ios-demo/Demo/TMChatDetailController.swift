@@ -9,16 +9,24 @@ import UIKit
 import SnapKit
 import IMSdk
 
-class TMChatDetailController: UIViewController {
+class TMChatDetailController: UIViewController, ChatDelegate {
 
     var aChatId = ""
 
-    private var chatListView: ChatView = ChatView()
+    deinit {
+        print("TMChatDetailController - swift 灰飞烟灭")
+        }
+    
+//    private var chatListView: ChatView = ChatView()
+    
+    private var chatListView: ChatView?
+
     private lazy var sendView: TMSendMessageFootView = {
         let sendView = TMSendMessageFootView(frame: .zero)
         sendView.sendMessageBtn.addTarget(self, action: #selector(sendMessageClick), for: .touchUpInside)
         return sendView
     }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,33 +43,53 @@ class TMChatDetailController: UIViewController {
         
         if let loginInfo = TMUserUtil.getLogin() {
             self.chatListView = IMSdk.getInstance(ak: loginInfo.ak, env: .alpha).creatChatView(aChatId: self.aChatId)
-            self.chatListView.backgroundColor = .red
-            self.view.addSubview(self.chatListView)
-            
-            self.chatListView.snp_makeConstraints { make in
-                make.left.top.right.equalToSuperview()
-                make.bottom.equalTo(self.sendView.snp_top)
+            if let v = self.chatListView {
+                v.backgroundColor = .red
+                v.setDelegate(delegate: self)
+                self.view.addSubview(v)
+                v.snp_makeConstraints { make in
+                    make.left.top.right.equalToSuperview()
+                    make.bottom.equalTo(self.sendView.snp_top)
+                }
             }
-        }
-        
-        
-        
+
+
+        }        
     }
-    
+
+    // MARK: -
+
     @objc private func sendMessageClick() {
         let vc = TMSendMessageViewController()
         vc.hidesBottomBarWhenPushed = true
         vc.aChatId = self.aChatId
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, yovu will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func onFileMessageClick(aMid: String, preView: FilePreView) {
+        let vc: TMFilePreController = TMFilePreController()
+        vc.preView = preView
+        self.navigationController?.pushViewController(vc, animated: true)
     }
-    */
 
+    func onCardMessageClick(aMid: String, buttonId: String) {
+        if let loginInfo = TMUserUtil.getLogin() {
+            IMSdk.getInstance(ak: loginInfo.ak, env: .alpha).disableCardMessage(aMid: aMid, buttonIds: [buttonId])
+        }
+    }
+    
+    func onImageMessageClick(preView: TMImageBrowserView) {
+        let vc = TMImageBrowserViewController()
+        vc.imageBrowserView = preView
+        self.navigationController?.pushViewController(vc, animated: false)
+    }
+    
+    func onMiddleMessageClick(aMid: String, tmpId: String, buttonId: String) {
+        print("当前点击：\(buttonId)")
+    }
+    
+    func getMessageUnReadCount(count: Int) {
+        print("当前未读消息数量: \(count)")
+    }
+    
 }

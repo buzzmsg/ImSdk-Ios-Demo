@@ -71,11 +71,15 @@ class TMLoginController: UIViewController {
             
             TMDemoLogin.execute(prefix: "", phone: text).then { response -> Promise<Void> in
                 
-                TMUserUtil.setLogin(data: response)
-                let tabbar: TMTabbarController = TMTabbarController()
-                UIApplication.shared.keyWindow?.rootViewController = tabbar
-                
-                return Promise<Void>.resolve()
+                return TMDemoGetAuth.execute(token: response.token).then { authRespon -> Promise<Void> in
+                    var tempResponse = response
+                    tempResponse.authcode = authRespon.authcode
+                    TMUserUtil.setLogin(data: tempResponse)
+                    let tabbar: TMTabbarController = TMTabbarController()
+                    UIApplication.shared.keyWindow?.rootViewController = tabbar
+                    
+                    return Promise<Void>.resolve()
+                }
             }
         }
         

@@ -1,8 +1,9 @@
 //
 //  YHLog.swift
-//  IMSDK
+//  SwiftTool
 //
-//  Created by oceanMAC on 2022/9/29.
+//  Created by apple on 2019/6/21.
+//  Copyright © 2019 TMM. All rights reserved.
 //
 
 import Foundation

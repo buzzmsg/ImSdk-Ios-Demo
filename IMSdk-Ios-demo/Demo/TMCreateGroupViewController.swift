@@ -88,7 +88,7 @@ class TMCreateGroupViewController: UIViewController {
     
     @objc private func sendMassageClick() {
         if let loginInfo = TMUserUtil.getLogin() {
-            IMSdk.getInstance(ak: loginInfo.ak, env: .alpha).sendTextMessage(content: "咔叽过分哈股份", aChatId: "achatid", aMid: IMSDKMessageId.create(uid: "33724e6c346e"))
+            IMSdk.getInstance(ak: loginInfo.ak, env: .alpha).sendTextMessage(aChatId: "achatid", aMid: IMSDKMessageId.create(uid: "33724e6c346e"), content: "咔叽过分哈股份")
         }
 //        TMKit.shared.sendTextMassage(content: "咔叽过分哈股份", aChatId: "achatid", aMid: IMSDKMessageId.create(uid: "33724e6c346e"))
     }

@@ -6,6 +6,6 @@ framework module IMSdk {
 }
 
 module IMSdk.Swift {
-    header "IMSdk-Swift.h"
-    requires objc
+  header "IMSdk-Swift.h"
+  requires objc
 }

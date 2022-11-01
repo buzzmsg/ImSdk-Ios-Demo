@@ -32,7 +32,7 @@ public class TMNetCore {
         if let par: String = parameters?.dicJsonEnCode {
             parmStr = par
         }
-        YHDebugLog(parmStr)
+        print(parmStr)
         let promiss = Promise<String> {[weak self] (resolve, reject) in
             guard let self = self else { return }
             
@@ -58,6 +58,8 @@ public class TMNetCore {
                                        encoding: JSONEncoding.default,
                                        headers: head).responseJSON { response in
                     
+                    self.requestLog(netUrl: netUrl, method: method, parameters: parameters, headers: head, respon: response, startTime:0)
+
                     if response.result .isFailure {
                         if let err = response.error,
                            (err._code == TMNetError.NO_NETWORKING.rawValue || err._code == TMNetError.NETWORKING_TIME_OUT.rawValue) {
@@ -274,7 +276,7 @@ public class TMNetCore {
                 log += "\(error)\n"
             }
             log += "\n=============================================================================\n"
-            YHDebugLog(log)
+            print(log)
         }
 
     }

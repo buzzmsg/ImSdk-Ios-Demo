@@ -20,10 +20,10 @@ class TMUserInfoController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.backgroundColor = .blue
+        //self.view.backgroundColor = .blue
         
-        self.view.addSubview(self.createGroupBtn)
-        self.createGroupBtn.frame = CGRect(x: 100, y: 100, width: 100, height: 40)
+        //self.view.addSubview(self.createGroupBtn)
+        //self.createGroupBtn.frame = CGRect(x: 100, y: 100, width: 100, height: 40)
     }
     
     @objc private func createGroupClick() {

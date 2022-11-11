@@ -11,9 +11,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 typedef void(^TMChatListDataEventBlock)(void);
 
+@class TMConversionViewModel;
 @interface TMChannelListViewModel : NSObject
 
-+ (NSArray *)dataWithChangeLocation:(NSArray *)dataArray RefreshArr:(NSArray*)refreshArr;
++ (NSArray *)dataWithChangeLocation:(NSArray *)dataArray RefreshArr:(NSArray*)refreshArr conversionViewModel:(TMConversionViewModel *)conversionViewModel;
 
 
 //remove chatId

@@ -60,6 +60,7 @@ typedef NS_ENUM(NSUInteger, TMMessageContentType) {
     TMMessageContentType_CardMessage = 19,
     TMMessageContentType_RevokeStatus = 81, //ContentType_Revoke-msg
     TMMessageContentType_UidTextA = 20,
+    TMMessageContentType_TextSystemNotice = 21,
     
     
     // Only use to local for UI

@@ -16,6 +16,7 @@
 - (void)tapfileAtIndexPath:(NSString *)mid;
 - (void)tapImageAtIndexPath:(NSString *)chatId messageId:(NSInteger)messageId;
 - (void)tapCardButonIndexPath:(NSString *)amid buttonId:(NSString *)buttonId;
+- (void)clickTxtNoticeCardIndexPath:(NSString *)amid buttonId:(NSString *)buttonId;
 - (void)tapMessageText:(NSString *)amid tempId:(NSString *)tempId textId:(NSString *)textId;
 - (void)getMessageUnReadCount:(NSInteger)count;
 

@@ -34,6 +34,8 @@ static const DDLogLevel ddLogLevel = DDLogLevelOff;
 #define YH__ScreenWidth          [UIScreen mainScreen].bounds.size.width
 #define YH__ScreenHeight         [UIScreen mainScreen].bounds.size.height
 
+#define TMLocalized(__key__)  [[TMSwiftOcBridge shared] localizedWithKey:__key__]
+
 typedef NS_ENUM(NSUInteger, FromWayType) {
     FromWayType_Unknown = 0,       //
     FromWayType_Search_TMM_ID ,    //

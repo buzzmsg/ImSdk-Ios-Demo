@@ -76,6 +76,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 - (void)clickCardButton:(NSString *)amid buttonId:(NSString *)buttonId;
+- (void)clickTextNoticeCard:(NSString *)amid buttonId:(NSString *)buttonId;
 
 @end
 

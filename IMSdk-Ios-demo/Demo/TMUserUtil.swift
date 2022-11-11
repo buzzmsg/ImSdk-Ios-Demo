@@ -25,5 +25,7 @@ class TMUserUtil: NSObject {
         return nil
     }
     
-    
+    static func cleanLogin() {
+        UserDefaults.standard.removeObject(forKey: TM_DEMO_UID_KEY)
+    }
 }

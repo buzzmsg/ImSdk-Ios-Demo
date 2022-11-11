@@ -142,7 +142,7 @@ class TMSendMessageViewController: UIViewController {
     @objc private func sendTextClick() {
         if self.messageTextView.text.count > 0 {
             if let loginInfo = TMUserUtil.getLogin() {
-                IMSdk.getInstance(ak: loginInfo.ak, env: .alpha).sendTextMessage(aChatId: self.aChatId, aMid: IMSDKMessageId.create(uid: "f1ab109be266e394"), content: self.messageTextView.text)
+                IMSdk.getInstance(ak: loginInfo.ak, env: .alpha, deviceId: "iOS").sendTextMessage(aChatId: self.aChatId, aMid: IMSDKMessageId.create(uid: "f1ab109be266e394"), content: self.messageTextView.text)
                 self.navigationController?.popViewController(animated: true)
             }
         }
@@ -159,7 +159,7 @@ class TMSendMessageViewController: UIViewController {
             if let loginInfo = TMUserUtil.getLogin() {
                 
                 let messageID: String = IMSDKMessageId.create(uid: "f1ab109be266e394")
-                IMSdk.getInstance(ak: loginInfo.ak, env: .alpha).sendImageMessage(aChatId: self.aChatId, aMid: messageID, data: data, format: format)
+                IMSdk.getInstance(ak: loginInfo.ak, env: .alpha, deviceId: "iOS").sendImageMessage(aChatId: self.aChatId, aMid: messageID, data: data, format: format)
                 self.navigationController?.popViewController(animated: true)
             }
         }
@@ -181,7 +181,7 @@ class TMSendMessageViewController: UIViewController {
                 let name: String = ary.joined()
 
                 let messageID: String = IMSDKMessageId.create(uid: "f1ab109be266e394")
-                IMSdk.getInstance(ak: loginInfo.ak, env: .alpha).sendAttachmentMessage(aChatId: self.aChatId, aMid: messageID, data: data, fileName: name, format: format)
+                IMSdk.getInstance(ak: loginInfo.ak, env: .alpha, deviceId: "iOS").sendAttachmentMessage(aChatId: self.aChatId, aMid: messageID, data: data, fileName: name, format: format)
                 self.navigationController?.popViewController(animated: true)
             }
         }
@@ -245,7 +245,7 @@ class TMSendMessageViewController: UIViewController {
             
             
             let messageID: String = IMSDKMessageId.create(uid: "f1ab109be266e394")
-            IMSdk.getInstance(ak: loginInfo.ak, env: .alpha).sendCardMessage(aChatId: self.aChatId, aMid: messageID, msg: cardMsg)
+            IMSdk.getInstance(ak: loginInfo.ak, env: .alpha, deviceId: "iOS").sendCardMessage(aChatId: self.aChatId, aMid: messageID, msg: cardMsg)
             self.navigationController?.popViewController(animated: true)
         }
     }

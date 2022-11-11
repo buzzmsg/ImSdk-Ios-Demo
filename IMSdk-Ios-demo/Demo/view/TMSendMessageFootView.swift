@@ -29,6 +29,28 @@ class TMSendMessageFootView: UIView {
 //        sendMessageBtn.addTarget(self, action: #selector(createGroupClick), for: .touchUpInside)
         return sendMessageBtn
     }()
+    
+    public lazy var editBtn: UIButton = {
+        let sendMessageBtn = UIButton(type: .roundedRect)
+        sendMessageBtn.setTitle("设置会话标识", for: .normal)
+        sendMessageBtn.setTitleColor(UIColor.white, for: .normal)
+        sendMessageBtn.layer.cornerRadius = 5.0
+        sendMessageBtn.layer.masksToBounds = true
+        sendMessageBtn.backgroundColor = UIColor.blue
+//        sendMessageBtn.addTarget(self, action: #selector(createGroupClick), for: .touchUpInside)
+        return sendMessageBtn
+    }()
+    
+    public lazy var textBtn: UIButton = {
+        let sendMessageBtn = UIButton(type: .roundedRect)
+        sendMessageBtn.setTitle("设置副标题", for: .normal)
+        sendMessageBtn.setTitleColor(UIColor.white, for: .normal)
+        sendMessageBtn.layer.cornerRadius = 5.0
+        sendMessageBtn.layer.masksToBounds = true
+        sendMessageBtn.backgroundColor = UIColor.blue
+//        sendMessageBtn.addTarget(self, action: #selector(createGroupClick), for: .touchUpInside)
+        return sendMessageBtn
+    }()
 
 //    public lazy var chooseMediaBtn: UIButton = {
 //        let sendMessageBtn = UIButton(type: .roundedRect)
@@ -76,6 +98,25 @@ class TMSendMessageFootView: UIView {
             make.top.equalTo(self.tipLab.snp_bottom).offset(0)
             make.width.equalTo(100)
             make.height.equalTo(44)
+        }
+        
+        
+        self.addSubview(self.editBtn)
+        self.addSubview(self.textBtn)
+        
+        
+        self.editBtn.snp_makeConstraints { make in
+            make.centerY.equalTo(self.sendMessageBtn.snp.centerY)
+            make.width.equalTo(100)
+            make.height.equalTo(44)
+            make.right.equalTo(self.sendMessageBtn.snp_left).offset(-5)
+        }
+        
+        self.textBtn.snp_makeConstraints { make in
+            make.centerY.equalTo(self.sendMessageBtn.snp.centerY)
+            make.width.equalTo(100)
+            make.height.equalTo(44)
+            make.left.equalTo(self.sendMessageBtn.snp_right).offset(5)
         }
         
 //        self.addSubview(self.chooseMediaBtn)

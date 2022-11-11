@@ -1,6 +1,6 @@
 PODS:
   - Alamofire (4.9.1)
-  - AliyunOSSiOS (2.10.15)
+  - AliyunOSSiOS (2.10.16)
   - AWSCore (2.25.0)
   - AWSS3 (2.25.0):
     - AWSCore (= 2.25.0)
@@ -8,7 +8,7 @@ PODS:
   - CocoaLumberjack/Swift (3.7.4):
     - CocoaLumberjack/Core
   - HandyJSON (5.0.2)
-  - IMSdk (0.0.3):
+  - IMSdk (0.0.4):
     - Alamofire (~> 4.9.1)
     - AliyunOSSiOS (~> 2.10.15)
     - AWSS3 (~> 2.25.0)
@@ -16,9 +16,14 @@ PODS:
     - HandyJSON (~> 5.0.2)
     - Localize-Swift (~> 3.2.0)
     - Masonry (~> 1.1.0)
+    - MJRefresh (~> 3.7.5)
     - MMKV (~> 1.2.10)
+    - "NSObject+Rx (~> 5.2.2)"
+    - R.swift (~> 5.4.0)
+    - RxGesture (~> 4.0.2)
     - RxSwiftExt (~> 6.0.1)
     - SnapKit (~> 4.2.0)
+    - Texture (~> 3.0.0)
     - WCDB.swift (~> 1.0.8.2)
   - Localize-Swift (3.2.0):
     - Localize-Swift/LocalizeSwiftCore (= 3.2.0)
@@ -27,9 +32,27 @@ PODS:
   - Localize-Swift/UIKit (3.2.0):
     - Localize-Swift/LocalizeSwiftCore
   - Masonry (1.1.0)
+  - MJRefresh (3.7.5)
   - MMKV (1.2.14):
     - MMKVCore (~> 1.2.14)
   - MMKVCore (1.2.14)
+  - "NSObject+Rx (5.2.2)":
+    - RxSwift (~> 6.2)
+  - PINCache (3.0.3):
+    - PINCache/Arc-exception-safe (= 3.0.3)
+    - PINCache/Core (= 3.0.3)
+  - PINCache/Arc-exception-safe (3.0.3):
+    - PINCache/Core
+  - PINCache/Core (3.0.3):
+    - PINOperation (~> 1.2.1)
+  - PINOperation (1.2.1)
+  - PINRemoteImage/Core (3.0.3):
+    - PINOperation
+  - PINRemoteImage/iOS (3.0.3):
+    - PINRemoteImage/Core
+  - PINRemoteImage/PINCache (3.0.3):
+    - PINCache (~> 3.0.3)
+    - PINRemoteImage/Core
   - QMUIKit (4.3.0):
     - QMUIKit/QMUIComponents (= 4.3.0)
     - QMUIKit/QMUICore (= 4.3.0)
@@ -341,9 +364,15 @@ PODS:
     - QMUIKit/QMUILog
   - QMUIKit/QMUIResources (4.3.0)
   - QMUIKit/QMUIWeakObjectContainer (4.3.0)
+  - R.swift (5.4.0):
+    - R.swift.Library (~> 5.3.0)
+  - R.swift.Library (5.3.0)
   - RxCocoa (6.5.0):
     - RxRelay (= 6.5.0)
     - RxSwift (= 6.5.0)
+  - RxGesture (4.0.4):
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
   - RxRelay (6.5.0):
     - RxSwift (= 6.5.0)
   - RxSwift (6.5.0)
@@ -359,6 +388,26 @@ PODS:
   - SQLiteRepairKit (1.2.2):
     - WCDBOptimizedSQLCipher (~> 1.2.0)
   - SVProgressHUD (2.2.5)
+  - Texture (3.0.0):
+    - Texture/AssetsLibrary (= 3.0.0)
+    - Texture/Core (= 3.0.0)
+    - Texture/MapKit (= 3.0.0)
+    - Texture/Photos (= 3.0.0)
+    - Texture/PINRemoteImage (= 3.0.0)
+    - Texture/Video (= 3.0.0)
+  - Texture/AssetsLibrary (3.0.0):
+    - Texture/Core
+  - Texture/Core (3.0.0)
+  - Texture/MapKit (3.0.0):
+    - Texture/Core
+  - Texture/Photos (3.0.0):
+    - Texture/Core
+  - Texture/PINRemoteImage (3.0.0):
+    - PINRemoteImage/iOS (~> 3.0.0)
+    - PINRemoteImage/PINCache
+    - Texture/Core
+  - Texture/Video (3.0.0):
+    - Texture/Core
   - WCDB.swift (1.0.8.2):
     - SQLiteRepairKit (~> 1.2.0)
     - WCDBOptimizedSQLCipher (~> 1.2.0)
@@ -379,16 +428,25 @@ SPEC REPOS:
     - HandyJSON
     - Localize-Swift
     - Masonry
+    - MJRefresh
     - MMKV
     - MMKVCore
+    - "NSObject+Rx"
+    - PINCache
+    - PINOperation
+    - PINRemoteImage
     - QMUIKit
+    - R.swift
+    - R.swift.Library
     - RxCocoa
+    - RxGesture
     - RxRelay
     - RxSwift
     - RxSwiftExt
     - SnapKit
     - SQLiteRepairKit
     - SVProgressHUD
+    - Texture
     - WCDB.swift
     - WCDBOptimizedSQLCipher
 
@@ -398,32 +456,41 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   IMSdk:
-    :commit: 8c776f2277b72d50c190bd7d91aaedef33a85b99
+    :commit: aa2e3e7ea4df9fd868f5a664aed7ac9a162de1c2
     :git: https://github.com/TmmTmmIM/IMSdk-iOS.git
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
-  AliyunOSSiOS: 5d7c50ce7b39b2b0b10f603a5971cccb0f25eee2
+  AliyunOSSiOS: d624effdd24535da414a2bacf0027bedf64cc90e
   AWSCore: 9c51a3004e9e91528160ea978fd0c5d92780a45e
   AWSS3: 2c211728c36d1dbf4d0075d0e8ba317a561bc80c
   CocoaLumberjack: 543c79c114dadc3b1aba95641d8738b06b05b646
   HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
-  IMSdk: e5fb8fac9ca3e83e2e0b82e68a2579125598ce87
+  IMSdk: 82b277d1e0390e6fb29ea7c0ac7f614d27cb5ab5
   Localize-Swift: 6f4475136bdb0d7b2882ea3d4ea919d70142b232
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MJRefresh: fdf5e979eb406a0341468932d1dfc8b7f9fce961
   MMKV: 9c4663aa7ca255d478ff10f2f5cb7d17c1651ccd
   MMKVCore: 89f5c8a66bba2dcd551779dea4d412eeec8ff5bb
+  "NSObject+Rx": 61cf1f7306a73dcef8b36649198af0813ec18dfd
+  PINCache: 7a8fc1a691173d21dbddbf86cd515de6efa55086
+  PINOperation: 00c935935f1e8cf0d1e2d6b542e75b88fc3e5e20
+  PINRemoteImage: f1295b29f8c5e640e25335a1b2bd9d805171bd01
   QMUIKit: 67888be9aa0ee0b12b8a219fcea2eec900afd841
+  R.swift: c533450b0f7dc494e0993f5f1a1db925d84c3006
+  R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
+  RxGesture: f3efb47ed2d26a8082f7b660d4a59970e275a7f8
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   RxSwiftExt: d61c4b9b06e0a448041b1c659e0f1b5c5a035afc
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SQLiteRepairKit: 35aaae5a8838adb85f5b1eb4d796055be6060a4b
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  Texture: 2f109e937850d94d1d07232041c9c7313ccddb81
   WCDB.swift: 05d509d7a0e60fb6e11c34eb7e4027c0fab5849f
   WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
 
-PODFILE CHECKSUM: 3bca0157ec1267ef78c4fc0d1da371ded6ec595b
+PODFILE CHECKSUM: 9a68a7e0eec87c5669d1939965ff7c0073c918a5
 
 COCOAPODS: 1.11.3

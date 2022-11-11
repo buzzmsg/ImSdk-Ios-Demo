@@ -17,6 +17,7 @@ class TMLoginController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = UIColor.white
         
         let titleLbl: UILabel = UILabel(frame: CGRect(x: 0, y: 80, width: UIScreen.main.bounds.size.width, height: 30.0))
         titleLbl.text = "TmmTmm SDK"

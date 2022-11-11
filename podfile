@@ -7,5 +7,6 @@ target 'IMSdk-Ios-demo' do
   pod 'QMUIKit'
   pod 'SVProgressHUD'
 
+#  pod 'IMSdk', '~> 0.0.1'
 
 end

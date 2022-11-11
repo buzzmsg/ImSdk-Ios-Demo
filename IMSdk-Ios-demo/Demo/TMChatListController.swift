@@ -10,12 +10,13 @@ import SVProgressHUD
 import IMSdk
 
 
-class TMChatListController: UIViewController, IMDelegate, ConversationDelegate {
+class TMChatListController: UIViewController, IMDelegate, ConversationDelegate, TMConversionSelector {
     
 
     var loginInfo: TMDemoLoginResponse?
     var kit: IMSdk?
-    
+    var conversionViewModel: TMConversionViewModel?
+
     private var chatView: ConversationView = ConversationView()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,22 +30,49 @@ class TMChatListController: UIViewController, IMDelegate, ConversationDelegate {
         
         if let loginInfo = TMUserUtil.getLogin() {
             self.loginInfo = loginInfo
-            self.kit = IMSdk.getInstance(ak: loginInfo.ak, env: .alpha)
+            self.kit = IMSdk.getInstance(ak: loginInfo.ak, env: .alpha, deviceId: "iOS")
             self.kit?.setAuthCode(auth: loginInfo.authcode)
             self.kit?.setIMDelegate(delegate: self)
             self.kit?.initUser(aUid: loginInfo.auid)
         }
         
         if let kit = self.kit {
-            
-            self.chatView = kit.creatConversationView()
-            self.chatView.setDelegate(delegate: self)
-            self.view.addSubview(self.chatView)
+//            self.conversionViewModel = kit.createConversationViewModel(selector: ChatViewModelFactory.ofUnPart(ids: ["147147000000_14714712345"]))
+            self.conversionViewModel = kit.createConversationViewModel(selector: ChatViewModelFactory.ofAll())
+//            self.conversionViewModel = kit.createConversationViewModel(selector: ChatViewModelFactory.ofPart(ids: ["147147000000_14714711111"]))
+
+//
+//            let value = Int(arc4random()%47) + 1
+//            let image = UIImage.init(named: "head_" + String(value))
+
+            if let viewModel = self.conversionViewModel {
+                
+//                if let data = image?.pngData() {
+//                    viewModel.setFolder(aChatId: "xxxxxxxxxxxxxxxxxxxxxx", aChatIds: ["TestAli","147147000000_14714733333"], name: "不感兴趣的会话", imageData: data, imageFormat: "jpg")
+//                }
+
+                //sort
+                viewModel.setSort(sortCalsure: { t1, t2 in
+                    if (t1.topTimeStamp != t2.topTimeStamp) {
+                        return t1.topTimeStamp > t2.topTimeStamp
+                    }
+                    return t1.timeStamp > t2.timeStamp
+                })
+
+                
+                self.chatView = viewModel.getConversionView()
+                self.chatView.setDelegate(delegate: self)
+                self.view.addSubview(self.chatView)
+                
+
+            }
         }
+        
+    
         
         
         if let loginInfo = TMUserUtil.getLogin() {
-            IMSdk.getInstance(ak: loginInfo.ak, env: .alpha).startSocket()
+            IMSdk.getInstance(ak: loginInfo.ak, env: .alpha, deviceId: "iOS").startSocket()
         }
         
         
@@ -61,8 +89,36 @@ class TMChatListController: UIViewController, IMDelegate, ConversationDelegate {
             let model = UserInfoModel(aUid: aUids.first ?? "", profile: userProfile)
             self.kit?.setUserInfo(userInfos: [model])
         }
-
+    }
+    
+    func onShowConversationSubTitle(aChatIds: [String]) {
+//        let value = Int(arc4random()%47) + 1
+//
+//        let image = UIImage.init(named: "head_" + String(value))
+//
+//        if let data = image?.pngData() {
+//            //let marker1 = ConversationMarker(aChatId: "1471471479_18522221111", icon: data, format: "jpg")
+//            let subTitle = ConversationSubTitle(aChatId: "1471471479_18522221111", subTitle: "开发工程师")
+//            self.kit?.setConversationSubTitle(subTitles: [subTitle])
+//        }
         
+        
+    }
+    
+    func onShowConversationMarker(aChatIds: [String]) {
+//        let value = Int(arc4random()%47) + 1
+//
+//        let image = UIImage.init(named: "head_" + String(value))
+//
+//        if let data = image?.pngData() {
+//            let marker1 = ConversationMarker(aChatId: "1471471479_18522221111", icon: data, format: "jpg")
+//            self.kit?.setConversationMarker(markers: [marker1])
+//        }
+        
+    }
+    
+    func onReceiveMessages(aMids: [String]) {
+        print("receive new messages: \(aMids)")
     }
     
     override func viewDidLayoutSubviews() {
@@ -76,13 +132,24 @@ class TMChatListController: UIViewController, IMDelegate, ConversationDelegate {
         btn1.addTarget(self, action: #selector(sendMassageClick), for: .touchUpInside)
         btn1.setTitleColor(UIColor.blue, for: .normal)
         let item2=UIBarButtonItem(customView: btn1)
-        self.navigationItem.rightBarButtonItem = item2
+//        self.navigationItem.rightBarButtonItem = item2
         
         let btn2 = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 40))
         btn2.setTitle("加入测试群", for: .normal)
         btn2.addTarget(self, action: #selector(addMassageClick), for: .touchUpInside)
         btn2.setTitleColor(UIColor.blue, for: .normal)
         let item3=UIBarButtonItem(customView: btn2)
+        
+        
+        let btn3 = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 40))
+        btn3.setTitle("不感兴趣", for: .normal)
+        btn3.addTarget(self, action: #selector(folderMassageClick), for: .touchUpInside)
+        btn3.setTitleColor(UIColor.blue, for: .normal)
+        let item4=UIBarButtonItem(customView: btn3)
+        
+        
+        self.navigationItem.rightBarButtonItems = [item2,item4];
+
         self.navigationItem.leftBarButtonItem = item3
         
         let originY: CGFloat = 0.0
@@ -91,11 +158,29 @@ class TMChatListController: UIViewController, IMDelegate, ConversationDelegate {
         self.chatView.frame = CGRect(x: 0, y: originY, width: screenWidth, height: height)
     }
     
-    @objc private func addMassageClick() {
-        SVProgressHUD.show()
+    @objc private func folderMassageClick() {
+        let value = Int(arc4random()%47) + 1
+        let image = UIImage.init(named: "head_" + String(value))
         
+        if let viewModel = self.conversionViewModel {
+            
+            if let data = image?.pngData() {
+                viewModel.setFolder(aChatId: "xxxxxxxxxxxxxxxxxxxxxx", content: "1个会话", name: "不感兴趣的会话", imageData: data, imageFormat: "jpg")
+            }
+        }
+    }
+    
+    
+    @objc private func addMassageClick() {
+
+//        if let viewModel = self.conversionViewModel {
+//            viewModel.updateSelector(removeAchatIds: ["147147000000_14714711111"])
+//        }
+//        return
+        
+        SVProgressHUD.show()
         if let loginInfo = TMUserUtil.getLogin() {
-            IMSdk.getInstance(ak: loginInfo.ak, env: .alpha).joinTestGroup {[weak self] (aChatId) in
+            IMSdk.getInstance(ak: loginInfo.ak, env: .alpha, deviceId: "iOS").joinTestGroup {[weak self] (aChatId) in
                 guard let self = self else { return }
                 SVProgressHUD.popActivity()
                 let vc = TMChatDetailController()
@@ -107,39 +192,37 @@ class TMChatListController: UIViewController, IMDelegate, ConversationDelegate {
                 SVProgressHUD.showError(withStatus: str)
             }
         }
-
-
-//        if let loginInfo = TMUserUtil.getLogin() {
-//            JoinChat.execute(aUid: loginInfo.auid)
-//                .then { s -> Promise<Void> in
-//                    SVProgressHUD.popActivity()
-//                    return Promise<Void>.resolve()
-//                }
-//        }
     }
     
     
     
     @objc private func sendMassageClick() {
-//        let vc = TMCreateGroupViewController()
-//        vc.hidesBottomBarWhenPushed = true
-//        self.navigationController?.pushViewController(vc, animated: true)
+        
+//        if let viewModel = self.conversionViewModel {
+//            viewModel.updateSelector(addAchatIds: ["147147000000_14714733333"])
+//        }
         self.renameAlert()
-
-//        let xmlParser: TMXMLParser = TMXMLParser(xml: "千言万语只能无语<a id='button1' color='#333333'>爱是天时地利的迷信</a>原来你也在这里<a id='button1' color='#333333'>爱是天时地利的迷信</a>")
-//        let res = xmlParser.getResult()
-//        print("\(res)")
-//        let str = xmlParser.getString()
-//        print("最终解析结果： \(str)")
+        
+        if let viewModel = self.conversionViewModel {
+            
+            print("当前未读数\(viewModel.getUnReadCount())")
+        }
     }
     
     // ConversationDelegate
     
     func onItemClick(aChatId: String) {
-        let vc = TMChatDetailController()
-        vc.hidesBottomBarWhenPushed = true
-        vc.aChatId = aChatId
-        self.navigationController?.pushViewController(vc, animated: true)
+        if aChatId == "xxxxxxxxxxxxxxxxxxxxxx" {
+            let vc = TMFolderListViewController()
+            vc.hidesBottomBarWhenPushed = true
+            vc.aChatIds = ["TestAli","147147000000_14714733333"]
+            self.navigationController?.pushViewController(vc, animated: true)
+        }else {
+            let vc = TMChatDetailController()
+            vc.hidesBottomBarWhenPushed = true
+            vc.aChatId = aChatId
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
 
     func renameAlert() {
@@ -156,7 +239,7 @@ class TMChatListController: UIViewController, IMDelegate, ConversationDelegate {
                 let otherAuid = str.DDMD5Encrypt(.lowercase16)
                 if let loginInfo = TMUserUtil.getLogin() {                    
                     let chat = self.createAchatId(uid1: loginInfo.phone, uid2: str)
-                    IMSdk.getInstance(ak: loginInfo.ak, env: .alpha).createChat(aChatId: chat, chatName: chat, auids: [otherAuid]) {
+                    IMSdk.getInstance(ak: loginInfo.ak, env: .alpha, deviceId: "iOS").createChat(aChatId: chat, chatName: chat, auids: [otherAuid]) {
                         let vc = TMChatDetailController()
                         vc.hidesBottomBarWhenPushed = true
                         vc.aChatId = chat

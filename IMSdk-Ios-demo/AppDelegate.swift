@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if let loginInfo = TMUserUtil.getLogin() {
             let tabbar: TMTabbarController = TMTabbarController()
-            IMSdk.getInstance(ak: loginInfo.ak, env: .alpha)
+            IMSdk.getInstance(ak: loginInfo.ak, env: .alpha, deviceId: "iOS")
             self.window?.rootViewController = tabbar
         }else {
             let loginVC: TMLoginController = TMLoginController()

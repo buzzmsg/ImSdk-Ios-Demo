@@ -17,11 +17,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+@class TmConversationInfo,TMConversionViewModel;
+
 @interface TMChannelListViewController : UIViewController
 
+//@property (nonatomic, strong) NSArray *aChatId;
+
+//@property (nonatomic, strong) NSArray *conversationInfos;
 
 - (void)refreshListWhenReseletTabBar;
 @property (nonatomic,weak) id<ChannelListCheckDelegate> delegate;
+
+- (void)getConversions:(NSArray *)chatIds isAll:(BOOL)isAll folderInfo:(TmConversationInfo *)folderInfo;
+
+- (void)getViewModel:(TMConversionViewModel *)conversionViewModel;
 
 @end
 

@@ -353,7 +353,7 @@
 				83F4021D28F4242A004D19D4 /* Frameworks */,
 				83F4021E28F4242A004D19D4 /* Resources */,
 				BBDD5CC931EDEF3D5839F4CD /* [CP] Embed Pods Frameworks */,
-				073ED2AF18D82FE85630112C /* [CP] Copy Pods Resources */,
+				6C624031DBD0D5632D07F056 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -474,23 +474,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		073ED2AF18D82FE85630112C /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-IMSdk-Ios-demo/Pods-IMSdk-Ios-demo-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-IMSdk-Ios-demo/Pods-IMSdk-Ios-demo-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IMSdk-Ios-demo/Pods-IMSdk-Ios-demo-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		5802E631D3C8D52FAA39A4E6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -511,6 +494,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6C624031DBD0D5632D07F056 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IMSdk-Ios-demo/Pods-IMSdk-Ios-demo-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IMSdk-Ios-demo/Pods-IMSdk-Ios-demo-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IMSdk-Ios-demo/Pods-IMSdk-Ios-demo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BBDD5CC931EDEF3D5839F4CD /* [CP] Embed Pods Frameworks */ = {

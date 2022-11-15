@@ -370,7 +370,7 @@ PODS:
   - SnapKit (4.2.0)
   - SQLiteRepairKit (1.2.2):
     - WCDBOptimizedSQLCipher (~> 1.2.0)
-  - STIMSDKIOS (0.0.5):
+  - STIMSDKIOS (0.0.6):
     - Alamofire (~> 4.9.1)
     - AliyunOSSiOS (~> 2.10.15)
     - AWSS3 (~> 2.25.0)
@@ -381,7 +381,7 @@ PODS:
     - MJRefresh (~> 3.7.5)
     - MMKV (~> 1.2.10)
     - "NSObject+Rx (~> 5.2.2)"
-    - R.swift (~> 5.4.0)
+    - R.swift (= 5.4.0)
     - RxGesture (~> 4.0.2)
     - RxSwiftExt (~> 6.0.1)
     - SnapKit (~> 4.2.0)
@@ -415,7 +415,7 @@ PODS:
 
 DEPENDENCIES:
   - QMUIKit
-  - STIMSDKIOS
+  - STIMSDKIOS (~> 0.0.6)
   - SVProgressHUD
 
 SPEC REPOS:
@@ -477,12 +477,12 @@ SPEC CHECKSUMS:
   RxSwiftExt: d61c4b9b06e0a448041b1c659e0f1b5c5a035afc
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SQLiteRepairKit: 35aaae5a8838adb85f5b1eb4d796055be6060a4b
-  STIMSDKIOS: f6b96ba8f8ec4bea0abe8127dfe80a823ba007b9
+  STIMSDKIOS: 90ef99f6c4fc385f9aa981d22a595853a9354bcc
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   Texture: 2f109e937850d94d1d07232041c9c7313ccddb81
   WCDB.swift: 05d509d7a0e60fb6e11c34eb7e4027c0fab5849f
   WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
 
-PODFILE CHECKSUM: a1fdc5cabdc97ac8d23396500e4548b3276045d3
+PODFILE CHECKSUM: 04cdf8ad355fcd430f3657035b2977ee055149b9
 
 COCOAPODS: 1.11.3

@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)refreshListWhenReseletTabBar;
 @property (nonatomic,weak) id<ChannelListCheckDelegate> delegate;
 
-- (void)getConversions:(NSArray *)chatIds isAll:(BOOL)isAll folderInfo:(TmConversationInfo *)folderInfo;
+//- (void)getConversions:(NSArray *)chatIds isAll:(BOOL)isAll folderInfo:(TmConversationInfo *)folderInfo;
 
 - (void)getViewModel:(TMConversionViewModel *)conversionViewModel;
 

@@ -20,6 +20,8 @@
 - (void)tapMessageText:(NSString *)amid tempId:(NSString *)tempId textId:(NSString *)textId;
 - (void)getMessageUnReadCount:(NSInteger)count;
 
+- (void)getCustomView:(NSString *)amid body:(NSString *)body handleCustomView:(void(^)(UIView *itemView))handle tapCustomView:(void(^)(UIView *itemView))tap;
+
 @end
 
 NS_ASSUME_NONNULL_BEGIN
@@ -36,6 +38,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,weak) id<ChatDetailCheckDelegate> checkDelegate;
 
 - (void)getChatId:(NSString *)chatId;
+
+- (void)setTableViewContentInset:(UIEdgeInsets)inset;
+- (void)setTableViewScrollIndicatorInsets:(UIEdgeInsets)inset;
+- (void)setTableViewContentOffset:(CGPoint)offset animated:(BOOL)animated;
+- (UIEdgeInsets)getTableViewContentInset;
+- (UIEdgeInsets)getTableViewScrollIndicatorInsets;
+- (CGPoint)getTableViewContentOffset;
+- (CGSize)getTableViewContentSize;
 
 
 @end

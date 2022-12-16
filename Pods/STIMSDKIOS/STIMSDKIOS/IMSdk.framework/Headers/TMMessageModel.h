@@ -61,7 +61,8 @@ typedef NS_ENUM(NSUInteger, TMMessageContentType) {
     TMMessageContentType_RevokeStatus = 81, //ContentType_Revoke-msg
     TMMessageContentType_UidTextA = 20,
     TMMessageContentType_TextSystemNotice = 21,
-    
+    TMMessageContentType_Customize = 22,
+
     
     // Only use to local for UI
     TMMessageContentType_HistoryPosiation,
@@ -175,6 +176,10 @@ typedef NS_ENUM(NSInteger, TMMessageStatus) {
 @property (nonatomic, strong) TmMessage *originalMessage;
 @property (nonatomic, strong) TMChatMeetingModel *meeting;
 
+@property (nonatomic, strong) UIView *customizeView;
+@property (nonatomic, assign) BOOL isAddCustomize;
+
+
 
 //@property (nonatomic, copy) NSString *content;
 //@property (nonatomic, copy) NSString *createTime;   //
@@ -213,6 +218,8 @@ typedef NS_ENUM(NSInteger, TMMessageStatus) {
 @property (nonatomic, assign) int messageContentType;
 @property (nonatomic, assign)long messageId;
 @property (nonatomic, assign)long long messageUid;
+@property (nonatomic, copy) NSString *customizeTitle;
+@property (nonatomic, copy) NSString *customizeBody;
 
 @property (nonatomic, assign)CGFloat downProgress; //
 @property (nonatomic, assign)NSInteger downStatus;

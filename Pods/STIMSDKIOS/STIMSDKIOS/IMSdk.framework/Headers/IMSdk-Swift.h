@@ -340,6 +340,7 @@ SWIFT_CLASS("_TtC5IMSdk11CardMessage")
 
 @class FilePreView;
 @class TMImageBrowserView;
+@class UIView;
 
 SWIFT_PROTOCOL("_TtP5IMSdk12ChatDelegate_")
 @protocol ChatDelegate <NSObject>
@@ -350,6 +351,7 @@ SWIFT_PROTOCOL("_TtP5IMSdk12ChatDelegate_")
 - (void)onMiddleMessageClickWithAMid:(NSString * _Nonnull)aMid tmpId:(NSString * _Nonnull)tmpId buttonId:(NSString * _Nonnull)buttonId;
 - (void)onNoticeMessageClickWithAMid:(NSString * _Nonnull)aMid buttonId:(NSString * _Nonnull)buttonId;
 - (void)getMessageUnReadCountWithCount:(NSInteger)count;
+- (void)getCustomViewWithAMid:(NSString * _Nonnull)aMid body:(NSString * _Nonnull)body handleCustomView:(void (^ _Nullable)(UIView * _Nonnull))handleCustomView tapCustomView:(void (^ _Nullable)(UIView * _Nonnull))tapCustomView;
 @end
 
 @class UIImageView;
@@ -373,12 +375,20 @@ SWIFT_CLASS("_TtC5IMSdk8ChatView")
 @interface ChatView : UIView
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (void)setDelegateWithDelegate:(id <ChatDelegate> _Nonnull)delegate;
+- (void)setTableViewContentInsetWithInset:(UIEdgeInsets)inset;
+- (void)setTableViewScrollIndicatorInsetsWithInset:(UIEdgeInsets)inset;
+- (void)setTableViewContentOffsetWithOffset:(CGPoint)offset animated:(BOOL)animated;
+- (UIEdgeInsets)getTableViewContentInset SWIFT_WARN_UNUSED_RESULT;
+- (UIEdgeInsets)getTableViewScrollIndicatorInsets SWIFT_WARN_UNUSED_RESULT;
+- (CGPoint)getTableViewContentOffset SWIFT_WARN_UNUSED_RESULT;
+- (CGSize)getTableViewContentSize SWIFT_WARN_UNUSED_RESULT;
 - (void)layoutSubviews;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
 @end
 
 
 @interface ChatView (SWIFT_EXTENSION(IMSdk)) <ChatDetailCheckDelegate>
+- (void)getCustomView:(NSString * _Null_unspecified)amid body:(NSString * _Null_unspecified)body handleCustomView:(void (^ _Null_unspecified)(UIView * _Nullable))handle tapCustomView:(void (^ _Null_unspecified)(UIView * _Nullable))tap;
 - (void)tapCardButonIndexPath:(NSString * _Null_unspecified)amid buttonId:(NSString * _Null_unspecified)buttonId;
 - (void)tapfileAtIndexPath:(NSString * _Null_unspecified)mid;
 - (void)tapImageAtIndexPath:(NSString * _Null_unspecified)chatId messageId:(NSInteger)messageId;
@@ -465,6 +475,13 @@ SWIFT_CLASS("_TtC5IMSdk16ConversationView")
 @end
 
 
+SWIFT_PROTOCOL("_TtP5IMSdk27ConversionViewModelDelegate_")
+@protocol ConversionViewModelDelegate <NSObject>
+@optional
+- (void)conversationUnReadNumChange;
+@end
+
+
 SWIFT_CLASS("_TtC5IMSdk17FileDownloadEvent")
 @interface FileDownloadEvent : NSObject <TMEvent>
 - (NSArray<NSString *> * _Nonnull)getData SWIFT_WARN_UNUSED_RESULT;
@@ -522,12 +539,12 @@ SWIFT_PROTOCOL("_TtP5IMSdk10IMDelegate_")
 @optional
 - (void)authCodeExpireWithAUid:(NSString * _Nonnull)aUid;
 - (void)onShowUserInfoWithAUids:(NSArray<NSString *> * _Nonnull)aUids;
-- (void)onReceiveMessagesWithAMids:(NSArray<NSString *> * _Nonnull)aMids;
+- (void)onReceiveMessageWithAMids:(NSArray<NSString *> * _Nonnull)aMids;
 - (void)onShowConversationSubTitleWithAChatIds:(NSArray<NSString *> * _Nonnull)aChatIds;
 - (void)onShowConversationMarkerWithAChatIds:(NSArray<NSString *> * _Nonnull)aChatIds;
 @end
 
-typedef SWIFT_ENUM(NSInteger, IMEnvironmentType, closed) {
+typedef SWIFT_ENUM(NSInteger, IMEnvironmentType, open) {
   IMEnvironmentTypePro = 1,
   IMEnvironmentTypeAlpha = 2,
 };
@@ -545,7 +562,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) IMSdk * _Nullable shar
 + (IMSdk * _Nullable)shared SWIFT_WARN_UNUSED_RESULT;
 + (void)setShared:(IMSdk * _Nullable)value;
 + (IMSdk * _Nonnull)getInstanceWithAk:(NSString * _Nonnull)ak env:(enum IMEnvironmentType)env deviceId:(NSString * _Nonnull)deviceId SWIFT_WARN_UNUSED_RESULT;
-@property (nonatomic, strong) id <IMDelegate> _Nullable delegate;
+@property (nonatomic, weak) id <IMDelegate> _Nullable delegate;
 - (void)initUserWithAUid:(NSString * _Nonnull)aUid SWIFT_METHOD_FAMILY(none);
 - (void)setIMDelegateWithDelegate:(id <IMDelegate> _Nonnull)delegate;
 - (void)setAuthCodeWithAuth:(NSString * _Nonnull)auth;
@@ -563,7 +580,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) IMSdk * _Nullable shar
 - (void)joinTestGroupWithSuccess:(void (^ _Nullable)(NSString * _Nonnull))success fail:(void (^ _Nullable)(NSString * _Nonnull))fail;
 - (void)setConversationWithAChatId:(NSString * _Nonnull)aChatId isMute:(BOOL)isMute;
 - (void)startSocket;
-- (void)setUserInfoWithUserInfos:(NSArray<UserInfoModel *> * _Nonnull)userInfos;
+- (void)setUserInfoWithUserInfos:(NSArray<UserInfoModel *> * _Nonnull)userInfos complete:(void (^ _Nullable)(NSInteger))complete;
 - (void)setConversationSubTitleWithSubTitles:(NSArray<ConversationSubTitle *> * _Nonnull)subTitles;
 - (void)setConversationMarkerWithMarkers:(NSArray<ConversationMarker *> * _Nonnull)markers;
 - (void)loginOut;
@@ -634,7 +651,7 @@ SWIFT_CLASS("_TtC5IMSdk11SwipeAction")
 @end
 
 
-typedef SWIFT_ENUM(NSInteger, SwipeDirection, closed) {
+typedef SWIFT_ENUM(NSInteger, SwipeDirection, open) {
   SwipeDirectionLeft = 0,
   SwipeDirectionRight = 1,
 };
@@ -793,6 +810,7 @@ SWIFT_CLASS("_TtC5IMSdk14TMChatListCell")
 @property (nonatomic, strong) TmConversationInfo * _Null_unspecified tmInfo;
 - (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier OBJC_DESIGNATED_INITIALIZER;
 - (void)ChangeLineViewHeightWithIsChange:(BOOL)isChange;
+- (void)changeBackgroundColorWithColor:(UIColor * _Nonnull)color;
 - (void)getTmInfoWithTmInfo:(TmConversationInfo * _Nonnull)tmInfo;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
 - (void)awakeFromNib;
@@ -841,17 +859,30 @@ SWIFT_CLASS("_TtC5IMSdk21TMConversionViewModel")
 @property (nonatomic) NSInteger unReadCount;
 @property (nonatomic, copy) NSArray<NSString *> * _Nonnull partChatIds;
 @property (nonatomic, copy) NSArray<NSString *> * _Nonnull unPartChatIds;
-@property (nonatomic, strong) TmConversationInfo * _Nullable folderConversionInfo;
 - (void)setSortWithSortCalsure:(BOOL (^ _Nonnull)(TmConversationInfo * _Nonnull, TmConversationInfo * _Nonnull))sortCalsure;
 - (NSArray<TmConversationInfo *> * _Nonnull)getSortListWithList:(NSArray<TmConversationInfo *> * _Nonnull)list SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+- (void)setDelegateWithDelegate:(id <ConversionViewModelDelegate> _Nonnull)delegate;
 + (TMConversionViewModel * _Nonnull)createConversationViewModelWithSelector:(id <TMConversionSelector> _Nonnull)selector SWIFT_WARN_UNUSED_RESULT;
-- (NSInteger)getUnReadCount SWIFT_WARN_UNUSED_RESULT;
+- (void)getUnReadCountWithSuccess:(void (^ _Nullable)(NSInteger))success;
+- (void)setChatTopWithAChatId:(NSString * _Nonnull)aChatId success:(void (^ _Nullable)(void))success fail:(void (^ _Nullable)(NSString * _Nonnull))fail;
+- (void)setChatCloseTopWithAChatId:(NSString * _Nonnull)aChatId success:(void (^ _Nullable)(void))success fail:(void (^ _Nullable)(NSString * _Nonnull))fail;
+- (BOOL)getChatIsTopWithAChatId:(NSString * _Nonnull)aChatId SWIFT_WARN_UNUSED_RESULT;
 - (NSArray<NSString *> * _Nonnull)getChatIds SWIFT_WARN_UNUSED_RESULT;
 - (NSArray<NSString *> * _Nonnull)filterChatIdsWithChatIds:(NSArray<NSString *> * _Nonnull)chatIds SWIFT_WARN_UNUSED_RESULT;
 - (ConversationView * _Nonnull)getConversionView SWIFT_WARN_UNUSED_RESULT;
-- (void)updateSelectorWithAddAchatIds:(NSArray<NSString *> * _Nonnull)addAchatIds removeAchatIds:(NSArray<NSString *> * _Nonnull)removeAchatIds;
+- (void)updateSelectorWithSelectAchatIds:(NSArray<NSString *> * _Nonnull)selectAchatIds unSelectAchatIds:(NSArray<NSString *> * _Nonnull)unSelectAchatIds;
 - (void)setFolderWithAChatId:(NSString * _Nonnull)aChatId content:(NSString * _Nonnull)content name:(NSString * _Nonnull)name imageData:(NSData * _Nonnull)imageData imageFormat:(NSString * _Nonnull)imageFormat;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC5IMSdk15TMCustomizeCell")
+@interface TMCustomizeCell : UITableViewCell
+- (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier SWIFT_UNAVAILABLE;
+- (void)setupModel:(TMMessageModel * _Nonnull)model;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated;
 @end
 
 @class TMFaceAttachment;
@@ -935,7 +966,7 @@ SWIFT_CLASS("_TtC5IMSdk10TMLanguage")
 + (NSString * _Nonnull)getTrueLanguageTypeString SWIFT_WARN_UNUSED_RESULT;
 @end
 
-typedef SWIFT_ENUM(NSInteger, TMLanguageSettingType, closed) {
+typedef SWIFT_ENUM(NSInteger, TMLanguageSettingType, open) {
   TMLanguageSettingTypeAuto = 0,
   TMLanguageSettingTypeEn = 1,
   TMLanguageSettingTypeTr = 2,
@@ -1075,6 +1106,12 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 - (NSString * _Nullable)localizedWithKey:(NSString * _Nonnull)key SWIFT_WARN_UNUSED_RESULT;
 @end
 
+
+@interface TMSwiftOcBridge (SWIFT_EXTENSION(IMSdk))
++ (NSString * _Nonnull)randomString:(NSInteger)count SWIFT_WARN_UNUSED_RESULT;
+- (NSString * _Nonnull)generateIv SWIFT_WARN_UNUSED_RESULT;
+@end
+
 @class UITextView;
 @class UITextField;
 
@@ -1095,12 +1132,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 /// -Parameter decimalNumberCount: Number of decimal places
 /// -Parameter maxNumber: maximum value
 - (BOOL)validateNumberInputWithTextField:(UITextField * _Nonnull)textField shouldChangeCharactersInRange:(NSRange)shouldChangeCharactersInRange replacementString:(NSString * _Nonnull)replacementString decimalNumberCount:(NSInteger)decimalNumberCount maxNumber:(NSString * _Nonnull)maxNumber SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
-@interface TMSwiftOcBridge (SWIFT_EXTENSION(IMSdk))
-+ (NSString * _Nonnull)randomString:(NSInteger)count SWIFT_WARN_UNUSED_RESULT;
-- (NSString * _Nonnull)generateIv SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -1144,7 +1175,7 @@ SWIFT_CLASS("_TtC5IMSdk15TMTransferLogic")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-typedef SWIFT_ENUM(NSInteger, TMTransferProgressState, closed) {
+typedef SWIFT_ENUM(NSInteger, TMTransferProgressState, open) {
   TMTransferProgressStateFailureMin = -100,
   TMTransferProgressStateStart = 0,
   TMTransferProgressStateSuccess = 100,
@@ -1152,7 +1183,7 @@ typedef SWIFT_ENUM(NSInteger, TMTransferProgressState, closed) {
   TMTransferProgressStateWait = 600,
 };
 
-typedef SWIFT_ENUM(NSInteger, TMTransferSence, closed) {
+typedef SWIFT_ENUM(NSInteger, TMTransferSence, open) {
   TMTransferSenceIM = 1,
   TMTransferSenceMoments = 2,
 };
@@ -1432,6 +1463,8 @@ SWIFT_CLASS("_TtC5IMSdk16TmMessageContent")
 @property (nonatomic, copy) NSString * _Nonnull addr;
 @property (nonatomic, copy) NSString * _Nonnull desc;
 @property (nonatomic, copy) NSString * _Nonnull zoom;
+@property (nonatomic, copy) NSString * _Nonnull title;
+@property (nonatomic, copy) NSString * _Nonnull body;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 - (NSString * _Nonnull)getFileIdWithBusId:(NSString * _Nonnull)busId SWIFT_WARN_UNUSED_RESULT;
 @end
@@ -1458,13 +1491,13 @@ SWIFT_CLASS("_TtC5IMSdk14TmMessageExtra")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-typedef SWIFT_ENUM(NSInteger, TmMessageExtraActType, closed) {
+typedef SWIFT_ENUM(NSInteger, TmMessageExtraActType, open) {
   TmMessageExtraActTypeNormal = 0,
   TmMessageExtraActTypeForward = 1,
   TmMessageExtraActTypeReference = 2,
 };
 
-typedef SWIFT_ENUM(NSInteger, TmMessageExtraDiviceType, closed) {
+typedef SWIFT_ENUM(NSInteger, TmMessageExtraDiviceType, open) {
   TmMessageExtraDiviceTypeIos = 1,
   TmMessageExtraDiviceTypeAndroid = 2,
   TmMessageExtraDiviceTypeMac = 3,

@@ -836,3 +836,7 @@
 "date_md" = "%1$s月%2$s日";
 "pc_location_tip" = "位置消息，请在手机上查看。";
 "del_message_tip" = "你确定要删除所有消息吗？";
+"video_not_play" = "暂不支持播放此格式";
+"no_conversation" = "没有会话";
+"initializing" = "正在初始化…";
+"initialization_fail" = "初始化失败";

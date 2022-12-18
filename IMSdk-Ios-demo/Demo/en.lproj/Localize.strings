@@ -836,3 +836,7 @@
 "date_md" = "%2$s.%1$s";
 "pc_location_tip" = "Location message, please check on your mobile phone.";
 "del_message_tip" = "Do you want to delete all messages?";
+"video_not_play" = "This format is not supported temporarily";
+"no_conversation" = "No conversation";
+"initializing" = "Initializing…";
+"initialization_fail" = "Initialization failed";

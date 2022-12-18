@@ -836,3 +836,7 @@
 "date_md" = "%2$s.%1$s";
 "pc_location_tip" = "Konum mesajı, lütfen cep telefonunuzu kontrol edin.";
 "del_message_tip" = "Bütün mesajları silmek istediğinizden emin misiniz?";
+"video_not_play" = "Bu format ı geçici olarak desteklenmiyor";
+"no_conversation" = "Oturum yok";
+"initializing" = "Başlangıç";
+"initialization_fail" = "Başlangıç başarısız oldu";

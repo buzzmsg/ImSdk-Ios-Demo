@@ -71,6 +71,7 @@ class TMChatDetailController: UIViewController, ChatDelegate, IMDelegate {
         }
         if let loginInfo = TMUserUtil.getLogin() {
             self.kit?.setIMDelegate(delegate: self)
+            self.kit?.setLanguage(language: IMLanguageType.English)
 
             self.chatListView = IMSdk.getInstance(ak: loginInfo.ak, env: .alpha, deviceId: "iOS").creatChatView(aChatId: self.aChatId)
             if let v = self.chatListView {
@@ -86,11 +87,11 @@ class TMChatDetailController: UIViewController, ChatDelegate, IMDelegate {
             }
             
 
-
         }
         
         
         self.view.addSubview(self.inputV)
+        self.inputV.isHidden = true
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }

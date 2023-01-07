@@ -40,6 +40,7 @@ class TMChatListController: UIViewController, IMDelegate, ConversationDelegate, 
             self.loginInfo = loginInfo
             self.kit = IMSdk.getInstance(ak: loginInfo.ak, env: .alpha, deviceId: "iOS")
             self.kit?.setAuthCode(auth: loginInfo.authcode)
+            self.kit?.setLanguage(language: IMLanguageType.English)
             self.kit?.setIMDelegate(delegate: self)
             self.kit?.initUser(aUid: loginInfo.auid)
         }
@@ -47,7 +48,7 @@ class TMChatListController: UIViewController, IMDelegate, ConversationDelegate, 
         if let kit = self.kit {
 //            self.conversionViewModel = kit.createConversationViewModel(selector: ChatViewModelFactory.ofUnPart(ids: ["147147000000_14714712345"]))
             self.conversionViewModel = kit.createConversationViewModel(selector: ChatViewModelFactory.ofAll())
-//            self.conversionViewModel = kit.createConversationViewModel(selector: ChatViewModelFactory.ofPart(ids: ["147147000000_14714711111"]))
+//            self.conversionViewModel = kit.createConversationViewModel(selector: ChatViewModelFactory.ofPart(ids: ["147147100_1471471000"]))
             self.conversionViewModel?.setDelegate(delegate: self)
 //
             let value = Int(arc4random()%47) + 1
@@ -77,16 +78,12 @@ class TMChatListController: UIViewController, IMDelegate, ConversationDelegate, 
                 
 
             }
-        }
-        
+        } 
+    }
     
-        
-        
-        if let loginInfo = TMUserUtil.getLogin() {
-            IMSdk.getInstance(ak: loginInfo.ak, env: .alpha, deviceId: "iOS").startSocket()
-        }
-        
-        
+    
+    func authCodeExpire(aUid: String) {
+        print("登录失败来了")
     }
     
     func onShowUserInfo(aUids: [String]) {
@@ -131,10 +128,12 @@ class TMChatListController: UIViewController, IMDelegate, ConversationDelegate, 
 //        }
         
     }
-    
-    func onReceiveMessage(aMids: [String]) {
-        print("receive new messages: \(aMids)")
+    func onReceiveMessage(receiveMessageList: [TmReceiveMessageInfo]) {
+        for item in receiveMessageList {
+            print("receive new messages amid: \(item.amid), aChatId: \(item.aChatId)")
+        }
     }
+
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()

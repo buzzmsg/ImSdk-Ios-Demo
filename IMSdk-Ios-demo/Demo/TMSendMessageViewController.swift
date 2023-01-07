@@ -121,19 +121,19 @@ class TMSendMessageViewController: UIViewController {
             make.height.equalTo(42)
         }
         
-//        self.view.addSubview(self.sendCardBtn)
-//        self.sendCardBtn.snp_makeConstraints { make in
-//            make.centerX.equalToSuperview()
-//            make.top.equalTo(self.sendFileBtn.snp_bottom).offset(30)
-//            make.width.equalTo(200)
-//            make.height.equalTo(42)
-//        }
+        self.view.addSubview(self.sendCardBtn)
+        self.sendCardBtn.snp_makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(self.sendFileBtn.snp_bottom).offset(30)
+            make.width.equalTo(200)
+            make.height.equalTo(42)
+        }
         
         
         self.view.addSubview(self.sendCVBtn)
         self.sendCVBtn.snp_makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(self.sendFileBtn.snp_bottom).offset(30)
+            make.top.equalTo(self.sendCardBtn.snp_bottom).offset(30)
             make.width.equalTo(200)
             make.height.equalTo(42)
         }

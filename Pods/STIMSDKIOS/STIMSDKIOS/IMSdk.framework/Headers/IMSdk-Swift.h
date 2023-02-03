@@ -478,7 +478,7 @@ SWIFT_CLASS("_TtC5IMSdk16ConversationView")
 SWIFT_PROTOCOL("_TtP5IMSdk27ConversionViewModelDelegate_")
 @protocol ConversionViewModelDelegate <NSObject>
 @optional
-- (void)conversationUnReadNumChange;
+- (void)onUnReadCountChangeWithCount:(NSInteger)count;
 @end
 
 
@@ -553,8 +553,6 @@ typedef SWIFT_ENUM(NSInteger, IMEnvironmentType, closed) {
 @class NSData;
 @protocol TMConversionSelector;
 @class TMConversionViewModel;
-@class TmConversationInfo;
-@class TmMessage;
 @class UserInfoModel;
 
 SWIFT_CLASS("_TtC5IMSdk5IMSdk")
@@ -576,8 +574,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) IMSdk * _Nullable shar
 - (TMConversionViewModel * _Nonnull)createConversationViewModelWithSelector:(id <TMConversionSelector> _Nonnull)selector SWIFT_WARN_UNUSED_RESULT;
 - (ChatView * _Nonnull)creatChatViewWithAChatId:(NSString * _Nonnull)aChatId SWIFT_WARN_UNUSED_RESULT;
 - (TMImageBrowserView * _Nonnull)creatImageBrowserViewWithChatId:(NSString * _Nonnull)chatId currentIndex:(NSInteger)currentIndex SWIFT_WARN_UNUSED_RESULT;
-- (NSArray<TmConversationInfo *> * _Nonnull)getConversions SWIFT_WARN_UNUSED_RESULT;
-- (NSArray<TmMessage *> * _Nonnull)getMassagesWithAChatId:(NSString * _Nonnull)aChatId SWIFT_WARN_UNUSED_RESULT;
 - (void)joinTestGroupWithSuccess:(void (^ _Nullable)(NSString * _Nonnull))success fail:(void (^ _Nullable)(NSString * _Nonnull))fail;
 - (void)setConversationWithAChatId:(NSString * _Nonnull)aChatId isMute:(BOOL)isMute;
 - (void)setUserInfoWithUserInfos:(NSArray<UserInfoModel *> * _Nonnull)userInfos complete:(void (^ _Nullable)(NSInteger))complete;
@@ -783,6 +779,7 @@ SWIFT_CLASS("_TtC5IMSdk15TMCardRightCell")
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated;
 @end
 
+@class TmMessage;
 
 SWIFT_PROTOCOL("_TtP5IMSdk26TMChatDetailMessageDisplay_")
 @protocol TMChatDetailMessageDisplay
@@ -804,6 +801,7 @@ SWIFT_CLASS("_TtC5IMSdk25TMChatDetailTimeGroupView")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
 @end
 
+@class TmConversationInfo;
 
 SWIFT_CLASS("_TtC5IMSdk14TMChatListCell")
 @interface TMChatListCell : SwipeTableViewCell
@@ -893,8 +891,6 @@ SWIFT_CLASS("_TtC5IMSdk11TMEmojiTool")
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong, getter=default) TMEmojiTool * _Nonnull default_;)
 + (TMEmojiTool * _Nonnull)default SWIFT_WARN_UNUSED_RESULT;
 - (NSArray<TMFaceAttachment *> * _Nonnull)getFaceAttachments SWIFT_WARN_UNUSED_RESULT;
-- (void)preGetUserFaceHistory;
-- (void)clickFaceCodeWithCode:(NSString * _Nonnull)code;
 - (NSArray<TMFaceAttachment *> * _Nonnull)getHistroyFace SWIFT_WARN_UNUSED_RESULT;
 /// 12345[cry]678910[shy][cry]12034    replace [shy] with ‘&’,  length 1
 - (NSString * _Nonnull)converStrWithStr:(NSString * _Nonnull)str replaceString:(NSString * _Nonnull)replaceString SWIFT_WARN_UNUSED_RESULT;

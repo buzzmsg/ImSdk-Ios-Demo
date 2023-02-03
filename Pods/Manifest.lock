@@ -16,9 +16,9 @@ PODS:
     - Localize-Swift/LocalizeSwiftCore
   - Masonry (1.1.0)
   - MJRefresh (3.7.5)
-  - MMKV (1.2.14):
-    - MMKVCore (~> 1.2.14)
-  - MMKVCore (1.2.14)
+  - MMKV (1.2.15):
+    - MMKVCore (~> 1.2.15)
+  - MMKVCore (1.2.15)
   - "NSObject+Rx (5.2.2)":
     - RxSwift (~> 6.2)
   - PINCache (3.0.3):
@@ -370,7 +370,7 @@ PODS:
   - SnapKit (4.2.0)
   - SQLiteRepairKit (1.2.2):
     - WCDBOptimizedSQLCipher (~> 1.2.0)
-  - STIMSDKIOS (0.0.16):
+  - STIMSDKIOS (0.0.20):
     - Alamofire (~> 4.9.1)
     - AliyunOSSiOS (~> 2.10.15)
     - AWSS3 (~> 2.25.0)
@@ -415,7 +415,7 @@ PODS:
 
 DEPENDENCIES:
   - QMUIKit
-  - STIMSDKIOS (from `https://github.com/TmmTmmIM/STIMSDKIOS.git`)
+  - STIMSDKIOS (= 0.0.20)
   - SVProgressHUD
 
 SPEC REPOS:
@@ -445,19 +445,11 @@ SPEC REPOS:
     - RxSwiftExt
     - SnapKit
     - SQLiteRepairKit
+    - STIMSDKIOS
     - SVProgressHUD
     - Texture
     - WCDB.swift
     - WCDBOptimizedSQLCipher
-
-EXTERNAL SOURCES:
-  STIMSDKIOS:
-    :git: https://github.com/TmmTmmIM/STIMSDKIOS.git
-
-CHECKOUT OPTIONS:
-  STIMSDKIOS:
-    :commit: 4fc8b1e1b0ff4d9667e0170b493f0299583d6c1d
-    :git: https://github.com/TmmTmmIM/STIMSDKIOS.git
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
@@ -469,8 +461,8 @@ SPEC CHECKSUMS:
   Localize-Swift: 6f4475136bdb0d7b2882ea3d4ea919d70142b232
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: fdf5e979eb406a0341468932d1dfc8b7f9fce961
-  MMKV: 9c4663aa7ca255d478ff10f2f5cb7d17c1651ccd
-  MMKVCore: 89f5c8a66bba2dcd551779dea4d412eeec8ff5bb
+  MMKV: 7f34558bbb5a33b0eaefae2de4b6a20a2ffdad6f
+  MMKVCore: ddf41b9d9262f058419f9ba7598719af56c02cd3
   "NSObject+Rx": 61cf1f7306a73dcef8b36649198af0813ec18dfd
   PINCache: 7a8fc1a691173d21dbddbf86cd515de6efa55086
   PINOperation: daa34d4aa1d8449089be7d405b9d974abc4724c6
@@ -485,12 +477,12 @@ SPEC CHECKSUMS:
   RxSwiftExt: d61c4b9b06e0a448041b1c659e0f1b5c5a035afc
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SQLiteRepairKit: 35aaae5a8838adb85f5b1eb4d796055be6060a4b
-  STIMSDKIOS: 5bb98f10a7cef63cd0e715785a740a036b09e6b2
+  STIMSDKIOS: b4dde1c938c64bf01d1addef540ea7bd3a35a5ce
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   Texture: 2f109e937850d94d1d07232041c9c7313ccddb81
   WCDB.swift: 05d509d7a0e60fb6e11c34eb7e4027c0fab5849f
   WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
 
-PODFILE CHECKSUM: 51b0998881ec0803d34466aba70f00993e53170e
+PODFILE CHECKSUM: edcf79367e02b94b0bdd00e40c9215d510fa643a
 
 COCOAPODS: 1.10.2

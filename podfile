@@ -5,8 +5,8 @@ target 'IMSdk-Ios-demo' do
 
   pod 'QMUIKit'
   pod 'SVProgressHUD'
-#  pod 'STIMSDKIOS', '~> 0.0.15'
- pod 'STIMSDKIOS',:git =>"https://github.com/TmmTmmIM/STIMSDKIOS.git"
+  pod 'STIMSDKIOS', '0.0.20'
+# pod 'STIMSDKIOS',:git =>"https://github.com/TmmTmmIM/STIMSDKIOS.git"
 
 
 end

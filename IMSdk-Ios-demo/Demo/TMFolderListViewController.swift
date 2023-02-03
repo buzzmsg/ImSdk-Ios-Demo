@@ -25,7 +25,7 @@ class TMFolderListViewController: UIViewController, IMDelegate, ConversationDele
         self.view.backgroundColor = UIColor.white
         
         if let loginInfo = TMUserUtil.getLogin() {
-            self.kit = IMSdk.getInstance(ak: loginInfo.ak, env: .alpha, deviceId: "iOS")
+            self.kit = IMSdk.getInstance(ak: loginInfo.ak, env: SdkEnvType, deviceId: "iOS")
         }
         
         if let kit = self.kit {

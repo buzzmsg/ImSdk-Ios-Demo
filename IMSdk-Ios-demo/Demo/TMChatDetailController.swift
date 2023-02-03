@@ -71,9 +71,9 @@ class TMChatDetailController: UIViewController, ChatDelegate, IMDelegate {
         }
         if let loginInfo = TMUserUtil.getLogin() {
             self.kit?.setIMDelegate(delegate: self)
-            self.kit?.setLanguage(language: IMLanguageType.English)
+//            self.kit?.setLanguage(language: IMLanguageType.SimplifiedChinese)
 
-            self.chatListView = IMSdk.getInstance(ak: loginInfo.ak, env: .alpha, deviceId: "iOS").creatChatView(aChatId: self.aChatId)
+            self.chatListView = IMSdk.getInstance(ak: loginInfo.ak, env: SdkEnvType, deviceId: "iOS").creatChatView(aChatId: self.aChatId)
             if let v = self.chatListView {
                 v.backgroundColor = .white
                 v.setDelegate(delegate: self)
@@ -195,7 +195,7 @@ class TMChatDetailController: UIViewController, ChatDelegate, IMDelegate {
             if let loginInfo = TMUserUtil.getLogin() {
                 
                 let marker1 = ConversationMarker(aChatId: self.aChatId, icon: data, format: "jpg")
-                IMSdk.getInstance(ak: loginInfo.ak, env: .alpha, deviceId: "iOS").setConversationMarker(markers: [marker1])
+                IMSdk.getInstance(ak: loginInfo.ak, env: SdkEnvType, deviceId: "iOS").setConversationMarker(markers: [marker1])
                 self.navigationController?.popViewController(animated: true)
             }
         }
@@ -213,7 +213,7 @@ class TMChatDetailController: UIViewController, ChatDelegate, IMDelegate {
 //            if let loginInfo = TMUserUtil.getLogin() {
 //
 //                let marker1 = ConversationMarker(aChatId: self.aChatId, icon: data, format: format)
-//                IMSdk.getInstance(ak: loginInfo.ak, env: .alpha, deviceId: "iOS").setConversationMarker(markers: [marker1])
+//                IMSdk.getInstance(ak: loginInfo.ak, env: SdkEnvType, deviceId: "iOS").setConversationMarker(markers: [marker1])
 //                self.navigationController?.popViewController(animated: true)
 //            }
 //        }
@@ -246,7 +246,7 @@ class TMChatDetailController: UIViewController, ChatDelegate, IMDelegate {
             if let loginInfo = TMUserUtil.getLogin() {
                 
                 let subTitle = ConversationSubTitle(aChatId: self.aChatId, subTitle: text)
-                IMSdk.getInstance(ak: loginInfo.ak, env: .alpha, deviceId: "iOS").setConversationSubTitle(subTitles: [subTitle])
+                IMSdk.getInstance(ak: loginInfo.ak, env: SdkEnvType, deviceId: "iOS").setConversationSubTitle(subTitles: [subTitle])
                 self.navigationController?.popViewController(animated: true)
             }
         }
@@ -263,7 +263,7 @@ class TMChatDetailController: UIViewController, ChatDelegate, IMDelegate {
 
     func onCardMessageClick(aMid: String, buttonId: String) {
         if let loginInfo = TMUserUtil.getLogin() {
-            IMSdk.getInstance(ak: loginInfo.ak, env: .alpha, deviceId: "iOS").disableCardMessage(aMid: aMid, buttonIds: [buttonId])
+            IMSdk.getInstance(ak: loginInfo.ak, env: SdkEnvType, deviceId: "iOS").disableCardMessage(aMid: aMid, buttonIds: [buttonId])
         }
     }
     

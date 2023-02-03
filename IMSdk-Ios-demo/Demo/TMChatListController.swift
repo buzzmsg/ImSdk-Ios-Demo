@@ -10,15 +10,12 @@ import SVProgressHUD
 import IMSdk
 
 
+let SdkEnvType: IMEnvironmentType = .pro
+
 class TMChatListController: UIViewController, IMDelegate, ConversationDelegate, TMConversionSelector,ConversionViewModelDelegate {
     
-    func conversationUnReadNumChange() {
-        if let viewModel = self.conversionViewModel {
-
-            viewModel.getUnReadCount { count in
-                print("当前未读数\(count)")
-            }
-        }
+    func onUnReadCountChange(count: Int) {
+        print("当前未读数\(count)")
     }
 
     var loginInfo: TMDemoLoginResponse?
@@ -38,9 +35,9 @@ class TMChatListController: UIViewController, IMDelegate, ConversationDelegate, 
         
         if let loginInfo = TMUserUtil.getLogin() {
             self.loginInfo = loginInfo
-            self.kit = IMSdk.getInstance(ak: loginInfo.ak, env: .alpha, deviceId: "iOS")
+            self.kit = IMSdk.getInstance(ak: loginInfo.ak, env: SdkEnvType, deviceId: "iOS")
             self.kit?.setAuthCode(auth: loginInfo.authcode)
-            self.kit?.setLanguage(language: IMLanguageType.English)
+            self.kit?.setLanguage(language: IMLanguageType.SimplifiedChinese)
             self.kit?.setIMDelegate(delegate: self)
             self.kit?.initUser(aUid: loginInfo.auid)
         }
@@ -197,7 +194,7 @@ class TMChatListController: UIViewController, IMDelegate, ConversationDelegate, 
         self.renameAlert()
 //        SVProgressHUD.show()
 //        if let loginInfo = TMUserUtil.getLogin() {
-//            IMSdk.getInstance(ak: loginInfo.ak, env: .alpha, deviceId: "iOS").joinTestGroup {[weak self] (aChatId) in
+//            IMSdk.getInstance(ak: loginInfo.ak, env: SdkEnvType, deviceId: "iOS").joinTestGroup {[weak self] (aChatId) in
 //                guard let self = self else { return }
 //                SVProgressHUD.popActivity()
 //                let vc = TMChatDetailController()
@@ -274,7 +271,7 @@ class TMChatListController: UIViewController, IMDelegate, ConversationDelegate, 
                 let otherAuid = str.DDMD5Encrypt(.lowercase16)
                 if let loginInfo = TMUserUtil.getLogin() {                    
                     let chat = self.createAchatId(uid1: loginInfo.phone, uid2: str)
-                    IMSdk.getInstance(ak: loginInfo.ak, env: .alpha, deviceId: "iOS").createChat(aChatId: chat, chatName: chat, auids: [otherAuid]) {
+                    IMSdk.getInstance(ak: loginInfo.ak, env: SdkEnvType, deviceId: "iOS").createChat(aChatId: chat, chatName: chat, auids: [otherAuid]) {
                         let vc = TMChatDetailController()
                         vc.hidesBottomBarWhenPushed = true
                         vc.aChatId = chat

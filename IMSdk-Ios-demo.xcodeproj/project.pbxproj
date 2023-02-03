@@ -7,46 +7,47 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		831D51C12969AACA00BE6880 /* TMSendMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831D518F2969AAC900BE6880 /* TMSendMessageViewController.swift */; };
-		831D51C22969AACA00BE6880 /* TMNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831D51902969AAC900BE6880 /* TMNavigationController.swift */; };
-		831D51C32969AACA00BE6880 /* TMImageBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831D51912969AAC900BE6880 /* TMImageBrowserViewController.swift */; };
-		831D51C42969AACA00BE6880 /* TMLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831D51922969AAC900BE6880 /* TMLoginController.swift */; };
-		831D51C52969AACA00BE6880 /* Delegate401.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831D51942969AAC900BE6880 /* Delegate401.swift */; };
-		831D51C62969AACA00BE6880 /* TMTokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831D51952969AAC900BE6880 /* TMTokenManager.swift */; };
-		831D51C72969AACA00BE6880 /* ApiNoTokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831D51962969AAC900BE6880 /* ApiNoTokenService.swift */; };
-		831D51C82969AACA00BE6880 /* NetFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831D51972969AAC900BE6880 /* NetFactory.swift */; };
-		831D51C92969AACA00BE6880 /* TMNetCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831D51982969AAC900BE6880 /* TMNetCore.swift */; };
-		831D51CA2969AACA00BE6880 /* TMNet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831D51992969AAC900BE6880 /* TMNet.swift */; };
-		831D51CB2969AACA00BE6880 /* ApiBaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831D519A2969AAC900BE6880 /* ApiBaseService.swift */; };
-		831D51CC2969AACA00BE6880 /* TMChatDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831D519B2969AAC900BE6880 /* TMChatDetailController.swift */; };
-		831D51CD2969AACA00BE6880 /* IMSDKDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831D519D2969AAC900BE6880 /* IMSDKDateExtension.swift */; };
-		831D51CE2969AACA00BE6880 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831D519E2969AAC900BE6880 /* UIImageExtension.swift */; };
-		831D51CF2969AACA00BE6880 /* TMCreateGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831D519F2969AAC900BE6880 /* TMCreateGroupViewController.swift */; };
-		831D51D02969AACA00BE6880 /* IMDemoSha1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831D51A12969AAC900BE6880 /* IMDemoSha1.swift */; };
-		831D51D12969AACA00BE6880 /* TMMD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 831D51A32969AAC900BE6880 /* TMMD5.m */; };
-		831D51D22969AACA00BE6880 /* IMSDKMessageId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831D51A52969AAC900BE6880 /* IMSDKMessageId.swift */; };
-		831D51D32969AACA00BE6880 /* IMSDKMediaChooseUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831D51A62969AAC900BE6880 /* IMSDKMediaChooseUtil.swift */; };
-		831D51D42969AACA00BE6880 /* TMTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831D51A72969AAC900BE6880 /* TMTabbarController.swift */; };
-		831D51D52969AACA00BE6880 /* TMDemoConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831D51A82969AAC900BE6880 /* TMDemoConfig.swift */; };
-		831D51D62969AACA00BE6880 /* TMUserInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831D51A92969AAC900BE6880 /* TMUserInfoController.swift */; };
-		831D51D72969AACA00BE6880 /* TMNetError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831D51AB2969AAC900BE6880 /* TMNetError.swift */; };
-		831D51D82969AACA00BE6880 /* TMNetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831D51AC2969AAC900BE6880 /* TMNetworkingError.swift */; };
-		831D51D92969AACA00BE6880 /* YHLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831D51AD2969AAC900BE6880 /* YHLog.swift */; };
-		831D51DA2969AACA00BE6880 /* TMFolderListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831D51AE2969AAC900BE6880 /* TMFolderListViewController.swift */; };
-		831D51DB2969AACA00BE6880 /* TMUserUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831D51AF2969AAC900BE6880 /* TMUserUtil.swift */; };
-		831D51DC2969AACA00BE6880 /* TMSendMessageFootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831D51B12969AAC900BE6880 /* TMSendMessageFootView.swift */; };
-		831D51DD2969AACA00BE6880 /* TMDemoGetAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831D51B32969AAC900BE6880 /* TMDemoGetAuth.swift */; };
-		831D51DE2969AACA00BE6880 /* SendCardAndTempMessageApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831D51B42969AAC900BE6880 /* SendCardAndTempMessageApi.swift */; };
-		831D51DF2969AACA00BE6880 /* SetMessageStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831D51B52969AAC900BE6880 /* SetMessageStatus.swift */; };
-		831D51E02969AACA00BE6880 /* TMDemoLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831D51B62969AAC900BE6880 /* TMDemoLogin.swift */; };
-		831D51E12969AACA00BE6880 /* Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831D51B82969AAC900BE6880 /* Thread.swift */; };
-		831D51E22969AACA00BE6880 /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831D51BA2969AAC900BE6880 /* Async.swift */; };
-		831D51E32969AACA00BE6880 /* Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831D51BB2969AAC900BE6880 /* Promise.swift */; };
-		831D51E42969AACA00BE6880 /* TMInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831D51BC2969AAC900BE6880 /* TMInputViewController.swift */; };
-		831D51E52969AACA00BE6880 /* TMFilePreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831D51BD2969AAC900BE6880 /* TMFilePreController.swift */; };
-		831D51E62969AACA00BE6880 /* DetailKeyBordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831D51BE2969AAC900BE6880 /* DetailKeyBordView.swift */; };
-		831D51E72969AACA00BE6880 /* TMCostomizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831D51BF2969AAC900BE6880 /* TMCostomizeView.swift */; };
-		831D51E82969AACA00BE6880 /* TMChatListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831D51C02969AAC900BE6880 /* TMChatListController.swift */; };
+		8305788B298BF145008E29AE /* TMSendMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83057853298BF145008E29AE /* TMSendMessageViewController.swift */; };
+		8305788C298BF145008E29AE /* Localize.strings in Resources */ = {isa = PBXBuildFile; fileRef = 83057854298BF145008E29AE /* Localize.strings */; };
+		8305788D298BF145008E29AE /* TMNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83057856298BF145008E29AE /* TMNavigationController.swift */; };
+		8305788E298BF145008E29AE /* TMImageBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83057858298BF145008E29AE /* TMImageBrowserViewController.swift */; };
+		8305788F298BF145008E29AE /* TMLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83057859298BF145008E29AE /* TMLoginController.swift */; };
+		83057890298BF145008E29AE /* Delegate401.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8305785B298BF145008E29AE /* Delegate401.swift */; };
+		83057891298BF145008E29AE /* TMTokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8305785C298BF145008E29AE /* TMTokenManager.swift */; };
+		83057892298BF145008E29AE /* ApiNoTokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8305785D298BF145008E29AE /* ApiNoTokenService.swift */; };
+		83057893298BF145008E29AE /* NetFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8305785E298BF145008E29AE /* NetFactory.swift */; };
+		83057894298BF145008E29AE /* TMNetCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8305785F298BF145008E29AE /* TMNetCore.swift */; };
+		83057895298BF145008E29AE /* TMNet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83057860298BF145008E29AE /* TMNet.swift */; };
+		83057896298BF145008E29AE /* ApiBaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83057861298BF145008E29AE /* ApiBaseService.swift */; };
+		83057897298BF145008E29AE /* TMChatDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83057862298BF145008E29AE /* TMChatDetailController.swift */; };
+		83057898298BF145008E29AE /* IMSDKDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83057864298BF145008E29AE /* IMSDKDateExtension.swift */; };
+		83057899298BF145008E29AE /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83057865298BF145008E29AE /* UIImageExtension.swift */; };
+		8305789A298BF145008E29AE /* TMCreateGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83057866298BF145008E29AE /* TMCreateGroupViewController.swift */; };
+		8305789B298BF145008E29AE /* IMDemoSha1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83057868298BF145008E29AE /* IMDemoSha1.swift */; };
+		8305789C298BF145008E29AE /* TMMD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 8305786A298BF145008E29AE /* TMMD5.m */; };
+		8305789D298BF145008E29AE /* IMSDKMessageId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8305786C298BF145008E29AE /* IMSDKMessageId.swift */; };
+		8305789E298BF145008E29AE /* IMSDKMediaChooseUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8305786D298BF145008E29AE /* IMSDKMediaChooseUtil.swift */; };
+		8305789F298BF145008E29AE /* TMTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8305786E298BF145008E29AE /* TMTabbarController.swift */; };
+		830578A0298BF145008E29AE /* TMDemoConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8305786F298BF145008E29AE /* TMDemoConfig.swift */; };
+		830578A1298BF145008E29AE /* TMUserInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83057871298BF145008E29AE /* TMUserInfoController.swift */; };
+		830578A3298BF145008E29AE /* TMNetError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83057875298BF145008E29AE /* TMNetError.swift */; };
+		830578A4298BF145008E29AE /* TMNetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83057876298BF145008E29AE /* TMNetworkingError.swift */; };
+		830578A5298BF145008E29AE /* YHLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83057877298BF145008E29AE /* YHLog.swift */; };
+		830578A6298BF145008E29AE /* TMFolderListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83057878298BF145008E29AE /* TMFolderListViewController.swift */; };
+		830578A7298BF145008E29AE /* TMUserUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83057879298BF145008E29AE /* TMUserUtil.swift */; };
+		830578A8298BF145008E29AE /* TMSendMessageFootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8305787B298BF145008E29AE /* TMSendMessageFootView.swift */; };
+		830578A9298BF145008E29AE /* TMDemoGetAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8305787D298BF145008E29AE /* TMDemoGetAuth.swift */; };
+		830578AA298BF145008E29AE /* SendCardAndTempMessageApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8305787E298BF145008E29AE /* SendCardAndTempMessageApi.swift */; };
+		830578AB298BF145008E29AE /* SetMessageStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8305787F298BF145008E29AE /* SetMessageStatus.swift */; };
+		830578AC298BF145008E29AE /* TMDemoLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83057880298BF145008E29AE /* TMDemoLogin.swift */; };
+		830578AD298BF145008E29AE /* Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83057882298BF145008E29AE /* Thread.swift */; };
+		830578AE298BF145008E29AE /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83057884298BF145008E29AE /* Async.swift */; };
+		830578AF298BF145008E29AE /* Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83057885298BF145008E29AE /* Promise.swift */; };
+		830578B0298BF145008E29AE /* TMInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83057886298BF145008E29AE /* TMInputViewController.swift */; };
+		830578B1298BF145008E29AE /* TMFilePreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83057887298BF145008E29AE /* TMFilePreController.swift */; };
+		830578B2298BF145008E29AE /* DetailKeyBordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83057888298BF145008E29AE /* DetailKeyBordView.swift */; };
+		830578B3298BF145008E29AE /* TMCostomizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83057889298BF145008E29AE /* TMCostomizeView.swift */; };
+		830578B4298BF145008E29AE /* TMChatListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8305788A298BF145008E29AE /* TMChatListController.swift */; };
 		83F4022428F4242A004D19D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F4022328F4242A004D19D4 /* AppDelegate.swift */; };
 		83F4022828F4242A004D19D4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F4022728F4242A004D19D4 /* ViewController.swift */; };
 		83F4022B28F4242A004D19D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83F4022928F4242A004D19D4 /* Main.storyboard */; };
@@ -78,48 +79,52 @@
 
 /* Begin PBXFileReference section */
 		6B5E75288BE9628102BCFBD3 /* Pods-IMSdk-Ios-demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IMSdk-Ios-demo.debug.xcconfig"; path = "Target Support Files/Pods-IMSdk-Ios-demo/Pods-IMSdk-Ios-demo.debug.xcconfig"; sourceTree = "<group>"; };
-		831D518F2969AAC900BE6880 /* TMSendMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMSendMessageViewController.swift; sourceTree = "<group>"; };
-		831D51902969AAC900BE6880 /* TMNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMNavigationController.swift; sourceTree = "<group>"; };
-		831D51912969AAC900BE6880 /* TMImageBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMImageBrowserViewController.swift; sourceTree = "<group>"; };
-		831D51922969AAC900BE6880 /* TMLoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMLoginController.swift; sourceTree = "<group>"; };
-		831D51942969AAC900BE6880 /* Delegate401.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delegate401.swift; sourceTree = "<group>"; };
-		831D51952969AAC900BE6880 /* TMTokenManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMTokenManager.swift; sourceTree = "<group>"; };
-		831D51962969AAC900BE6880 /* ApiNoTokenService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiNoTokenService.swift; sourceTree = "<group>"; };
-		831D51972969AAC900BE6880 /* NetFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetFactory.swift; sourceTree = "<group>"; };
-		831D51982969AAC900BE6880 /* TMNetCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMNetCore.swift; sourceTree = "<group>"; };
-		831D51992969AAC900BE6880 /* TMNet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMNet.swift; sourceTree = "<group>"; };
-		831D519A2969AAC900BE6880 /* ApiBaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiBaseService.swift; sourceTree = "<group>"; };
-		831D519B2969AAC900BE6880 /* TMChatDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMChatDetailController.swift; sourceTree = "<group>"; };
-		831D519D2969AAC900BE6880 /* IMSDKDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMSDKDateExtension.swift; sourceTree = "<group>"; };
-		831D519E2969AAC900BE6880 /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
-		831D519F2969AAC900BE6880 /* TMCreateGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMCreateGroupViewController.swift; sourceTree = "<group>"; };
-		831D51A12969AAC900BE6880 /* IMDemoSha1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMDemoSha1.swift; sourceTree = "<group>"; };
-		831D51A32969AAC900BE6880 /* TMMD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMMD5.m; sourceTree = "<group>"; };
-		831D51A42969AAC900BE6880 /* TMMD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMMD5.h; sourceTree = "<group>"; };
-		831D51A52969AAC900BE6880 /* IMSDKMessageId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMSDKMessageId.swift; sourceTree = "<group>"; };
-		831D51A62969AAC900BE6880 /* IMSDKMediaChooseUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMSDKMediaChooseUtil.swift; sourceTree = "<group>"; };
-		831D51A72969AAC900BE6880 /* TMTabbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMTabbarController.swift; sourceTree = "<group>"; };
-		831D51A82969AAC900BE6880 /* TMDemoConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMDemoConfig.swift; sourceTree = "<group>"; };
-		831D51A92969AAC900BE6880 /* TMUserInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMUserInfoController.swift; sourceTree = "<group>"; };
-		831D51AB2969AAC900BE6880 /* TMNetError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMNetError.swift; sourceTree = "<group>"; };
-		831D51AC2969AAC900BE6880 /* TMNetworkingError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMNetworkingError.swift; sourceTree = "<group>"; };
-		831D51AD2969AAC900BE6880 /* YHLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YHLog.swift; sourceTree = "<group>"; };
-		831D51AE2969AAC900BE6880 /* TMFolderListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMFolderListViewController.swift; sourceTree = "<group>"; };
-		831D51AF2969AAC900BE6880 /* TMUserUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMUserUtil.swift; sourceTree = "<group>"; };
-		831D51B12969AAC900BE6880 /* TMSendMessageFootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMSendMessageFootView.swift; sourceTree = "<group>"; };
-		831D51B32969AAC900BE6880 /* TMDemoGetAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMDemoGetAuth.swift; sourceTree = "<group>"; };
-		831D51B42969AAC900BE6880 /* SendCardAndTempMessageApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendCardAndTempMessageApi.swift; sourceTree = "<group>"; };
-		831D51B52969AAC900BE6880 /* SetMessageStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetMessageStatus.swift; sourceTree = "<group>"; };
-		831D51B62969AAC900BE6880 /* TMDemoLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMDemoLogin.swift; sourceTree = "<group>"; };
-		831D51B82969AAC900BE6880 /* Thread.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thread.swift; sourceTree = "<group>"; };
-		831D51B92969AAC900BE6880 /* Promise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Promise.h; sourceTree = "<group>"; };
-		831D51BA2969AAC900BE6880 /* Async.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = "<group>"; };
-		831D51BB2969AAC900BE6880 /* Promise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Promise.swift; sourceTree = "<group>"; };
-		831D51BC2969AAC900BE6880 /* TMInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMInputViewController.swift; sourceTree = "<group>"; };
-		831D51BD2969AAC900BE6880 /* TMFilePreController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMFilePreController.swift; sourceTree = "<group>"; };
-		831D51BE2969AAC900BE6880 /* DetailKeyBordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailKeyBordView.swift; sourceTree = "<group>"; };
-		831D51BF2969AAC900BE6880 /* TMCostomizeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMCostomizeView.swift; sourceTree = "<group>"; };
-		831D51C02969AAC900BE6880 /* TMChatListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMChatListController.swift; sourceTree = "<group>"; };
+		83057853298BF145008E29AE /* TMSendMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMSendMessageViewController.swift; sourceTree = "<group>"; };
+		83057855298BF145008E29AE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localize.strings"; sourceTree = "<group>"; };
+		83057856298BF145008E29AE /* TMNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMNavigationController.swift; sourceTree = "<group>"; };
+		83057857298BF145008E29AE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localize.strings; sourceTree = "<group>"; };
+		83057858298BF145008E29AE /* TMImageBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMImageBrowserViewController.swift; sourceTree = "<group>"; };
+		83057859298BF145008E29AE /* TMLoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMLoginController.swift; sourceTree = "<group>"; };
+		8305785B298BF145008E29AE /* Delegate401.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delegate401.swift; sourceTree = "<group>"; };
+		8305785C298BF145008E29AE /* TMTokenManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMTokenManager.swift; sourceTree = "<group>"; };
+		8305785D298BF145008E29AE /* ApiNoTokenService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiNoTokenService.swift; sourceTree = "<group>"; };
+		8305785E298BF145008E29AE /* NetFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetFactory.swift; sourceTree = "<group>"; };
+		8305785F298BF145008E29AE /* TMNetCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMNetCore.swift; sourceTree = "<group>"; };
+		83057860298BF145008E29AE /* TMNet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMNet.swift; sourceTree = "<group>"; };
+		83057861298BF145008E29AE /* ApiBaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiBaseService.swift; sourceTree = "<group>"; };
+		83057862298BF145008E29AE /* TMChatDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMChatDetailController.swift; sourceTree = "<group>"; };
+		83057864298BF145008E29AE /* IMSDKDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMSDKDateExtension.swift; sourceTree = "<group>"; };
+		83057865298BF145008E29AE /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		83057866298BF145008E29AE /* TMCreateGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMCreateGroupViewController.swift; sourceTree = "<group>"; };
+		83057868298BF145008E29AE /* IMDemoSha1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMDemoSha1.swift; sourceTree = "<group>"; };
+		8305786A298BF145008E29AE /* TMMD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMMD5.m; sourceTree = "<group>"; };
+		8305786B298BF145008E29AE /* TMMD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMMD5.h; sourceTree = "<group>"; };
+		8305786C298BF145008E29AE /* IMSDKMessageId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMSDKMessageId.swift; sourceTree = "<group>"; };
+		8305786D298BF145008E29AE /* IMSDKMediaChooseUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMSDKMediaChooseUtil.swift; sourceTree = "<group>"; };
+		8305786E298BF145008E29AE /* TMTabbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMTabbarController.swift; sourceTree = "<group>"; };
+		8305786F298BF145008E29AE /* TMDemoConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMDemoConfig.swift; sourceTree = "<group>"; };
+		83057870298BF145008E29AE /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localize.strings"; sourceTree = "<group>"; };
+		83057871298BF145008E29AE /* TMUserInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMUserInfoController.swift; sourceTree = "<group>"; };
+		83057873298BF145008E29AE /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localize.strings; sourceTree = "<group>"; };
+		83057875298BF145008E29AE /* TMNetError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMNetError.swift; sourceTree = "<group>"; };
+		83057876298BF145008E29AE /* TMNetworkingError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMNetworkingError.swift; sourceTree = "<group>"; };
+		83057877298BF145008E29AE /* YHLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YHLog.swift; sourceTree = "<group>"; };
+		83057878298BF145008E29AE /* TMFolderListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMFolderListViewController.swift; sourceTree = "<group>"; };
+		83057879298BF145008E29AE /* TMUserUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMUserUtil.swift; sourceTree = "<group>"; };
+		8305787B298BF145008E29AE /* TMSendMessageFootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMSendMessageFootView.swift; sourceTree = "<group>"; };
+		8305787D298BF145008E29AE /* TMDemoGetAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMDemoGetAuth.swift; sourceTree = "<group>"; };
+		8305787E298BF145008E29AE /* SendCardAndTempMessageApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendCardAndTempMessageApi.swift; sourceTree = "<group>"; };
+		8305787F298BF145008E29AE /* SetMessageStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetMessageStatus.swift; sourceTree = "<group>"; };
+		83057880298BF145008E29AE /* TMDemoLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMDemoLogin.swift; sourceTree = "<group>"; };
+		83057882298BF145008E29AE /* Thread.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thread.swift; sourceTree = "<group>"; };
+		83057883298BF145008E29AE /* Promise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Promise.h; sourceTree = "<group>"; };
+		83057884298BF145008E29AE /* Async.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = "<group>"; };
+		83057885298BF145008E29AE /* Promise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Promise.swift; sourceTree = "<group>"; };
+		83057886298BF145008E29AE /* TMInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMInputViewController.swift; sourceTree = "<group>"; };
+		83057887298BF145008E29AE /* TMFilePreController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMFilePreController.swift; sourceTree = "<group>"; };
+		83057888298BF145008E29AE /* DetailKeyBordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailKeyBordView.swift; sourceTree = "<group>"; };
+		83057889298BF145008E29AE /* TMCostomizeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMCostomizeView.swift; sourceTree = "<group>"; };
+		8305788A298BF145008E29AE /* TMChatListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMChatListController.swift; sourceTree = "<group>"; };
 		83F4022028F4242A004D19D4 /* IMSdk-Ios-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IMSdk-Ios-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		83F4022328F4242A004D19D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83F4022728F4242A004D19D4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -180,115 +185,116 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		831D518E2969AAC900BE6880 /* Demo */ = {
+		83057852298BF145008E29AE /* Demo */ = {
 			isa = PBXGroup;
 			children = (
-				831D51B22969AAC900BE6880 /* Api */,
-				831D51AA2969AAC900BE6880 /* constant */,
-				831D51BE2969AAC900BE6880 /* DetailKeyBordView.swift */,
-				831D519C2969AAC900BE6880 /* Extension */,
-				831D51932969AAC900BE6880 /* net */,
-				831D51B72969AAC900BE6880 /* Promise */,
-				831D519B2969AAC900BE6880 /* TMChatDetailController.swift */,
-				831D51C02969AAC900BE6880 /* TMChatListController.swift */,
-				831D51BF2969AAC900BE6880 /* TMCostomizeView.swift */,
-				831D519F2969AAC900BE6880 /* TMCreateGroupViewController.swift */,
-				831D51A82969AAC900BE6880 /* TMDemoConfig.swift */,
-				831D51BD2969AAC900BE6880 /* TMFilePreController.swift */,
-				831D51AE2969AAC900BE6880 /* TMFolderListViewController.swift */,
-				831D51912969AAC900BE6880 /* TMImageBrowserViewController.swift */,
-				831D51BC2969AAC900BE6880 /* TMInputViewController.swift */,
-				831D51922969AAC900BE6880 /* TMLoginController.swift */,
-				831D51902969AAC900BE6880 /* TMNavigationController.swift */,
-				831D518F2969AAC900BE6880 /* TMSendMessageViewController.swift */,
-				831D51A72969AAC900BE6880 /* TMTabbarController.swift */,
-				831D51A92969AAC900BE6880 /* TMUserInfoController.swift */,
-				831D51AF2969AAC900BE6880 /* TMUserUtil.swift */,
-				831D51A02969AAC900BE6880 /* Util */,
-				831D51B02969AAC900BE6880 /* view */,
+				8305787C298BF145008E29AE /* Api */,
+				83057874298BF145008E29AE /* constant */,
+				83057888298BF145008E29AE /* DetailKeyBordView.swift */,
+				83057863298BF145008E29AE /* Extension */,
+				83057854298BF145008E29AE /* Localize.strings */,
+				8305785A298BF145008E29AE /* net */,
+				83057881298BF145008E29AE /* Promise */,
+				83057862298BF145008E29AE /* TMChatDetailController.swift */,
+				8305788A298BF145008E29AE /* TMChatListController.swift */,
+				83057889298BF145008E29AE /* TMCostomizeView.swift */,
+				83057866298BF145008E29AE /* TMCreateGroupViewController.swift */,
+				8305786F298BF145008E29AE /* TMDemoConfig.swift */,
+				83057887298BF145008E29AE /* TMFilePreController.swift */,
+				83057878298BF145008E29AE /* TMFolderListViewController.swift */,
+				83057858298BF145008E29AE /* TMImageBrowserViewController.swift */,
+				83057886298BF145008E29AE /* TMInputViewController.swift */,
+				83057859298BF145008E29AE /* TMLoginController.swift */,
+				83057856298BF145008E29AE /* TMNavigationController.swift */,
+				83057853298BF145008E29AE /* TMSendMessageViewController.swift */,
+				8305786E298BF145008E29AE /* TMTabbarController.swift */,
+				83057871298BF145008E29AE /* TMUserInfoController.swift */,
+				83057879298BF145008E29AE /* TMUserUtil.swift */,
+				83057867298BF145008E29AE /* Util */,
+				8305787A298BF145008E29AE /* view */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
 		};
-		831D51932969AAC900BE6880 /* net */ = {
+		8305785A298BF145008E29AE /* net */ = {
 			isa = PBXGroup;
 			children = (
-				831D51942969AAC900BE6880 /* Delegate401.swift */,
-				831D51952969AAC900BE6880 /* TMTokenManager.swift */,
-				831D51962969AAC900BE6880 /* ApiNoTokenService.swift */,
-				831D51972969AAC900BE6880 /* NetFactory.swift */,
-				831D51982969AAC900BE6880 /* TMNetCore.swift */,
-				831D51992969AAC900BE6880 /* TMNet.swift */,
-				831D519A2969AAC900BE6880 /* ApiBaseService.swift */,
+				8305785B298BF145008E29AE /* Delegate401.swift */,
+				8305785C298BF145008E29AE /* TMTokenManager.swift */,
+				8305785D298BF145008E29AE /* ApiNoTokenService.swift */,
+				8305785E298BF145008E29AE /* NetFactory.swift */,
+				8305785F298BF145008E29AE /* TMNetCore.swift */,
+				83057860298BF145008E29AE /* TMNet.swift */,
+				83057861298BF145008E29AE /* ApiBaseService.swift */,
 			);
 			path = net;
 			sourceTree = "<group>";
 		};
-		831D519C2969AAC900BE6880 /* Extension */ = {
+		83057863298BF145008E29AE /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				831D519D2969AAC900BE6880 /* IMSDKDateExtension.swift */,
-				831D519E2969AAC900BE6880 /* UIImageExtension.swift */,
+				83057864298BF145008E29AE /* IMSDKDateExtension.swift */,
+				83057865298BF145008E29AE /* UIImageExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		831D51A02969AAC900BE6880 /* Util */ = {
+		83057867298BF145008E29AE /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				831D51A12969AAC900BE6880 /* IMDemoSha1.swift */,
-				831D51A22969AAC900BE6880 /* MD5 */,
-				831D51A52969AAC900BE6880 /* IMSDKMessageId.swift */,
-				831D51A62969AAC900BE6880 /* IMSDKMediaChooseUtil.swift */,
+				83057868298BF145008E29AE /* IMDemoSha1.swift */,
+				83057869298BF145008E29AE /* MD5 */,
+				8305786C298BF145008E29AE /* IMSDKMessageId.swift */,
+				8305786D298BF145008E29AE /* IMSDKMediaChooseUtil.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
 		};
-		831D51A22969AAC900BE6880 /* MD5 */ = {
+		83057869298BF145008E29AE /* MD5 */ = {
 			isa = PBXGroup;
 			children = (
-				831D51A32969AAC900BE6880 /* TMMD5.m */,
-				831D51A42969AAC900BE6880 /* TMMD5.h */,
+				8305786A298BF145008E29AE /* TMMD5.m */,
+				8305786B298BF145008E29AE /* TMMD5.h */,
 			);
 			path = MD5;
 			sourceTree = "<group>";
 		};
-		831D51AA2969AAC900BE6880 /* constant */ = {
+		83057874298BF145008E29AE /* constant */ = {
 			isa = PBXGroup;
 			children = (
-				831D51AB2969AAC900BE6880 /* TMNetError.swift */,
-				831D51AC2969AAC900BE6880 /* TMNetworkingError.swift */,
-				831D51AD2969AAC900BE6880 /* YHLog.swift */,
+				83057875298BF145008E29AE /* TMNetError.swift */,
+				83057876298BF145008E29AE /* TMNetworkingError.swift */,
+				83057877298BF145008E29AE /* YHLog.swift */,
 			);
 			path = constant;
 			sourceTree = "<group>";
 		};
-		831D51B02969AAC900BE6880 /* view */ = {
+		8305787A298BF145008E29AE /* view */ = {
 			isa = PBXGroup;
 			children = (
-				831D51B12969AAC900BE6880 /* TMSendMessageFootView.swift */,
+				8305787B298BF145008E29AE /* TMSendMessageFootView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
 		};
-		831D51B22969AAC900BE6880 /* Api */ = {
+		8305787C298BF145008E29AE /* Api */ = {
 			isa = PBXGroup;
 			children = (
-				831D51B32969AAC900BE6880 /* TMDemoGetAuth.swift */,
-				831D51B42969AAC900BE6880 /* SendCardAndTempMessageApi.swift */,
-				831D51B52969AAC900BE6880 /* SetMessageStatus.swift */,
-				831D51B62969AAC900BE6880 /* TMDemoLogin.swift */,
+				8305787D298BF145008E29AE /* TMDemoGetAuth.swift */,
+				8305787E298BF145008E29AE /* SendCardAndTempMessageApi.swift */,
+				8305787F298BF145008E29AE /* SetMessageStatus.swift */,
+				83057880298BF145008E29AE /* TMDemoLogin.swift */,
 			);
 			path = Api;
 			sourceTree = "<group>";
 		};
-		831D51B72969AAC900BE6880 /* Promise */ = {
+		83057881298BF145008E29AE /* Promise */ = {
 			isa = PBXGroup;
 			children = (
-				831D51B82969AAC900BE6880 /* Thread.swift */,
-				831D51B92969AAC900BE6880 /* Promise.h */,
-				831D51BA2969AAC900BE6880 /* Async.swift */,
-				831D51BB2969AAC900BE6880 /* Promise.swift */,
+				83057882298BF145008E29AE /* Thread.swift */,
+				83057883298BF145008E29AE /* Promise.h */,
+				83057884298BF145008E29AE /* Async.swift */,
+				83057885298BF145008E29AE /* Promise.swift */,
 			);
 			path = Promise;
 			sourceTree = "<group>";
@@ -318,7 +324,7 @@
 		83F4022228F4242A004D19D4 /* IMSdk-Ios-demo */ = {
 			isa = PBXGroup;
 			children = (
-				831D518E2969AAC900BE6880 /* Demo */,
+				83057852298BF145008E29AE /* Demo */,
 				83F4022328F4242A004D19D4 /* AppDelegate.swift */,
 				83F4022728F4242A004D19D4 /* ViewController.swift */,
 				83F4022928F4242A004D19D4 /* Main.storyboard */,
@@ -359,7 +365,7 @@
 				83F4021D28F4242A004D19D4 /* Frameworks */,
 				83F4021E28F4242A004D19D4 /* Resources */,
 				BBDD5CC931EDEF3D5839F4CD /* [CP] Embed Pods Frameworks */,
-				A1838CF6491200240C1571A5 /* [CP] Copy Pods Resources */,
+				7DC9FCEB4E3F858FA0727399 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -460,6 +466,7 @@
 				83F4023328F4242C004D19D4 /* LaunchScreen.storyboard in Resources */,
 				83F4023028F4242C004D19D4 /* Assets.xcassets in Resources */,
 				83F4022B28F4242A004D19D4 /* Main.storyboard in Resources */,
+				8305788C298BF145008E29AE /* Localize.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,7 +509,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A1838CF6491200240C1571A5 /* [CP] Copy Pods Resources */ = {
+		7DC9FCEB4E3F858FA0727399 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -543,49 +550,49 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				831D51C22969AACA00BE6880 /* TMNavigationController.swift in Sources */,
-				831D51DB2969AACA00BE6880 /* TMUserUtil.swift in Sources */,
-				831D51D12969AACA00BE6880 /* TMMD5.m in Sources */,
-				831D51C42969AACA00BE6880 /* TMLoginController.swift in Sources */,
-				831D51CE2969AACA00BE6880 /* UIImageExtension.swift in Sources */,
-				831D51D02969AACA00BE6880 /* IMDemoSha1.swift in Sources */,
-				831D51E22969AACA00BE6880 /* Async.swift in Sources */,
-				831D51E72969AACA00BE6880 /* TMCostomizeView.swift in Sources */,
-				831D51DD2969AACA00BE6880 /* TMDemoGetAuth.swift in Sources */,
-				831D51E12969AACA00BE6880 /* Thread.swift in Sources */,
+				8305788D298BF145008E29AE /* TMNavigationController.swift in Sources */,
+				830578A7298BF145008E29AE /* TMUserUtil.swift in Sources */,
+				8305789C298BF145008E29AE /* TMMD5.m in Sources */,
+				8305788F298BF145008E29AE /* TMLoginController.swift in Sources */,
+				83057899298BF145008E29AE /* UIImageExtension.swift in Sources */,
+				8305789B298BF145008E29AE /* IMDemoSha1.swift in Sources */,
+				830578AE298BF145008E29AE /* Async.swift in Sources */,
+				830578B3298BF145008E29AE /* TMCostomizeView.swift in Sources */,
+				830578A9298BF145008E29AE /* TMDemoGetAuth.swift in Sources */,
+				830578AD298BF145008E29AE /* Thread.swift in Sources */,
 				83F4022828F4242A004D19D4 /* ViewController.swift in Sources */,
-				831D51D22969AACA00BE6880 /* IMSDKMessageId.swift in Sources */,
-				831D51C62969AACA00BE6880 /* TMTokenManager.swift in Sources */,
-				831D51C32969AACA00BE6880 /* TMImageBrowserViewController.swift in Sources */,
-				831D51D92969AACA00BE6880 /* YHLog.swift in Sources */,
-				831D51C52969AACA00BE6880 /* Delegate401.swift in Sources */,
-				831D51CD2969AACA00BE6880 /* IMSDKDateExtension.swift in Sources */,
-				831D51E52969AACA00BE6880 /* TMFilePreController.swift in Sources */,
-				831D51C12969AACA00BE6880 /* TMSendMessageViewController.swift in Sources */,
-				831D51C92969AACA00BE6880 /* TMNetCore.swift in Sources */,
-				831D51D82969AACA00BE6880 /* TMNetworkingError.swift in Sources */,
+				8305789D298BF145008E29AE /* IMSDKMessageId.swift in Sources */,
+				83057891298BF145008E29AE /* TMTokenManager.swift in Sources */,
+				8305788E298BF145008E29AE /* TMImageBrowserViewController.swift in Sources */,
+				830578A5298BF145008E29AE /* YHLog.swift in Sources */,
+				83057890298BF145008E29AE /* Delegate401.swift in Sources */,
+				83057898298BF145008E29AE /* IMSDKDateExtension.swift in Sources */,
+				830578B1298BF145008E29AE /* TMFilePreController.swift in Sources */,
+				8305788B298BF145008E29AE /* TMSendMessageViewController.swift in Sources */,
+				83057894298BF145008E29AE /* TMNetCore.swift in Sources */,
+				830578A4298BF145008E29AE /* TMNetworkingError.swift in Sources */,
 				83F4022E28F4242A004D19D4 /* IMSdk_Ios_demo.xcdatamodeld in Sources */,
-				831D51CB2969AACA00BE6880 /* ApiBaseService.swift in Sources */,
-				831D51C82969AACA00BE6880 /* NetFactory.swift in Sources */,
-				831D51CC2969AACA00BE6880 /* TMChatDetailController.swift in Sources */,
-				831D51D72969AACA00BE6880 /* TMNetError.swift in Sources */,
-				831D51DF2969AACA00BE6880 /* SetMessageStatus.swift in Sources */,
-				831D51D52969AACA00BE6880 /* TMDemoConfig.swift in Sources */,
-				831D51E42969AACA00BE6880 /* TMInputViewController.swift in Sources */,
+				83057896298BF145008E29AE /* ApiBaseService.swift in Sources */,
+				83057893298BF145008E29AE /* NetFactory.swift in Sources */,
+				83057897298BF145008E29AE /* TMChatDetailController.swift in Sources */,
+				830578A3298BF145008E29AE /* TMNetError.swift in Sources */,
+				830578AB298BF145008E29AE /* SetMessageStatus.swift in Sources */,
+				830578A0298BF145008E29AE /* TMDemoConfig.swift in Sources */,
+				830578B0298BF145008E29AE /* TMInputViewController.swift in Sources */,
 				83F4022428F4242A004D19D4 /* AppDelegate.swift in Sources */,
-				831D51E32969AACA00BE6880 /* Promise.swift in Sources */,
-				831D51D32969AACA00BE6880 /* IMSDKMediaChooseUtil.swift in Sources */,
-				831D51D42969AACA00BE6880 /* TMTabbarController.swift in Sources */,
-				831D51CF2969AACA00BE6880 /* TMCreateGroupViewController.swift in Sources */,
-				831D51E02969AACA00BE6880 /* TMDemoLogin.swift in Sources */,
-				831D51DA2969AACA00BE6880 /* TMFolderListViewController.swift in Sources */,
-				831D51D62969AACA00BE6880 /* TMUserInfoController.swift in Sources */,
-				831D51E62969AACA00BE6880 /* DetailKeyBordView.swift in Sources */,
-				831D51C72969AACA00BE6880 /* ApiNoTokenService.swift in Sources */,
-				831D51E82969AACA00BE6880 /* TMChatListController.swift in Sources */,
-				831D51DC2969AACA00BE6880 /* TMSendMessageFootView.swift in Sources */,
-				831D51DE2969AACA00BE6880 /* SendCardAndTempMessageApi.swift in Sources */,
-				831D51CA2969AACA00BE6880 /* TMNet.swift in Sources */,
+				830578AF298BF145008E29AE /* Promise.swift in Sources */,
+				8305789E298BF145008E29AE /* IMSDKMediaChooseUtil.swift in Sources */,
+				8305789F298BF145008E29AE /* TMTabbarController.swift in Sources */,
+				8305789A298BF145008E29AE /* TMCreateGroupViewController.swift in Sources */,
+				830578AC298BF145008E29AE /* TMDemoLogin.swift in Sources */,
+				830578A6298BF145008E29AE /* TMFolderListViewController.swift in Sources */,
+				830578A1298BF145008E29AE /* TMUserInfoController.swift in Sources */,
+				830578B2298BF145008E29AE /* DetailKeyBordView.swift in Sources */,
+				83057892298BF145008E29AE /* ApiNoTokenService.swift in Sources */,
+				830578B4298BF145008E29AE /* TMChatListController.swift in Sources */,
+				830578A8298BF145008E29AE /* TMSendMessageFootView.swift in Sources */,
+				830578AA298BF145008E29AE /* SendCardAndTempMessageApi.swift in Sources */,
+				83057895298BF145008E29AE /* TMNet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -622,6 +629,17 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		83057854298BF145008E29AE /* Localize.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				83057855298BF145008E29AE /* zh-Hans */,
+				83057857298BF145008E29AE /* en */,
+				83057870298BF145008E29AE /* zh-Hant */,
+				83057873298BF145008E29AE /* tr */,
+			);
+			name = Localize.strings;
+			sourceTree = "<group>";
+		};
 		83F4022928F4242A004D19D4 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

@@ -88,15 +88,15 @@ class TMCreateGroupViewController: UIViewController {
     
     @objc private func sendMassageClick() {
         if let loginInfo = TMUserUtil.getLogin() {
-            IMSdk.getInstance(ak: loginInfo.ak, env: .alpha, deviceId: "iOS").sendTextMessage(aChatId: "achatid", aMid: IMSDKMessageId.create(uid: "33724e6c346e"), content: "咔叽过分哈股份")
+            IMSdk.getInstance(ak: loginInfo.ak, env: SdkEnvType, deviceId: "iOS").sendTextMessage(aChatId: "achatid", aMid: IMSDKMessageId.create(uid: "33724e6c346e"), content: "咔叽过分哈股份")
         }
 //        TMKit.shared.sendTextMassage(content: "咔叽过分哈股份", aChatId: "achatid", aMid: IMSDKMessageId.create(uid: "33724e6c346e"))
     }
 
     @objc private func getConversionsClick() {
-        if let loginInfo = TMUserUtil.getLogin() {
-            IMSdk.getInstance(ak: loginInfo.ak, env: .alpha, deviceId: "iOS").getConversions()
-        }
+//        if let loginInfo = TMUserUtil.getLogin() {
+//            IMSdk.getInstance(ak: loginInfo.ak, env: SdkEnvType, deviceId: "iOS").getConversions()
+//        }
 //        let list = TMKit.shared.getConversions()
 //        print("获取会话列表一共：\(list.count)条")
     }

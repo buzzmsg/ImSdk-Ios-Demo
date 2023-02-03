@@ -29,7 +29,7 @@ class TMUserInfoController: UIViewController {
     
     @objc private func createGroupClick() {
         if let loginInfo = TMUserUtil.getLogin() {
-            IMSdk.getInstance(ak: loginInfo.ak, env: .alpha, deviceId: "iOS").loginOut()
+            IMSdk.getInstance(ak: loginInfo.ak, env: SdkEnvType, deviceId: "iOS").loginOut()
             //demo
             TMUserUtil.cleanLogin()
             

@@ -74,7 +74,7 @@ class TMLoginController: UIViewController {
                 return TMDemoGetAuth.execute(token: response.token).then { authRespon -> Promise<Void> in
                     var tempResponse = response
                     tempResponse.authcode = authRespon.authcode
-                    TMUserUtil.setLogin(data: tempResponse)
+                    TMUserUtil.shared.saveLoginInfo(info: tempResponse)
                     let tabbar: TMTabbarController = TMTabbarController()
                     UIApplication.shared.keyWindow?.rootViewController = tabbar
                     SVProgressHUD.popActivity()
@@ -84,11 +84,5 @@ class TMLoginController: UIViewController {
         }else {
             SVProgressHUD.popActivity()
         }
-        
-        
-        
-        
     }
-    
-
 }

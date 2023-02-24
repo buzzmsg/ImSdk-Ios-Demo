@@ -6,16 +6,16 @@
 //
 
 import UIKit
-import IMSdk
+import IMSDK
 
-class TMFolderListViewController: UIViewController, IMDelegate, ConversationDelegate, TMConversionSelector {
+class TMFolderListViewController: UIViewController, IMDelegate, IMConversationDelegate, IMConversionSelector {
 
     var aChatIds:[String] = []
-
-    var kit: IMSdk?
-    var conversionViewModel: TMConversionViewModel?
-
-    private var chatView: ConversationView = ConversationView()
+    var imSdk: IMSdk? {
+        return TMUserUtil.shared.imSdk
+    }
+    var conversionViewModel: IMConversionViewModel?
+    private var chatView: IMConversationView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,17 +24,11 @@ class TMFolderListViewController: UIViewController, IMDelegate, ConversationDele
         self.title = "不感兴趣"
         self.view.backgroundColor = UIColor.white
         
-        if let loginInfo = TMUserUtil.getLogin() {
-            self.kit = IMSdk.getInstance(ak: loginInfo.ak, env: SdkEnvType, deviceId: "iOS")
-        }
-        
-        if let kit = self.kit {
-            self.conversionViewModel = kit.createConversationViewModel(selector: ChatViewModelFactory.ofPart(ids: self.aChatIds))
-            if let viewModel = self.conversionViewModel {
-                self.chatView = viewModel.getConversionView()
-                self.chatView.setDelegate(delegate: self)
-                self.view.addSubview(self.chatView)
-            }
+        conversionViewModel = imSdk?.createConversationViewModel(selector: IMChatViewModelFactory.ofPart(ids: self.aChatIds))
+        if let chatView = conversionViewModel?.getConversionView() {
+            self.chatView = chatView
+            chatView.setDelegate(delegate: self)
+            self.view.addSubview(chatView)
         }
     }
     
@@ -44,24 +38,28 @@ class TMFolderListViewController: UIViewController, IMDelegate, ConversationDele
         let originY: CGFloat = 0.0
 //        let tabbarH: CGFloat = self.tabBarController?.tabBar.frame.height ?? 0.0
         let height: CGFloat = self.view.frame.height - originY
-        self.chatView.frame = CGRect(x: 0, y: originY, width: screenWidth, height: height)
+        self.chatView?.frame = CGRect(x: 0, y: originY, width: screenWidth, height: height)
     }
+    
     
     func onShowUserInfo(aUids: [String]) {
         
         let value = Int(arc4random()%47) + 1
-
         let image = UIImage.init(named: "head_" + String(value))
         
         if let data = image?.pngData() {
-            let userProfile = UserProfile(avatar: data, format: "jpg", name: "小胖子", avatarPath: "")
-            let model = UserInfoModel(aUid: aUids.first ?? "", profile: userProfile)
-            self.kit?.setUserInfo(userInfos: [model], complete: { code in
-                if code == 1024 {
-                    print("头像选择的图片超过1M")
-                }
-            })
+            let userProfile = UserProfile(avatar: IMAvatar(data: data, format: "jpg"), name1: "小胖子", name3: "")
+            let model = IMUserInfoModel(aUid: aUids.first ?? "", profile: userProfile)
+            self.imSdk?.setUserInfo(userInfos: [model])
         }
+    }
+    
+    func authCodeExpire(aUid: String, errorCode: IMSDK.IMSdkError) {
+        
+    }
+    
+    func onShowUserInfo(datas: [IMSDK.IMShowUserInfo]) {
+        
     }
 
     func onItemClick(aChatId: String) {
@@ -70,14 +68,5 @@ class TMFolderListViewController: UIViewController, IMDelegate, ConversationDele
         vc.aChatId = aChatId
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

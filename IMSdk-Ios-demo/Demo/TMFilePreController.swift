@@ -6,12 +6,12 @@
 //
 
 import UIKit
-import IMSdk
+import IMSDK
 
 class TMFilePreController: UIViewController {
 
     
-    var preView: FilePreView?
+    var preView: IMFilePreView?
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -6,26 +6,62 @@
 //
 
 import UIKit
-
+import IMSDK
 
 let TM_DEMO_UID_KEY: String = "demo_uid_key"
 
+let IMSDKApiHostMap: [IMEnvironmentType : String] = [
+    IMEnvironmentType.alpha : "https://dev-sdk-api.rpgqp.com:7501",
+    // TMMIMEnvironmentType.pre : "https://imsi-pre.tmmtmm.com.tr:6501",
+    IMEnvironmentType.pro : "https://sci.rpgqp.com:5501",
+]
+
+let IMSDKSocketHostMap: [IMEnvironmentType : String] = [
+    IMEnvironmentType.alpha : "wss://dev-sdk-tcp.rpgqp.com:7503",
+    // TMMIMEnvironmentType.pre : "wss://imsws-pre.tmmtmm.com.tr:6502/wsConnect",
+    IMEnvironmentType.pro : "wss://ws.rpgqp.com:5503",
+]
 
 class TMUserUtil: NSObject {
 
+    static let shared = TMUserUtil()
     
-    static func setLogin(data: TMDemoLoginResponse) {
-        UserDefaults.standard.set(data.toJSONString(), forKey: TM_DEMO_UID_KEY)
+    var loginInfo: TMDemoLoginResponse?
+    var isLogged: Bool {
+        return loginInfo != nil
     }
     
-    static func getLogin() -> TMDemoLoginResponse? {
+    var imSdk: IMSdk?
+    
+    override init() {
+        super.init()
+        initLoginInfo()
+    }
+    
+    func initLoginInfo() {
         if let value = UserDefaults.standard.value(forKey: TM_DEMO_UID_KEY) as? String {
-            return TMDemoLoginResponse.deserialize(from: value)
+            loginInfo = TMDemoLoginResponse.deserialize(from: value)
         }
-        return nil
     }
     
-    static func cleanLogin() {
+    func initIMSdk() {
+        guard let info = loginInfo else { return }
+        let apiUrl = IMSDKApiHostMap[SdkEnvType] ?? ""
+        let wsUrl = IMSDKSocketHostMap[SdkEnvType] ?? ""
+        let config = IMSdkConfig(env: SdkEnvType, deviceId: "iOS", apiUrl: apiUrl, wsUrl: wsUrl)
+        imSdk = IMSdk.getInstance(ak: info.ak, config: config)
+    }
+    
+    func saveLoginInfo(info: TMDemoLoginResponse) {
+        loginInfo = info
+        initIMSdk()
+        UserDefaults.standard.set(info.toJSONString(), forKey: TM_DEMO_UID_KEY)
+        UserDefaults.standard.synchronize()
+    }
+    
+    func clearLoginInfo() {
+        loginInfo = nil
         UserDefaults.standard.removeObject(forKey: TM_DEMO_UID_KEY)
+        UserDefaults.standard.synchronize()
     }
 }

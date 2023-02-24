@@ -7,20 +7,26 @@
 
 import UIKit
 import SnapKit
-import IMSdk
+import IMSDK
 
-class TMChatDetailController: UIViewController, ChatDelegate, IMDelegate {
-
+class TMChatDetailController: UIViewController, IMChatDelegate, IMDelegate {
+    
     var aChatId = ""
-    var kit: IMSdk?
+    var imSdk: IMSdk? {
+        return TMUserUtil.shared.imSdk
+    }
+    
+    lazy var viewModel: IMConversionViewModel? = {
+        return imSdk?.createConversationViewModel(selector: IMChatViewModelFactory.ofPart(ids: [aChatId]))
+    }()
 
     deinit {
         print("TMChatDetailController - swift 灰飞烟灭")
-        }
+    }
 
     public var tapMap: [String: ((UIView) -> ())] = [:]
 
-    private var chatListView: ChatView?
+    private var chatListView: IMChatView?
 
     private lazy var sendView: TMSendMessageFootView = {
         let sendView = TMSendMessageFootView(frame: .zero)
@@ -69,26 +75,21 @@ class TMChatDetailController: UIViewController, ChatDelegate, IMDelegate {
             make.left.bottom.right.equalToSuperview()
             make.height.equalTo(140)
         }
-        if let loginInfo = TMUserUtil.getLogin() {
-            self.kit?.setIMDelegate(delegate: self)
-//            self.kit?.setLanguage(language: IMLanguageType.SimplifiedChinese)
-
-            self.chatListView = IMSdk.getInstance(ak: loginInfo.ak, env: SdkEnvType, deviceId: "iOS").creatChatView(aChatId: self.aChatId)
-            if let v = self.chatListView {
-                v.backgroundColor = .white
-                v.setDelegate(delegate: self)
-                self.view.addSubview(v)
-                v.snp_makeConstraints { make in
-                    make.left.top.right.equalToSuperview()
-                    make.bottom.equalTo(self.sendView.snp_top)
-                }
-                let tap = UITapGestureRecognizer(target: self, action: #selector(tapAct(gesture:)))
-                v.addGestureRecognizer(tap)
-            }
-            
-
-        }
         
+        self.imSdk?.setIMDelegate(delegate: self)
+        self.chatListView = self.imSdk?.creatChatView(aChatId: self.aChatId)
+        
+        if let v = self.chatListView {
+            v.backgroundColor = .white
+            v.setDelegate(delegate: self)
+            self.view.addSubview(v)
+            v.snp_makeConstraints { make in
+                make.left.top.right.equalToSuperview()
+                make.bottom.equalTo(self.sendView.snp_top)
+            }
+            let tap = UITapGestureRecognizer(target: self, action: #selector(tapAct(gesture:)))
+            v.addGestureRecognizer(tap)
+        }
         
         self.view.addSubview(self.inputV)
         self.inputV.isHidden = true
@@ -181,57 +182,36 @@ class TMChatDetailController: UIViewController, ChatDelegate, IMDelegate {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    // 设置会话标识
     @objc private func subTitleClick() {
-        
-        
         let value = Int(arc4random()%47) + 1
-
         let image = UIImage.init(named: "head_" + String(value))
         
         if let data = image?.pngData() {
 //            let userProfile = UserProfile(avatar: data, format: "jpg", name: "小胖子")
 //            let model = UserInfoModel(aUid: aUids.first ?? "", profile: userProfile)
 //            self.kit?.setUserInfo(userInfos: [model])
-            if let loginInfo = TMUserUtil.getLogin() {
-                
-                let marker1 = ConversationMarker(aChatId: self.aChatId, icon: data, format: "jpg")
-                IMSdk.getInstance(ak: loginInfo.ak, env: SdkEnvType, deviceId: "iOS").setConversationMarker(markers: [marker1])
-                self.navigationController?.popViewController(animated: true)
-            }
+            
+            let marker = IMConversationMarker(aChatId: self.aChatId, icon: IMAvatar(data: data, format: "jpg"))
+            self.viewModel?.setConversationMarker(markers: [marker])
+            self.navigationController?.popViewController(animated: true)
         }
-        
-        
-//        IMSDKMediaChooseUtil.shared.chooseMedia(viewController: self) { [weak self] (imgdata, format) in
-//
-//            guard let data: Data = imgdata else {
-//                return
-//            }
-//            guard let self = self else {
-//                return
-//            }
-//
-//            if let loginInfo = TMUserUtil.getLogin() {
-//
-//                let marker1 = ConversationMarker(aChatId: self.aChatId, icon: data, format: format)
-//                IMSdk.getInstance(ak: loginInfo.ak, env: SdkEnvType, deviceId: "iOS").setConversationMarker(markers: [marker1])
-//                self.navigationController?.popViewController(animated: true)
-//            }
-//        }
     }
     
-    func onShowUserInfo(aUids: [String]) {
+    func authCodeExpire(aUid: String, errorCode: IMSDK.IMSdkError) {
+        
+    }
+    
+    func onShowUserInfo(datas: [IMSDK.IMShowUserInfo]) {
         let value = Int(arc4random()%47) + 1
-
         let image = UIImage.init(named: "head_" + String(value))
-
+        
         if let data = image?.pngData() {
-            let userProfile = UserProfile(avatar: data, format: "jpg", name: "小胖子", avatarPath: "")
-            let model = UserInfoModel(aUid: aUids.first ?? "", profile: userProfile)
-            self.kit?.setUserInfo(userInfos: [model], complete: { code in
-                if code == 1024 {
-                    print("头像选择的图片超过1M")
-                }
-            })
+            let userProfile = UserProfile(avatar: IMAvatar(data: data, format: "jpg"), name1: "小胖子", name3: "")
+            if let aUid = datas.first?.aUid {
+                let model = IMUserInfoModel(aUid: aUid, profile: userProfile)
+                self.imSdk?.setUserInfo(userInfos: [model])
+            }
         }
     }
     
@@ -243,31 +223,26 @@ class TMChatDetailController: UIViewController, ChatDelegate, IMDelegate {
                 return
             }
             
-            if let loginInfo = TMUserUtil.getLogin() {
-                
-                let subTitle = ConversationSubTitle(aChatId: self.aChatId, subTitle: text)
-                IMSdk.getInstance(ak: loginInfo.ak, env: SdkEnvType, deviceId: "iOS").setConversationSubTitle(subTitles: [subTitle])
-                self.navigationController?.popViewController(animated: true)
-            }
+            let subTitle = IMConversationSubTitle(aChatId: self.aChatId, subTitle: text)
+            self.imSdk?.setConversationSubTitle(subTitles: [subTitle])
+            self.navigationController?.popViewController(animated: true)
         }
         vc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(vc, animated: true)
-        
     }
     
-    func onFileMessageClick(aMid: String, preView: FilePreView) {
+    func onFileMessageClick(aMid: String, preView: IMFilePreView) {
         let vc: TMFilePreController = TMFilePreController()
         vc.preView = preView
         self.navigationController?.pushViewController(vc, animated: true)
     }
 
-    func onCardMessageClick(aMid: String, buttonId: String) {
-        if let loginInfo = TMUserUtil.getLogin() {
-            IMSdk.getInstance(ak: loginInfo.ak, env: SdkEnvType, deviceId: "iOS").disableCardMessage(aMid: aMid, buttonIds: [buttonId])
-        }
+    
+    func onButtonMessageClick(aMid: String, buttonId: String) {
+        self.imSdk?.disableCardMessage(aMid: aMid, buttonIds: [buttonId])
     }
     
-    func onImageMessageClick(preView: TMImageBrowserView) {
+    func onImageMessageClick(preView: IMImageBrowserView) {
         let vc = TMImageBrowserViewController()
         vc.imageBrowserView = preView
         self.navigationController?.pushViewController(vc, animated: false)

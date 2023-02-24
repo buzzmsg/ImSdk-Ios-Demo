@@ -29,7 +29,7 @@ public class TMNetCore {
                         method: HTTPMethod = .post,
                         parameters: [String : Any]? = nil) -> Promise<String> {
         var parmStr: String = ""
-        if let par: String = parameters?.dicJsonEnCode {
+        if let par: String = parameters?.yh_jsonEnCode {
             parmStr = par
         }
         print(parmStr)

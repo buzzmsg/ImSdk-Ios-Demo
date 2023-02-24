@@ -119,7 +119,6 @@
 #import "NSObject+QMUI.h"
 #import "NSParagraphStyle+QMUI.h"
 #import "NSPointerArray+QMUI.h"
-#import "NSShadow+QMUI.h"
 #import "NSString+QMUI.h"
 #import "NSURL+QMUI.h"
 #import "QMUIStringPrivate.h"

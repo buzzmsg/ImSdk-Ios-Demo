@@ -8,11 +8,9 @@
 import UIKit
 import SnapKit
 import QMUIKit
-import IMSdk
+import IMSDK
 
 class TMSendMessageViewController: UIViewController {
-
-    var aChatId = ""
     
     private lazy var messageTextView: QMUITextView = {
         let messageTextView = QMUITextView(frame: .zero)
@@ -82,6 +80,11 @@ class TMSendMessageViewController: UIViewController {
         return sendTextBtn
     }()
     
+    var aChatId = ""
+    var imSdk: IMSdk? {
+        return TMUserUtil.shared.imSdk
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -141,12 +144,10 @@ class TMSendMessageViewController: UIViewController {
     
     @objc private func sendTextClick() {
         if self.messageTextView.text.count > 0 {
-            if let loginInfo = TMUserUtil.getLogin() {
-                IMSdk.getInstance(ak: loginInfo.ak, env: SdkEnvType, deviceId: "iOS").sendTextMessage(aChatId: self.aChatId, aMid: IMSDKMessageId.create(uid: "f1ab109be266e394"), content: self.messageTextView.text)
-                self.navigationController?.popViewController(animated: true)
-            }
+            let mid = IMSDKMessageId.create(uid: "f1ab109be266e394")
+            self.imSdk?.sendTextMessage(aChatId: self.aChatId, aMid: mid, content: self.messageTextView.text)
+            self.navigationController?.popViewController(animated: true)
         }
-
     }
 
     @objc private func sendPicClick() {
@@ -156,12 +157,9 @@ class TMSendMessageViewController: UIViewController {
                 return
             }
             
-            if let loginInfo = TMUserUtil.getLogin() {
-                
-                let messageID: String = IMSDKMessageId.create(uid: "f1ab109be266e394")
-                IMSdk.getInstance(ak: loginInfo.ak, env: SdkEnvType, deviceId: "iOS").sendImageMessage(aChatId: self.aChatId, aMid: messageID, data: data, format: format)
-                self.navigationController?.popViewController(animated: true)
-            }
+            let messageID: String = IMSDKMessageId.create(uid: "f1ab109be266e394")
+            self.imSdk?.sendImageMessage(aChatId: self.aChatId, aMid: messageID, data: data, format: format)
+            self.navigationController?.popViewController(animated: true)
         }
     }
     
@@ -171,88 +169,78 @@ class TMSendMessageViewController: UIViewController {
             guard let data: Data = imgdata else {
                 return
             }
+            var ary: [String] = filename.components(separatedBy: ".")
+            let format = ary.last ?? ""
             
-            if let loginInfo = TMUserUtil.getLogin() {
-                
-                var ary: [String] = filename.components(separatedBy: ".")
-                let format = ary.last ?? ""
-                
-                ary.removeLast()
-                let name: String = ary.joined()
+            ary.removeLast()
+            let name: String = ary.joined()
 
-                let messageID: String = IMSDKMessageId.create(uid: "f1ab109be266e394")
-                IMSdk.getInstance(ak: loginInfo.ak, env: SdkEnvType, deviceId: "iOS").sendAttachmentMessage(aChatId: self.aChatId, aMid: messageID, data: data, fileName: name, format: format)
-                self.navigationController?.popViewController(animated: true)
-            }
-        }
-    }
-    
-    @objc private func sendCardClick() {
-        if let loginInfo = TMUserUtil.getLogin() {
-            
-            let cardMsg: CardMessage = CardMessage()
-            
-            let text1: TextItem = TextItem()
-            text1.value = "测试文本" + "\n"
-            text1.color = "#898989"
-            
-            
-            let text2: TextItem = TextItem()
-            text2.value = "12345678910"
-            text2.color = "#00C6DB"
-            
-            
-            let btn1: ButtonItem = ButtonItem()
-            btn1.txt = "不来"
-            btn1.enableColor = "#0BCADE"
-            btn1.disableColor = "#E9EAF0"
-            btn1.buttonId = "btn1Context"
-            
-            let btn2: ButtonItem = ButtonItem()
-            btn2.txt = "再想想"
-            btn2.enableColor = "#0BCADE"
-            btn2.disableColor = "#E9EAF0"
-            btn2.buttonId = "btn2Context"
-            
-            let btn3: ButtonItem = ButtonItem()
-            btn3.txt = "约起！"
-            btn3.enableColor = "#0BCADE"
-            btn3.disableColor = "#E9EAF0"
-            btn3.buttonId = "btn3Context"
-            
-            cardMsg.text = [text1, text2]
-            let value = Int(arc4random()%4)
-            if value == 0 {
-                cardMsg.buttons = [ ]
-            }else if value == 1 {
-                cardMsg.buttons = [btn1]
-            }else if value == 2 {
-                cardMsg.buttons = [btn1, btn2]
-            }else {
-                cardMsg.buttons = [btn1, btn2, btn3]
-            }
-            
-            
-            let value1 = Int(arc4random()%47) + 1
-
-            let image = UIImage.init(named: "head_" + String(value1))
-            
-            if let data = image?.pngData() {
-                cardMsg.icon = data
-                cardMsg.format = "jpg"
-            }
-            
-            
-            
             let messageID: String = IMSDKMessageId.create(uid: "f1ab109be266e394")
-            IMSdk.getInstance(ak: loginInfo.ak, env: SdkEnvType, deviceId: "iOS").sendCardMessage(aChatId: self.aChatId, aMid: messageID, msg: cardMsg)
+            self.imSdk?.sendAttachmentMessage(aChatId: self.aChatId, aMid: messageID, data: data, fileName: name, format: format)
             self.navigationController?.popViewController(animated: true)
         }
     }
     
+    @objc private func sendCardClick() {
+        let cardMsg = IMCardMessage()
+        
+        let text1: TextItem = TextItem()
+        text1.value = "测试文本" + "\n"
+        text1.color = "#898989"
+        
+        
+        let text2: TextItem = TextItem()
+        text2.value = "12345678910"
+        text2.color = "#00C6DB"
+        
+        
+        let btn1: ButtonItem = ButtonItem()
+        btn1.txt = "不来"
+        btn1.enableColor = "#0BCADE"
+        btn1.disableColor = "#E9EAF0"
+        btn1.buttonId = "btn1Context"
+        
+        let btn2: ButtonItem = ButtonItem()
+        btn2.txt = "再想想"
+        btn2.enableColor = "#0BCADE"
+        btn2.disableColor = "#E9EAF0"
+        btn2.buttonId = "btn2Context"
+        
+        let btn3: ButtonItem = ButtonItem()
+        btn3.txt = "约起！"
+        btn3.enableColor = "#0BCADE"
+        btn3.disableColor = "#E9EAF0"
+        btn3.buttonId = "btn3Context"
+        
+        cardMsg.text = [text1, text2]
+        let value = Int(arc4random()%4)
+        if value == 0 {
+            cardMsg.buttons = [ ]
+        }else if value == 1 {
+            cardMsg.buttons = [btn1]
+        }else if value == 2 {
+            cardMsg.buttons = [btn1, btn2]
+        }else {
+            cardMsg.buttons = [btn1, btn2, btn3]
+        }
+        
+        
+        let value1 = Int(arc4random()%47) + 1
+
+        let image = UIImage.init(named: "head_" + String(value1))
+        
+        if let data = image?.pngData() {
+            cardMsg.icon = data
+            cardMsg.format = "jpg"
+        }
+        
+        let messageID: String = IMSDKMessageId.create(uid: "f1ab109be266e394")
+        self.imSdk?.sendCardMessage(aChatId: self.aChatId, aMid: messageID, msg: cardMsg)
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     @objc private func sendCVClick() {
-        if let loginInfo = TMUserUtil.getLogin() {
-            
+        if let loginInfo = TMUserUtil.shared.loginInfo {
             let time: Int = Date().milliStamp
             SendCardAndTempMessageApi.execute(aChatId: self.aChatId, aUid: loginInfo.auid, sendTime: time).then { _ -> Promise<Void> in
                 self.navigationController?.popViewController(animated: true)
@@ -260,15 +248,4 @@ class TMSendMessageViewController: UIViewController {
             }
         }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

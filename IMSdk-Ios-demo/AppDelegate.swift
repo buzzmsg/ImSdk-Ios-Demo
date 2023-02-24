@@ -7,7 +7,7 @@
 
 import UIKit
 import CoreData
-import IMSdk
+import IMSDK
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,22 +21,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.backgroundColor = .white
         
-        if let loginInfo = TMUserUtil.getLogin() {
-            let tabbar: TMTabbarController = TMTabbarController()
-            IMSdk.getInstance(ak: loginInfo.ak, env: .alpha, deviceId: "iOS")
-            self.window?.rootViewController = tabbar
-        }else {
-            let loginVC: TMLoginController = TMLoginController()
-            self.window?.rootViewController = loginVC
+        if TMUserUtil.shared.isLogged {
+            TMUserUtil.shared.initIMSdk()
+            self.window?.rootViewController = TMTabbarController()
+        } else {
+            self.window?.rootViewController = TMLoginController()
         }
-        
         self.window?.makeKeyAndVisible()
         
         return true
     }
-
-
-
 }
 
 extension AppDelegate {

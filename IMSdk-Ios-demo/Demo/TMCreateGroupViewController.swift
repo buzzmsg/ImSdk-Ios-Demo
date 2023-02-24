@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import IMSdk
+import IMSDK
 
 let setAChatId = ""
 
@@ -75,7 +75,7 @@ class TMCreateGroupViewController: UIViewController {
     
     @objc private func createGroupClick() {
         
-        if let loginInfo = TMUserUtil.getLogin() {
+        if let _ = TMUserUtil.shared.loginInfo {
             if (self.otherUidTextField.text?.count ?? 0) > 0 {
 //                TMKit.getSharedInstance(ak: loginInfo.ak, environment: .development).createGroupChat(aUid: [self.otherUidTextField.text ?? "xxxxx"], aChatId: loginInfo.auid + "_" + (self.otherUidTextField.text ?? "xxxx"))
                 
@@ -87,9 +87,7 @@ class TMCreateGroupViewController: UIViewController {
     }
     
     @objc private func sendMassageClick() {
-        if let loginInfo = TMUserUtil.getLogin() {
-            IMSdk.getInstance(ak: loginInfo.ak, env: SdkEnvType, deviceId: "iOS").sendTextMessage(aChatId: "achatid", aMid: IMSDKMessageId.create(uid: "33724e6c346e"), content: "咔叽过分哈股份")
-        }
+        TMUserUtil.shared.imSdk?.sendTextMessage(aChatId: "achatid", aMid: IMSDKMessageId.create(uid: "33724e6c346e"), content: "咔叽过分哈股份")
 //        TMKit.shared.sendTextMassage(content: "咔叽过分哈股份", aChatId: "achatid", aMid: IMSDKMessageId.create(uid: "33724e6c346e"))
     }
 

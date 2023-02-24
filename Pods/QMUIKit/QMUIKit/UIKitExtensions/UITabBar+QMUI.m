@@ -472,11 +472,9 @@ QMUISynthesizeNSIntegerProperty(tabBarItemViewTouchCount, setTabBarItemViewTouch
 @implementation UITabBarAppearance (QMUI)
 
 - (void)qmui_applyItemAppearanceWithBlock:(void (^)(UITabBarItemAppearance * _Nonnull))block {
-    if (@available(iOS 13.0, *)) {
-        block(self.stackedLayoutAppearance);
-        block(self.inlineLayoutAppearance);
-        block(self.compactInlineLayoutAppearance);
-    }
+    block(self.stackedLayoutAppearance);
+    block(self.inlineLayoutAppearance);
+    block(self.compactInlineLayoutAppearance);
 }
 
 @end

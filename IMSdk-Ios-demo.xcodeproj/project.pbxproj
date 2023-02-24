@@ -195,8 +195,9 @@
 				83057854298BF145008E29AE /* Localize.strings */,
 				8305785A298BF145008E29AE /* net */,
 				83057881298BF145008E29AE /* Promise */,
-				83057862298BF145008E29AE /* TMChatDetailController.swift */,
+				83057879298BF145008E29AE /* TMUserUtil.swift */,
 				8305788A298BF145008E29AE /* TMChatListController.swift */,
+				83057862298BF145008E29AE /* TMChatDetailController.swift */,
 				83057889298BF145008E29AE /* TMCostomizeView.swift */,
 				83057866298BF145008E29AE /* TMCreateGroupViewController.swift */,
 				8305786F298BF145008E29AE /* TMDemoConfig.swift */,
@@ -209,7 +210,6 @@
 				83057853298BF145008E29AE /* TMSendMessageViewController.swift */,
 				8305786E298BF145008E29AE /* TMTabbarController.swift */,
 				83057871298BF145008E29AE /* TMUserInfoController.swift */,
-				83057879298BF145008E29AE /* TMUserUtil.swift */,
 				83057867298BF145008E29AE /* Util */,
 				8305787A298BF145008E29AE /* view */,
 			);
@@ -242,8 +242,8 @@
 		83057867298BF145008E29AE /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				83057868298BF145008E29AE /* IMDemoSha1.swift */,
 				83057869298BF145008E29AE /* MD5 */,
+				83057868298BF145008E29AE /* IMDemoSha1.swift */,
 				8305786C298BF145008E29AE /* IMSDKMessageId.swift */,
 				8305786D298BF145008E29AE /* IMSDKMediaChooseUtil.swift */,
 			);
@@ -364,8 +364,8 @@
 				83F4021C28F4242A004D19D4 /* Sources */,
 				83F4021D28F4242A004D19D4 /* Frameworks */,
 				83F4021E28F4242A004D19D4 /* Resources */,
-				BBDD5CC931EDEF3D5839F4CD /* [CP] Embed Pods Frameworks */,
-				7120B43CF8580AD46C9205A9 /* [CP] Copy Pods Resources */,
+				EFA8291FA5748A5BFDD9529D /* [CP] Embed Pods Frameworks */,
+				8A58ED5DFC65C3FB281036E5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -509,7 +509,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7120B43CF8580AD46C9205A9 /* [CP] Copy Pods Resources */ = {
+		8A58ED5DFC65C3FB281036E5 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -526,7 +526,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IMSdk-Ios-demo/Pods-IMSdk-Ios-demo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BBDD5CC931EDEF3D5839F4CD /* [CP] Embed Pods Frameworks */ = {
+		EFA8291FA5748A5BFDD9529D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -784,9 +784,11 @@
 				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V6VQ8W355L;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 3VV3V74D8A;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "IMSdk-Ios-demo/Info.plist";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
@@ -801,8 +803,11 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.xudehuai.IMSdk-Ios-demo";
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.oceanTest.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = oceanTest_Dev;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -820,9 +825,11 @@
 				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V6VQ8W355L;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 3VV3V74D8A;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "IMSdk-Ios-demo/Info.plist";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
@@ -837,8 +844,11 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.xudehuai.IMSdk-Ios-demo";
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.oceanTest.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = oceanTest_Dev;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

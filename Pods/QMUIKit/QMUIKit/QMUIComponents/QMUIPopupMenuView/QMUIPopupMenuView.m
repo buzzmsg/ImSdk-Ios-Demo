@@ -140,11 +140,6 @@
     [self setNeedsLayout];
 }
 
-- (void)setSectionSpacing:(CGFloat)sectionSpacing {
-    _sectionSpacing = sectionSpacing;
-    [self setNeedsLayout];
-}
-
 - (void)setSectionSeparatorColor:(UIColor *)sectionSeparatorColor {
     _sectionSeparatorColor = sectionSeparatorColor;
     [self.sectionSeparatorLayers enumerateObjectsUsingBlock:^(CALayer * _Nonnull layer, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -219,7 +214,6 @@
         height += itemHeight;
         width = MAX(width, MIN(itemSize.width, size.width));
     }];
-    height += (self.itemSections.count - 1) * self.sectionSpacing;
     size.width = width;
     size.height = height;
     return size;
@@ -255,12 +249,8 @@
             }
         }
         
-        if (section < sectionCount - 1) {
-            if (self.shouldShowSectionSeparator) {
-                self.sectionSeparatorLayers[section].frame = CGRectMake(0, minY - PixelOne + self.sectionSeparatorInset.top - self.sectionSeparatorInset.bottom, contentWidth - UIEdgeInsetsGetHorizontalValue(self.sectionSeparatorInset), PixelOne);
-            }
-            
-            minY += self.sectionSpacing;
+        if (self.shouldShowSectionSeparator && section < sectionCount - 1) {
+            self.sectionSeparatorLayers[section].frame = CGRectMake(0, minY - PixelOne + self.sectionSeparatorInset.top - self.sectionSeparatorInset.bottom, contentWidth - UIEdgeInsetsGetHorizontalValue(self.sectionSeparatorInset), PixelOne);
         }
     }
     minY += self.padding.bottom;
@@ -300,7 +290,6 @@
     self.shouldShowSectionSeparator = appearance.shouldShowSectionSeparator;
     self.sectionSeparatorColor = appearance.sectionSeparatorColor;
     self.sectionSeparatorInset = appearance.sectionSeparatorInset;
-    self.sectionSpacing = appearance.sectionSpacing;
     self.itemTitleFont = appearance.itemTitleFont;
     self.itemTitleColor = appearance.itemTitleColor;
     self.padding = appearance.padding;

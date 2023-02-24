@@ -1,6 +1,6 @@
 ${PODS_ROOT}/Target Support Files/Pods-IMSdk-Ios-demo/Pods-IMSdk-Ios-demo-resources.sh
-${PODS_ROOT}/STIMSDKIOS/STIMSDKIOS/Class/Resources/en.lproj
-${PODS_ROOT}/STIMSDKIOS/STIMSDKIOS/Class/Resources/SDKAssest.bundle
-${PODS_ROOT}/STIMSDKIOS/STIMSDKIOS/Class/Resources/tr.lproj
-${PODS_ROOT}/STIMSDKIOS/STIMSDKIOS/Class/Resources/zh-Hans.lproj
-${PODS_ROOT}/STIMSDKIOS/STIMSDKIOS/Class/Resources/zh-Hant.lproj
+${PODS_ROOT}/BuzzMsg/BuzzMsg/Class/Resources/en.lproj
+${PODS_ROOT}/BuzzMsg/BuzzMsg/Class/Resources/SDKAssest.bundle
+${PODS_ROOT}/BuzzMsg/BuzzMsg/Class/Resources/tr.lproj
+${PODS_ROOT}/BuzzMsg/BuzzMsg/Class/Resources/zh-Hans.lproj
+${PODS_ROOT}/BuzzMsg/BuzzMsg/Class/Resources/zh-Hant.lproj

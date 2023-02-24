@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import IMSdk
+import IMSDK
 
 class TMUserInfoController: UIViewController {
 
@@ -28,20 +28,9 @@ class TMUserInfoController: UIViewController {
     }
     
     @objc private func createGroupClick() {
-        if let loginInfo = TMUserUtil.getLogin() {
-            IMSdk.getInstance(ak: loginInfo.ak, env: SdkEnvType, deviceId: "iOS").loginOut()
-            //demo
-            TMUserUtil.cleanLogin()
-            
-            let loginVC: TMLoginController = TMLoginController()
-
-//            let app = AppDelegate()
-//            app.window?.rootViewController = loginVC
-            
-            UIApplication.shared.keyWindow?.rootViewController = loginVC
-//            loginVC.modalPresentationStyle = .fullScreen
-//            self.present(loginVC, animated: true)
-        }
-        
+        TMUserUtil.shared.imSdk?.loginOut()
+        TMUserUtil.shared.clearLoginInfo()
+        let loginVC: TMLoginController = TMLoginController()
+        UIApplication.shared.keyWindow?.rootViewController = loginVC
     }
 }

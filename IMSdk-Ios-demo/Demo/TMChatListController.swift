@@ -7,22 +7,30 @@
 
 import UIKit
 import SVProgressHUD
-import IMSdk
+import IMSDK
 
+
+// TODO:
+/// 1. 搬marker测试代码到当前页面逻辑
 
 let SdkEnvType: IMEnvironmentType = .pro
 
-class TMChatListController: UIViewController, IMDelegate, ConversationDelegate, TMConversionSelector,ConversionViewModelDelegate {
+class TMChatListController: UIViewController, IMDelegate, IMConversationDelegate, IMConversionSelector, ConversionViewModelDelegate {
+    
     
     func onUnReadCountChange(count: Int) {
         print("当前未读数\(count)")
     }
 
-    var loginInfo: TMDemoLoginResponse?
-    var kit: IMSdk?
-    var conversionViewModel: TMConversionViewModel?
-
-    private var chatView: ConversationView = ConversationView()
+    var loginInfo: TMDemoLoginResponse? {
+        return TMUserUtil.shared.loginInfo
+    }
+    var imSdk: IMSdk? {
+        return TMUserUtil.shared.imSdk
+    }
+    var conversionViewModel: IMConversionViewModel?
+    private var chatView: IMConversationView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,70 +41,50 @@ class TMChatListController: UIViewController, IMDelegate, ConversationDelegate, 
         let item2=UIBarButtonItem(customView: btn1)
         self.navigationItem.rightBarButtonItem = item2
         
-        if let loginInfo = TMUserUtil.getLogin() {
-            self.loginInfo = loginInfo
-            self.kit = IMSdk.getInstance(ak: loginInfo.ak, env: SdkEnvType, deviceId: "iOS")
-            self.kit?.setAuthCode(auth: loginInfo.authcode)
-            self.kit?.setLanguage(language: IMLanguageType.SimplifiedChinese)
-            self.kit?.setIMDelegate(delegate: self)
-            self.kit?.initUser(aUid: loginInfo.auid)
-        }
-        
-        if let kit = self.kit {
-//            self.conversionViewModel = kit.createConversationViewModel(selector: ChatViewModelFactory.ofUnPart(ids: ["147147000000_14714712345"]))
-            self.conversionViewModel = kit.createConversationViewModel(selector: ChatViewModelFactory.ofAll())
-//            self.conversionViewModel = kit.createConversationViewModel(selector: ChatViewModelFactory.ofPart(ids: ["147147100_1471471000"]))
+        if let imSdk = self.imSdk, let loginInfo = loginInfo {
+            imSdk.setIMDelegate(delegate: self)
+            
+            imSdk.setAuthCode(auth: loginInfo.authcode)
+            imSdk.initUser(aUid: loginInfo.auid)
+            imSdk.setLanguage(language: IMLanguageType.English)
+            
+            self.conversionViewModel = imSdk.createConversationViewModel(selector: IMChatViewModelFactory.ofAll())
             self.conversionViewModel?.setDelegate(delegate: self)
-//
+            
             let value = Int(arc4random()%47) + 1
             let image = UIImage.init(named: "head_" + String(value))
 
             if let viewModel = self.conversionViewModel {
-                
-//                if let data = image?.pngData() {
-//                    DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-//                        viewModel.setFolder(aChatId: "_not-interested-folder_", content: "4 contacts", name: "Not interested", imageData: data, imageFormat: "jpg")
-//                    }
-//                    viewModel.setFolder(aChatId: "xxxxxxxxxxxxxxxxxxxxxx", aChatIds: ["TestAli","147147000000_14714733333"], name: "不感兴趣的会话", imageData: data, imageFormat: "jpg")
-//                }
-
-                //sort
                 viewModel.setSort(sortCalsure: { t1, t2 in
                     if (t1.topTimeStamp != t2.topTimeStamp) {
                         return t1.topTimeStamp > t2.topTimeStamp
                     }
                     return t1.timeStamp > t2.timeStamp
                 })
-
-                
                 self.chatView = viewModel.getConversionView()
-                self.chatView.setDelegate(delegate: self)
-                self.view.addSubview(self.chatView)
-                
-
+                if let chatView = self.chatView {
+                    chatView.setDelegate(delegate: self)
+                    self.view.addSubview(chatView)
+                }
             }
-        } 
+        }
     }
     
-    
-    func authCodeExpire(aUid: String) {
-        print("登录失败来了")
+    func authCodeExpire(aUid: String, errorCode: IMSDK.IMSdkError) {
+        print("登录失败来了, errorCode: \(errorCode)")
     }
     
-    func onShowUserInfo(aUids: [String]) {
+    func onShowUserInfo(datas: [IMSDK.IMShowUserInfo]) {
         
         let value = Int(arc4random()%47) + 1
-
         let image = UIImage.init(named: "head_" + String(value))
-
+        
         if let data = image?.pngData() {
-            let userProfile = UserProfile(avatar: data, format: "jpg", name: "小胖子", avatarPath: "")
-            let model = UserInfoModel(aUid: aUids.first ?? "", profile: userProfile)
-            self.kit?.setUserInfo(userInfos: [model], complete: { code in
-                if code == 1024 {
-                    print("头像选择的图片超过1M")
-                }
-            })
+            let userProfile = UserProfile(avatar: IMAvatar(data: data, format: "jpg"), name1: "小胖子", name3: "")
+            if let aUid = datas.first?.aUid {
+                let model = IMUserInfoModel(aUid: aUid, profile: userProfile)
+                self.imSdk?.setUserInfo(userInfos: [model])
+            }
         }
     }
     
@@ -110,8 +98,6 @@ class TMChatListController: UIViewController, IMDelegate, ConversationDelegate, 
 //            let subTitle = ConversationSubTitle(aChatId: "1471471479_18522221111", subTitle: "开发工程师")
 //            self.kit?.setConversationSubTitle(subTitles: [subTitle])
 //        }
-        
-        
     }
     
     func onShowConversationMarker(aChatIds: [String]) {
@@ -125,12 +111,13 @@ class TMChatListController: UIViewController, IMDelegate, ConversationDelegate, 
 //        }
         
     }
-    func onReceiveMessage(receiveMessageList: [TmReceiveMessageInfo]) {
-        for item in receiveMessageList {
-            print("receive new messages amid: \(item.amid), aChatId: \(item.aChatId)")
+     
+    
+    func onReceiveMessage(aMids: [String]) {
+        for mid in aMids {
+            print("receive new messages amid: \(mid), aChatId: null")
         }
     }
-
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -166,7 +153,7 @@ class TMChatListController: UIViewController, IMDelegate, ConversationDelegate, 
         let originY: CGFloat = 0.0
         let tabbarH: CGFloat = self.tabBarController?.tabBar.frame.height ?? 0.0
         let height: CGFloat = self.view.frame.height - originY - tabbarH
-        self.chatView.frame = CGRect(x: 0, y: originY, width: screenWidth, height: height)
+        self.chatView?.frame = CGRect(x: 0, y: originY, width: screenWidth, height: height)
     }
     
     @objc private func folderMassageClick() {
@@ -176,12 +163,10 @@ class TMChatListController: UIViewController, IMDelegate, ConversationDelegate, 
         if let viewModel = self.conversionViewModel {
             
             if let data = image?.pngData() {
-                
-                viewModel.setFolder(aChatId: "_not-interested-folder_", content: "4 contacts", name: "Not interested", imageData: data, imageFormat: "jpg")
+                viewModel.setFolder(aChatId: "_not-interested-folder_", content: "4 contacts", name: "Not 4 contacts", folderIcon: IMAvatar(data: data, format: "jpg"))
             }
         }
     }
-    
     
     @objc private func addMassageClick() {
 
@@ -209,7 +194,6 @@ class TMChatListController: UIViewController, IMDelegate, ConversationDelegate, 
     }
     
     
-    
     @objc private func sendMassageClick() {
         
 //        if let viewModel = self.conversionViewModel {
@@ -221,8 +205,6 @@ class TMChatListController: UIViewController, IMDelegate, ConversationDelegate, 
 //            viewModel.updateSelector(selectAchatIds: ["_not-interested-folder_"], unSelectAchatIds:["147147100_1471471000"])
 //
 //            viewModel.updateSelector(selectAchatIds: ["147147100_1471471000"])
-//
-//
 //        }
         self.renameAlert()
         
@@ -245,40 +227,30 @@ class TMChatListController: UIViewController, IMDelegate, ConversationDelegate, 
         }else {
             let vc = TMChatDetailController()
             vc.hidesBottomBarWhenPushed = true
-            vc.kit = self.kit
             vc.aChatId = aChatId
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
 
     func renameAlert() {
-        
-
-
-            
-            
         let alertController = UIAlertController(title: "tip",
                         message: "请输入对方手机号", preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
         let okAction = UIAlertAction(title: "确定", style: .default, handler: {
             action in
             let textField: UITextField = (alertController.textFields?[0])!;
-            
-            if var str = textField.text, str.count > 1 {
-                //执行
-//                str = "14714722222"
-                
-                let otherAuid = str.DDMD5Encrypt(.lowercase16)
-                if let loginInfo = TMUserUtil.getLogin() {                    
-                    let chat = self.createAchatId(uid1: loginInfo.phone, uid2: str)
-                    IMSdk.getInstance(ak: loginInfo.ak, env: SdkEnvType, deviceId: "iOS").createChat(aChatId: chat, chatName: chat, auids: [otherAuid]) {
+            if let str = textField.text, str.count > 1 {
+                if let loginInfo = self.loginInfo {
+                    let chatId = self.createAchatId(uid1: loginInfo.phone, uid2: str)
+                    let auid = str.DDMD5Encrypt(.lowercase16)
+                    self.imSdk?.createChat(aChatId: chatId, chatName: chatId, aUids: [auid], success: {
                         let vc = TMChatDetailController()
                         vc.hidesBottomBarWhenPushed = true
-                        vc.aChatId = chat
+                        vc.aChatId = chatId
                         self.navigationController?.pushViewController(vc, animated: true)
-                    } fail: { errorString in
-                        //create fail
-                    }
+                    }, fail: { error in
+                        print("create chat error: \(error)")
+                    })
                 }
             }
         })

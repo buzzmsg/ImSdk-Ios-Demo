@@ -152,7 +152,7 @@ QMUISynthesizeCGFloatProperty(lastKeyboardHeight, setLastKeyboardHeight)
         }
     }
     if (!view) { return CGRectGetHeight(keyboardRect); }
-    CGRect keyboardRectInView = [view convertRect:keyboardRect fromCoordinateSpace:UIScreen.mainScreen.coordinateSpace];
+    CGRect keyboardRectInView = [view convertRect:keyboardRect fromView:view.window];
     CGRect keyboardVisibleRectInView = CGRectIntersection(view.bounds, keyboardRectInView);
     CGFloat resultHeight = CGRectIsValidated(keyboardVisibleRectInView) ? CGRectGetHeight(keyboardVisibleRectInView) : 0;
     return resultHeight;
@@ -307,10 +307,6 @@ static CGFloat pixelOne = -1.0f;
             @"iPhone14,5" : @"iPhone 13",
             @"iPhone14,2" : @"iPhone 13 Pro",
             @"iPhone14,3" : @"iPhone 13 Pro Max",
-            @"iPhone14,7" : @"iPhone 14",
-            @"iPhone14,8" : @"iPhone 14 Plus",
-            @"iPhone15,2" : @"iPhone 14 Pro",
-            @"iPhone15,3" : @"iPhone 14 Pro Max",
             
             @"iPad1,1" : @"iPad 1",
             @"iPad2,1" : @"iPad 2 (WiFi)",
@@ -530,21 +526,13 @@ static NSInteger isNotchedScreen = -1;
 }
 
 + (BOOL)isRegularScreen {
-    return [self isIPad] || (!IS_ZOOMEDMODE && ([self is67InchScreenAndiPhone14Later] || [self is67InchScreen] || [self is65InchScreen] || [self is61InchScreen] || [self is55InchScreen]));
-}
-
-static NSInteger is67InchScreenAndiPhone14Later = -1;
-+ (BOOL)is67InchScreenAndiPhone14Later {
-    if (is67InchScreenAndiPhone14Later < 0) {
-        is67InchScreenAndiPhone14Later = CGSizeEqualToSize(CGSizeMake(DEVICE_WIDTH, DEVICE_HEIGHT), self.screenSizeFor67InchAndiPhone14Later) ? 1 : 0;
-    }
-    return is67InchScreenAndiPhone14Later > 0;
+    return [self isIPad] || (!IS_ZOOMEDMODE && ([self is67InchScreen] || [self is65InchScreen] || [self is61InchScreen] || [self is55InchScreen]));
 }
 
 static NSInteger is67InchScreen = -1;
 + (BOOL)is67InchScreen {
     if (is67InchScreen < 0) {
-        is67InchScreen = CGSizeEqualToSize(CGSizeMake(DEVICE_WIDTH, DEVICE_HEIGHT), self.screenSizeFor67Inch) ? 1 : 0;
+        is67InchScreen = (DEVICE_WIDTH == self.screenSizeFor67Inch.width && DEVICE_HEIGHT == self.screenSizeFor67Inch.height) ? 1 : 0;
     }
     return is67InchScreen > 0;
 }
@@ -625,12 +613,8 @@ static NSInteger is35InchScreen = -1;
     return is35InchScreen > 0;
 }
 
-+ (CGSize)screenSizeFor67InchAndiPhone14Later {
-    return CGSizeMake(430, 932);// iPhone 14 Pro Max
-}
-
 + (CGSize)screenSizeFor67Inch {
-    return CGSizeMake(428, 926);// iPhone 14 Plus、13 Pro Max、12 Pro Max
+    return CGSizeMake(428, 926);
 }
 
 + (CGSize)screenSizeFor65Inch {
@@ -700,43 +684,6 @@ static CGFloat preferredLayoutWidth = -1;
     static NSDictionary<NSString *, NSDictionary<NSNumber *, NSValue *> *> *dict;
     if (!dict) {
         dict = @{
-            // iPhone 14
-            @"iPhone14,7": @{
-                @(UIInterfaceOrientationPortrait): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(47, 0, 34, 0)],
-                @(UIInterfaceOrientationLandscapeLeft): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(0, 47, 21, 47)],
-            },
-            @"iPhone14,7-Zoom": @{
-                @(UIInterfaceOrientationPortrait): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(48, 0, 28, 0)],
-                @(UIInterfaceOrientationLandscapeLeft): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(0, 48, 21, 48)],
-            },
-            // iPhone 14 Plus
-            @"iPhone14,8": @{
-                @(UIInterfaceOrientationPortrait): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(47, 0, 34, 0)],
-                @(UIInterfaceOrientationLandscapeLeft): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(0, 47, 21, 47)],
-            },
-            // iPhone 14 Plus
-            @"iPhone14,8-Zoom": @{
-                @(UIInterfaceOrientationPortrait): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(41, 0, 30, 0)],
-                @(UIInterfaceOrientationLandscapeLeft): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(0, 41, 21, 41)],
-            },
-            // iPhone 14 Pro
-            @"iPhone15,2": @{
-                @(UIInterfaceOrientationPortrait): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(59, 0, 34, 0)],
-                @(UIInterfaceOrientationLandscapeLeft): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(0, 59, 21, 59)],
-            },
-            @"iPhone15,2-Zoom": @{
-                @(UIInterfaceOrientationPortrait): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(48, 0, 28, 0)],
-                @(UIInterfaceOrientationLandscapeLeft): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(0, 48, 21, 48)],
-            },
-            // iPhone 14 Pro Max
-            @"iPhone15,3": @{
-                @(UIInterfaceOrientationPortrait): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(59, 0, 34, 0)],
-                @(UIInterfaceOrientationLandscapeLeft): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(0, 59, 21, 59)],
-            },
-            @"iPhone15,3-Zoom": @{
-                @(UIInterfaceOrientationPortrait): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(51, 0, 31, 0)],
-                @(UIInterfaceOrientationLandscapeLeft): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(0, 51, 21, 51)],
-            },
             // iPhone 13 mini
             @"iPhone14,4": @{
                 @(UIInterfaceOrientationPortrait): [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(50, 0, 34, 0)],
@@ -836,7 +783,7 @@ static CGFloat preferredLayoutWidth = -1;
     
     NSString *deviceKey = [QMUIHelper deviceModel];
     if (!dict[deviceKey]) {
-        deviceKey = @"iPhone15,2";// 默认按最新的机型处理，因为新出的设备肯定更大概率与上一代设备相似
+        deviceKey = @"iPhone14,2";// 默认按最新的 iPhone 13 Pro 处理，因为新出的设备肯定更大概率与上一代设备相似
     }
     if ([QMUIHelper isZoomedMode]) {
         deviceKey = [NSString stringWithFormat:@"%@-Zoom", deviceKey];
@@ -916,45 +863,6 @@ static NSInteger isHighPerformanceDevice = -1;
         }
     }
     return applicationSize;
-}
-
-+ (CGFloat)statusBarHeightConstant {
-    NSString *deviceModel = [QMUIHelper deviceModel];
-    
-    if (!UIApplication.sharedApplication.statusBarHidden) {
-#ifndef IOS16_SDK_ALLOWED
-        // Xcode 14 SDK 编译的才能在 iPhone 14 Pro 上读取到正确的值，否则会读到 iPhone 13 Pro 的值，过渡期间做个兼容
-        if (!IS_LANDSCAPE &&
-            ([deviceModel isEqualToString:@"iPhone15,2"] ||
-             [deviceModel isEqualToString:@"iPhone15,3"])
-            ) {
-            return 54;
-        }
-#endif
-        return UIApplication.sharedApplication.statusBarFrame.size.height;
-    }
-    
-    if (IS_IPAD) {
-        return IS_NOTCHED_SCREEN ? 24 : 20;
-    }
-    if (!IS_NOTCHED_SCREEN) {
-        return 20;
-    }
-    if (IS_LANDSCAPE) {
-        return 0;
-    }
-    if ([deviceModel isEqualToString:@"iPhone12,1"]) {
-        // iPhone 13 Mini
-        return 48;
-    }
-    if ([deviceModel isEqualToString:@"iPhone15,2"] || [deviceModel isEqualToString:@"iPhone15,3"]) {
-        // iPhone 14 Pro & iPhone 14 Pro Max
-        return 54;
-    }
-    if (IS_61INCH_SCREEN_AND_IPHONE12 || IS_67INCH_SCREEN) {
-        return 47;
-    }
-    return (IS_54INCH_SCREEN && IOS_VERSION >= 15.0) ? 50 : 44;
 }
 
 @end
@@ -1059,7 +967,7 @@ static NSInteger isHighPerformanceDevice = -1;
         // 先设置默认值，不然可能变量的指针地址错误
         instance.keyboardVisible = NO;
         instance.lastKeyboardHeight = 0;
-        instance.lastOrientationChangedByHelper = UIDeviceOrientationUnknown;
+        instance.orientationBeforeChangingByHelper = UIDeviceOrientationUnknown;
         
         [[NSNotificationCenter defaultCenter] addObserver:instance selector:@selector(handleKeyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:instance selector:@selector(handleKeyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];

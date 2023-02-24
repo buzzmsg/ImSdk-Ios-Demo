@@ -15,7 +15,7 @@
 
 #import "QMUIAsset.h"
 #import <Photos/Photos.h>
-#import <CoreServices/CoreServices.h>
+#import <CoreServices/UTCoreTypes.h>
 #import "QMUICore.h"
 #import "QMUIAssetsManager.h"
 #import "NSString+QMUI.h"

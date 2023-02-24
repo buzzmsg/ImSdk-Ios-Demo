@@ -97,18 +97,18 @@ EOM
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_resource "${PODS_ROOT}/STIMSDKIOS/STIMSDKIOS/Class/Resources/en.lproj"
-  install_resource "${PODS_ROOT}/STIMSDKIOS/STIMSDKIOS/Class/Resources/SDKAssest.bundle"
-  install_resource "${PODS_ROOT}/STIMSDKIOS/STIMSDKIOS/Class/Resources/tr.lproj"
-  install_resource "${PODS_ROOT}/STIMSDKIOS/STIMSDKIOS/Class/Resources/zh-Hans.lproj"
-  install_resource "${PODS_ROOT}/STIMSDKIOS/STIMSDKIOS/Class/Resources/zh-Hant.lproj"
+  install_resource "${PODS_ROOT}/BuzzMsg/BuzzMsg/Class/Resources/en.lproj"
+  install_resource "${PODS_ROOT}/BuzzMsg/BuzzMsg/Class/Resources/SDKAssest.bundle"
+  install_resource "${PODS_ROOT}/BuzzMsg/BuzzMsg/Class/Resources/tr.lproj"
+  install_resource "${PODS_ROOT}/BuzzMsg/BuzzMsg/Class/Resources/zh-Hans.lproj"
+  install_resource "${PODS_ROOT}/BuzzMsg/BuzzMsg/Class/Resources/zh-Hant.lproj"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_resource "${PODS_ROOT}/STIMSDKIOS/STIMSDKIOS/Class/Resources/en.lproj"
-  install_resource "${PODS_ROOT}/STIMSDKIOS/STIMSDKIOS/Class/Resources/SDKAssest.bundle"
-  install_resource "${PODS_ROOT}/STIMSDKIOS/STIMSDKIOS/Class/Resources/tr.lproj"
-  install_resource "${PODS_ROOT}/STIMSDKIOS/STIMSDKIOS/Class/Resources/zh-Hans.lproj"
-  install_resource "${PODS_ROOT}/STIMSDKIOS/STIMSDKIOS/Class/Resources/zh-Hant.lproj"
+  install_resource "${PODS_ROOT}/BuzzMsg/BuzzMsg/Class/Resources/en.lproj"
+  install_resource "${PODS_ROOT}/BuzzMsg/BuzzMsg/Class/Resources/SDKAssest.bundle"
+  install_resource "${PODS_ROOT}/BuzzMsg/BuzzMsg/Class/Resources/tr.lproj"
+  install_resource "${PODS_ROOT}/BuzzMsg/BuzzMsg/Class/Resources/zh-Hans.lproj"
+  install_resource "${PODS_ROOT}/BuzzMsg/BuzzMsg/Class/Resources/zh-Hant.lproj"
 fi
 
 mkdir -p "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"

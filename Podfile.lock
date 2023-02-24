@@ -4,7 +4,7 @@ PODS:
   - AWSCore (2.25.0)
   - AWSS3 (2.25.0):
     - AWSCore (= 2.25.0)
-  - BuzzMsg (0.0.3):
+  - BuzzMsg (0.0.4):
     - Alamofire (~> 4.9.1)
     - AliyunOSSiOS (~> 2.10.15)
     - AWSS3 (~> 2.25.0)
@@ -408,7 +408,7 @@ PODS:
   - YYText (1.0.7)
 
 DEPENDENCIES:
-  - BuzzMsg (= 0.0.3)
+  - BuzzMsg (= 0.0.4)
   - SVProgressHUD
 
 SPEC REPOS:
@@ -452,7 +452,7 @@ SPEC CHECKSUMS:
   AliyunOSSiOS: d624effdd24535da414a2bacf0027bedf64cc90e
   AWSCore: 9c51a3004e9e91528160ea978fd0c5d92780a45e
   AWSS3: 2c211728c36d1dbf4d0075d0e8ba317a561bc80c
-  BuzzMsg: 58e0567ebd3baaff69556b9a326c0316cdd2ec51
+  BuzzMsg: 95c0c98f473e4f38e6042259508a3a7dc30c8eb0
   CocoaLumberjack: 543c79c114dadc3b1aba95641d8738b06b05b646
   HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
   Localize-Swift: 6f4475136bdb0d7b2882ea3d4ea919d70142b232
@@ -482,6 +482,6 @@ SPEC CHECKSUMS:
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: 7c80d47eafb424eacdf1d9ad7171c77dec177ca0
+PODFILE CHECKSUM: 2c667aa24ca7ea58180ef53064dd06d4860249a9
 
 COCOAPODS: 1.11.2

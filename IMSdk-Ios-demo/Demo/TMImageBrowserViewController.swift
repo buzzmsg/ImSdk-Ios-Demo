@@ -8,7 +8,7 @@
 import UIKit
 import IMSDK
 
-class TMImageBrowserViewController: UIViewController {
+class TMImageBrowserViewController: UIViewController, IMImageBrowserViewDelegate {
 
     var imageBrowserView: IMImageBrowserView?
 
@@ -29,11 +29,16 @@ class TMImageBrowserViewController: UIViewController {
         
         if let pView = imageBrowserView {
             self.view.addSubview(pView)
-            pView.clickPanGestureCloseVC = { [weak self] _, _, _ in
-                guard let self = self else {return}
-                self.navigationController?.popViewController(animated: true)
-            }
+            pView.setDelegate(delegate: self)
+//            pView.clickPanGestureCloseVC = { [weak self] _, _, _ in
+//                guard let self = self else {return}
+//                self.navigationController?.popViewController(animated: true)
+//            }
         }
+    }
+    
+    func finish(scrollFrame: CGRect, color: UIColor, alpha: CGFloat) {
+        self.navigationController?.popViewController(animated: true)
     }
 
 }

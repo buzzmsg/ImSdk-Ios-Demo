@@ -8,6 +8,6 @@ target 'IMSdk-Ios-demo' do
 #  pod 'STIMSDKIOS', '0.0.20'
 #  pod 'STIMSDKIOS',:git =>"https://github.com/TmmTmmIM/STIMSDKIOS.git"
 #  pod 'BuzzMsg',:git =>"https://github.com/buzzmsg/ImSdk-Ios.git"
-  pod 'BuzzMsg', '~> 0.0.3'
+  pod 'BuzzMsg', '0.0.4'
 
 end

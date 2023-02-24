@@ -158,7 +158,7 @@ class TMSendMessageViewController: UIViewController {
             }
             
             let messageID: String = IMSDKMessageId.create(uid: "f1ab109be266e394")
-            self.imSdk?.sendImageMessage(aChatId: self.aChatId, aMid: messageID, data: data, format: format)
+            self.imSdk?.sendImageMessage(aChatId: self.aChatId, aMid: messageID, data: data, format: format, isOrigin: false)
             self.navigationController?.popViewController(animated: true)
         }
     }

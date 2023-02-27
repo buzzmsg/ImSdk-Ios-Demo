@@ -241,10 +241,12 @@ class TMChatDetailController: UIViewController, IMChatDelegate, IMDelegate {
     func onButtonMessageClick(aMid: String, buttonId: String) {
         self.imSdk?.disableCardMessage(aMid: aMid, buttonIds: [buttonId])
     }
-    
-    func onImageMessageClick(preView: IMImageBrowserView) {
+    func onImageMessageClick(preView: IMImageBrowserView, selectImageInfo: TMMImageSelectViewInfo) {
         let vc = TMImageBrowserViewController()
         vc.imageBrowserView = preView
+        vc.viewFrame = selectImageInfo.viewFrame;
+        vc.image = selectImageInfo.image;
+        vc.screenShopImage = UIApplication.shared.keyWindow?.screenshotsImage()
         self.navigationController?.pushViewController(vc, animated: false)
     }
     

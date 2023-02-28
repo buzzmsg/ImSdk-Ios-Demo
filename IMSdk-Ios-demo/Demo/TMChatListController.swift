@@ -13,7 +13,7 @@ import IMSDK
 // TODO:
 /// 1. 搬marker测试代码到当前页面逻辑
 
-let SdkEnvType: IMEnvironmentType = .pro
+let SdkEnvType: IMEnvironmentType = .alpha
 
 class TMChatListController: UIViewController, IMDelegate, IMConversationDelegate, IMConversionSelector, ConversionViewModelDelegate {
     

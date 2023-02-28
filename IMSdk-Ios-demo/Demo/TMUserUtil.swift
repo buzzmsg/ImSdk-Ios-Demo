@@ -11,13 +11,13 @@ import IMSDK
 let TM_DEMO_UID_KEY: String = "demo_uid_key"
 
 let IMSDKApiHostMap: [IMEnvironmentType : String] = [
-    IMEnvironmentType.alpha : "https://dev-sdk-api.rpgqp.com:7501",
+    IMEnvironmentType.alpha : "https://demo-sdk-api.rpgqp.com/",
     // TMMIMEnvironmentType.pre : "https://imsi-pre.tmmtmm.com.tr:6501",
     IMEnvironmentType.pro : "https://sci.rpgqp.com:5501",
 ]
 
 let IMSDKSocketHostMap: [IMEnvironmentType : String] = [
-    IMEnvironmentType.alpha : "wss://dev-sdk-tcp.rpgqp.com:7503",
+    IMEnvironmentType.alpha : "wss://dev-sdk-tcp.rpgqp.com/wsConnect",
     // TMMIMEnvironmentType.pre : "wss://imsws-pre.tmmtmm.com.tr:6502/wsConnect",
     IMEnvironmentType.pro : "wss://ws.rpgqp.com:5503",
 ]

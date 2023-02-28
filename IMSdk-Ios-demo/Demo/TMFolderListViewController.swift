@@ -8,7 +8,7 @@
 import UIKit
 import IMSDK
 
-class TMFolderListViewController: UIViewController, IMDelegate, IMConversationDelegate, IMConversionSelector {
+class TMFolderListViewController: UIViewController, IMConversationDelegate, IMConversionSelector {
 
     var aChatIds:[String] = []
     var imSdk: IMSdk? {
@@ -41,26 +41,6 @@ class TMFolderListViewController: UIViewController, IMDelegate, IMConversationDe
         self.chatView?.frame = CGRect(x: 0, y: originY, width: screenWidth, height: height)
     }
     
-    
-    func onShowUserInfo(aUids: [String]) {
-        
-        let value = Int(arc4random()%47) + 1
-        let image = UIImage.init(named: "head_" + String(value))
-        
-        if let data = image?.pngData() {
-            let userProfile = UserProfile(avatar: IMAvatar(data: data, format: "jpg"), name1: "小胖子", name3: "")
-            let model = IMUserInfoModel(aUid: aUids.first ?? "", profile: userProfile)
-            self.imSdk?.setUserInfo(userInfos: [model])
-        }
-    }
-    
-    func authCodeExpire(aUid: String, errorCode: IMSDK.IMSdkError) {
-        
-    }
-    
-    func onShowUserInfo(datas: [IMSDK.IMShowUserInfo]) {
-        
-    }
 
     func onItemClick(aChatId: String) {
         let vc = TMChatDetailController()

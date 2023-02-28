@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import IMSDK
 
-class TMChatDetailController: UIViewController, IMChatDelegate, IMDelegate {
+class TMChatDetailController: UIViewController, IMChatDelegate {
     
     var aChatId = ""
     var imSdk: IMSdk? {
@@ -76,7 +76,6 @@ class TMChatDetailController: UIViewController, IMChatDelegate, IMDelegate {
             make.height.equalTo(140)
         }
         
-        self.imSdk?.setIMDelegate(delegate: self)
         self.chatListView = self.imSdk?.creatChatView(aChatId: self.aChatId)
         
         if let v = self.chatListView {
@@ -195,23 +194,6 @@ class TMChatDetailController: UIViewController, IMChatDelegate, IMDelegate {
             let marker = IMConversationMarker(aChatId: self.aChatId, icon: IMAvatar(data: data, format: "jpg"))
             self.viewModel?.setConversationMarker(markers: [marker])
             self.navigationController?.popViewController(animated: true)
-        }
-    }
-    
-    func authCodeExpire(aUid: String, errorCode: IMSDK.IMSdkError) {
-        
-    }
-    
-    func onShowUserInfo(datas: [IMSDK.IMShowUserInfo]) {
-        let value = Int(arc4random()%47) + 1
-        let image = UIImage.init(named: "head_" + String(value))
-        
-        if let data = image?.pngData() {
-            let userProfile = UserProfile(avatar: IMAvatar(data: data, format: "jpg"), name1: "小胖子", name3: "")
-            if let aUid = datas.first?.aUid {
-                let model = IMUserInfoModel(aUid: aUid, profile: userProfile)
-                self.imSdk?.setUserInfo(userInfos: [model])
-            }
         }
     }
     

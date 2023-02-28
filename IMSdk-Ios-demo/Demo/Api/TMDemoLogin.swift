@@ -35,7 +35,7 @@ struct TMDemoLogin {
             guard var response = TMDemoLoginResponse.deserialize(from: value) else {
                 return Promise.reject(TMNetworkingError.createCommonError())
             }
-            response.ak = "68oni7jrg31qcsaijtg76qln"
+            //response.ak = "68oni7jrg31qcsaijtg76qln"
             response.phone = phone
             return Promise<TMDemoLoginResponse>.resolve(response)
         }

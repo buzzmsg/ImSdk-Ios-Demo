@@ -11,7 +11,7 @@ import IMSDK
 let TM_DEMO_UID_KEY: String = "demo_uid_key"
 
 let IMSDKApiHostMap: [IMEnvironmentType : String] = [
-    IMEnvironmentType.alpha : "https://demo-sdk-api.rpgqp.com/",
+    IMEnvironmentType.alpha : "https://demo-sdk-api.rpgqp.com",
     // TMMIMEnvironmentType.pre : "https://imsi-pre.tmmtmm.com.tr:6501",
     IMEnvironmentType.pro : "https://sci.rpgqp.com:5501",
 ]

@@ -73,6 +73,7 @@ class TMLoginController: UIViewController {
                 
                 return TMDemoGetAuth.execute(token: response.token).then { authRespon -> Promise<Void> in
                     var tempResponse = response
+                    tempResponse.ak = authRespon.ak
                     tempResponse.authcode = authRespon.authcode
                     TMUserUtil.shared.saveLoginInfo(info: tempResponse)
                     let tabbar: TMTabbarController = TMTabbarController()

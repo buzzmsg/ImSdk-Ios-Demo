@@ -81,6 +81,9 @@ class TMLoginController: UIViewController {
                     SVProgressHUD.popActivity()
                     return Promise<Void>.resolve()
                 }
+            }.catch { error in
+                SVProgressHUD.popActivity()
+                return Promise.reject(error)
             }
         }else {
             SVProgressHUD.popActivity()

@@ -90,6 +90,7 @@ class TMChatListController: UIViewController, IMDelegate, IMConversationDelegate
     }
     
     func onShowConversationSubTitle(aChatIds: [String]) {
+        print("会话子标题回调")
 //        let value = Int(arc4random()%47) + 1
 //
 //        let image = UIImage.init(named: "head_" + String(value))
@@ -102,6 +103,7 @@ class TMChatListController: UIViewController, IMDelegate, IMConversationDelegate
     }
     
     func onShowConversationMarker(aChatIds: [String]) {
+        print("会话标识回调")
 //        let value = Int(arc4random()%47) + 1
 //
 //        let image = UIImage.init(named: "head_" + String(value))

@@ -268,4 +268,28 @@ class TMChatDetailController: UIViewController, IMChatDelegate {
         print("当前点击通知消息：\(buttonId)")
     }
     
+    // 仅对当前用户删除该消息
+    func onDeleteMessageForMe(aMid: String, senderAUid: String) {
+        let tipAlert = UIAlertController(title: "Tips", message: "Confirm to delete this Message for me?", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default)
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { [weak self] action in
+            self?.imSdk?.deleteMessage(aMids: [aMid], success: nil, fail: nil)
+        }
+        tipAlert.addAction(cancelAction)
+        tipAlert.addAction(deleteAction)
+        self.present(tipAlert, animated: true)
+    }
+    
+    // 对所有前用户删除该消息
+    func onDeleteMessageForEveryOne(aMid: String, senderAUid: String) {
+        let tipAlert = UIAlertController(title: "Tips", message: "Confirm to delete this Message for everyone?", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default)
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { [weak self] action in
+            self?.imSdk?.revokeMessage(aMids: [aMid], success: nil, fail: nil)
+        }
+        tipAlert.addAction(cancelAction)
+        tipAlert.addAction(deleteAction)
+        self.present(tipAlert, animated: true)
+    }
+    
 }

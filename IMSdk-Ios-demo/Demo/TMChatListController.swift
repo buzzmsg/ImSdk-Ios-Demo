@@ -9,10 +9,6 @@ import UIKit
 import SVProgressHUD
 import IMSDK
 
-
-// TODO:
-/// 1. 搬marker测试代码到当前页面逻辑
-
 let SdkEnvType: IMEnvironmentType = .alpha
 
 class TMChatListController: UIViewController, IMDelegate, IMConversationDelegate, IMConversionSelector, ConversionViewModelDelegate {
@@ -53,6 +49,11 @@ class TMChatListController: UIViewController, IMDelegate, IMConversationDelegate
             
             let value = Int(arc4random()%47) + 1
             let image = UIImage.init(named: "head_" + String(value))
+            if let data = image?.pngData() {
+                // auid = 04c82e2f89f20837
+                let userInfo = IMUserInfoModel(aUid: loginInfo.auid, profile: UserProfile(avatar: IMAvatar(data: data, format: "png"), name1: "testUser", name3: ""))
+                imSdk.setUserInfo(userInfos: [userInfo])
+            }
 
             if let viewModel = self.conversionViewModel {
                 viewModel.setSort(sortCalsure: { t1, t2 in
@@ -74,7 +75,7 @@ class TMChatListController: UIViewController, IMDelegate, IMConversationDelegate
         print("登录失败来了, errorCode: \(errorCode)")
     }
     
-    func onShowUserInfo(datas: [IMSDK.IMShowUserInfo]) {
+    func onShowUserInfo(datas: [IMShowUserInfo]) {
         
         let value = Int(arc4random()%47) + 1
         let image = UIImage.init(named: "head_" + String(value))

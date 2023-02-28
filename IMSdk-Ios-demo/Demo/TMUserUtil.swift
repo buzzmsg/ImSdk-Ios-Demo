@@ -50,6 +50,12 @@ class TMUserUtil: NSObject {
         let wsUrl = IMSDKSocketHostMap[SdkEnvType] ?? ""
         let config = IMSdkConfig(env: SdkEnvType, deviceId: "iOS", apiUrl: apiUrl, wsUrl: wsUrl)
         imSdk = IMSdk.getInstance(ak: info.ak, config: config)
+        
+        // UISetting config
+        let uiSetting = IMUISetting()
+        uiSetting.setMessageMenu(menuTypes: [IMMessageMenuType.copy.rawValue, IMMessageMenuType.deleteForEveryone.rawValue, IMMessageMenuType.deleteForMe.rawValue])
+        uiSetting.showAvatarOnPrivateChat(left: true, right: true)
+        imSdk?.uiSetting = uiSetting
     }
     
     func saveLoginInfo(info: TMDemoLoginResponse) {

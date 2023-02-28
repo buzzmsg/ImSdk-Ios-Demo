@@ -9,9 +9,11 @@ import UIKit
 import SVProgressHUD
 import IMSDK
 
+
+
 let SdkEnvType: IMEnvironmentType = .alpha
 
-class TMChatListController: UIViewController, IMDelegate, IMConversationDelegate, IMConversionSelector, ConversionViewModelDelegate {
+class TMChatListController: UIViewController, IMDelegate, IMConversationDelegate, IMConversionSelector {
     
     
     func onUnReadCountChange(count: Int) {
@@ -45,8 +47,8 @@ class TMChatListController: UIViewController, IMDelegate, IMConversationDelegate
             imSdk.setLanguage(language: IMLanguageType.English)
             
             self.conversionViewModel = imSdk.createConversationViewModel(selector: IMChatViewModelFactory.ofAll())
-            self.conversionViewModel?.setDelegate(delegate: self)
-            
+//            self.conversionViewModel = imSdk.createConversationViewModel(selector: IMChatViewModelFactory.ofPart(ids: ["147100_1471000"]))
+
             let value = Int(arc4random()%47) + 1
             let image = UIImage.init(named: "head_" + String(value))
             if let data = image?.pngData() {
@@ -56,12 +58,14 @@ class TMChatListController: UIViewController, IMDelegate, IMConversationDelegate
             }
 
             if let viewModel = self.conversionViewModel {
-                viewModel.setSort(sortCalsure: { t1, t2 in
-                    if (t1.topTimeStamp != t2.topTimeStamp) {
-                        return t1.topTimeStamp > t2.topTimeStamp
-                    }
-                    return t1.timeStamp > t2.timeStamp
-                })
+                viewModel.setDelegate(delegate: self)
+
+//                viewModel.setSort(sortCalsure: { t1, t2 in
+//                    if (t1.topTimeStamp != t2.topTimeStamp) {
+//                        return t1.topTimeStamp > t2.topTimeStamp
+//                    }
+//                    return t1.timeStamp > t2.timeStamp
+//                })
                 self.chatView = viewModel.getConversionView()
                 if let chatView = self.chatView {
                     chatView.setDelegate(delegate: self)
@@ -136,8 +140,8 @@ class TMChatListController: UIViewController, IMDelegate, IMConversationDelegate
 //        self.navigationItem.rightBarButtonItem = item2
         
         let btn2 = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 40))
-        btn2.setTitle("加入测试群", for: .normal)
-        btn2.addTarget(self, action: #selector(addMassageClick), for: .touchUpInside)
+        btn2.setTitle("删除floder", for: .normal)
+        btn2.addTarget(self, action: #selector(deletefolderMassageClick), for: .touchUpInside)
         btn2.setTitleColor(UIColor.blue, for: .normal)
         let item3=UIBarButtonItem(customView: btn2)
         
@@ -148,10 +152,15 @@ class TMChatListController: UIViewController, IMDelegate, IMConversationDelegate
         btn3.setTitleColor(UIColor.blue, for: .normal)
         let item4=UIBarButtonItem(customView: btn3)
         
+        let btn4 = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 40))
+        btn4.setTitle("修改floder", for: .normal)
+        btn4.addTarget(self, action: #selector(changefolderMassageClick), for: .touchUpInside)
+        btn4.setTitleColor(UIColor.blue, for: .normal)
+        let item5=UIBarButtonItem(customView: btn4)
         
         self.navigationItem.rightBarButtonItems = [item2,item4];
 
-        self.navigationItem.leftBarButtonItem = item3
+        self.navigationItem.leftBarButtonItems = [item3, item5]
         
         let originY: CGFloat = 0.0
         let tabbarH: CGFloat = self.tabBarController?.tabBar.frame.height ?? 0.0
@@ -171,61 +180,37 @@ class TMChatListController: UIViewController, IMDelegate, IMConversationDelegate
         }
     }
     
-    @objc private func addMassageClick() {
-
-//        if let viewModel = self.conversionViewModel {
-//            viewModel.updateSelector(removeAchatIds: ["147147100_1479999"])
-//        }
-//        return
+    @objc private func changefolderMassageClick() {
+        let value = Int(arc4random()%47) + 1
+        let image = UIImage.init(named: "head_" + String(value))
         
-//        self.conversionViewModel?.getChatIsTop(aChatId: "147147100_147147323232")
-        self.renameAlert()
-//        SVProgressHUD.show()
-//        if let loginInfo = TMUserUtil.getLogin() {
-//            IMSdk.getInstance(ak: loginInfo.ak, env: SdkEnvType, deviceId: "iOS").joinTestGroup {[weak self] (aChatId) in
-//                guard let self = self else { return }
-//                SVProgressHUD.popActivity()
-//                let vc = TMChatDetailController()
-//                vc.hidesBottomBarWhenPushed = true
-//                vc.aChatId = aChatId
-//                self.navigationController?.pushViewController(vc, animated: true)
-//            } fail: { str in
-//                SVProgressHUD.popActivity()
-//                SVProgressHUD.showError(withStatus: str)
-//            }
-//        }
+        if let viewModel = self.conversionViewModel {
+            
+            if let data = image?.pngData() {
+                viewModel.setFolder(aChatId: "_not-interested-folder_", content: "1 contacts", name: "Not 1 contacts", folderIcon: IMAvatar(data: data, format: "jpg"))
+            }
+        }
+    }
+    
+    @objc private func deletefolderMassageClick() {
+        if let viewModel = self.conversionViewModel {
+            viewModel.removeFolder(aChatId: "_not-interested-folder_")
+        }
     }
     
     
     @objc private func sendMassageClick() {
-        
-//        if let viewModel = self.conversionViewModel {
-//            viewModel.updateSelector(selectAchatIds: ["-empty-cmd"])
-//
-//            viewModel.updateSelector(unSelectAchatIds: ["147147100_1471471000"])
-//
-//            self.folderMassageClick()
-//            viewModel.updateSelector(selectAchatIds: ["_not-interested-folder_"], unSelectAchatIds:["147147100_1471471000"])
-//
-//            viewModel.updateSelector(selectAchatIds: ["147147100_1471471000"])
-//        }
+
         self.renameAlert()
-        
-//        if let viewModel = self.conversionViewModel {
-//
-//            viewModel.getUnReadCount { count in
-//                print("当前未读数\(count)")
-//            }
-//        }
     }
     
     // ConversationDelegate
     
     func onItemClick(aChatId: String) {
-        if aChatId == "xxxxxxxxxxxxxxxxxxxxxx" {
+        if aChatId == "_not-interested-folder_" {
             let vc = TMFolderListViewController()
             vc.hidesBottomBarWhenPushed = true
-            vc.aChatIds = ["TestAli","147147000000_14714733333"]
+            vc.aChatIds = ["1471000_14710000"]
             self.navigationController?.pushViewController(vc, animated: true)
         }else {
             let vc = TMChatDetailController()
@@ -277,4 +262,14 @@ class TMChatListController: UIViewController, IMDelegate, IMConversationDelegate
         }
     }
     
+}
+
+extension TMChatListController: ConversionViewModelDelegate {
+    func hideConversation(aChatIds: [String]) -> [String] {
+        return []
+    }
+    
+    func conversationUnReadNumChange(count: Int) {
+        print("未读数:\(count)")
+    }
 }

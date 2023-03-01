@@ -47,17 +47,9 @@ class TMChatListController: UIViewController, IMDelegate, IMConversationDelegate
             imSdk.setLanguage(language: IMLanguageType.English)
             
             self.conversionViewModel = imSdk.createConversationViewModel(selector: IMChatViewModelFactory.ofAll())
-<<<<<<< Updated upstream
-//            self.conversionViewModel = imSdk.createConversationViewModel(selector: IMChatViewModelFactory.ofPart(ids: ["147100_1471000"]))
+//            self.conversionViewModel = imSdk.createConversationViewModel(selector: IMChatViewModelFactory.ofPart(ids: ["14714710_14714711"]))
+//            self.conversionViewModel = imSdk.createConversationViewModel(selector: IMChatViewModelFactory.ofUnPart(ids: ["14714710_14714711"]))
 
-            let value = Int(arc4random()%47) + 1
-            let image = UIImage.init(named: "head_" + String(value))
-            if let data = image?.pngData() {
-                // auid = 04c82e2f89f20837
-                let userInfo = IMUserInfoModel(aUid: loginInfo.auid, profile: UserProfile(avatar: IMAvatar(data: data, format: "png"), name1: "testUser", name3: ""))
-                imSdk.setUserInfo(userInfos: [userInfo])
-            }
-=======
             self.conversionViewModel?.setDelegate(delegate: self)
             
 //            let value = Int(arc4random()%47) + 1
@@ -67,7 +59,6 @@ class TMChatListController: UIViewController, IMDelegate, IMConversationDelegate
 //                let userInfo = IMUserInfoModel(aUid: loginInfo.auid, profile: UserProfile(avatar: IMAvatar(data: data, format: "png"), name1: "testUser", name3: ""))
 //                imSdk.setUserInfo(userInfos: [userInfo])
 //            }
->>>>>>> Stashed changes
 
             if let viewModel = self.conversionViewModel {
                 viewModel.setDelegate(delegate: self)
@@ -89,6 +80,8 @@ class TMChatListController: UIViewController, IMDelegate, IMConversationDelegate
     
     func authCodeExpire(aUid: String, errorCode: IMSDK.IMSdkError) {
         print("登录失败来了, errorCode: \(errorCode)")
+        
+        SVProgressHUD.show(withStatus: "嘿。兄弟，401了！")
     }
     
     func onShowUserInfo(datas: [IMShowUserInfo]) {
@@ -116,6 +109,21 @@ class TMChatListController: UIViewController, IMDelegate, IMConversationDelegate
 //            let subTitle = ConversationSubTitle(aChatId: "1471471479_18522221111", subTitle: "开发工程师")
 //            self.kit?.setConversationSubTitle(subTitles: [subTitle])
 //        }
+        let value = Int(arc4random()%47) + 1
+        let image = UIImage.init(named: "head_" + String(value))
+        
+        if let data = image?.pngData() {
+//            let userProfile = UserProfile(avatar: data, format: "jpg", name: "小胖子")
+//            let model = UserInfoModel(aUid: aUids.first ?? "", profile: userProfile)
+//            self.kit?.setUserInfo(userInfos: [model])
+            var markers: [IMConversationMarker] = []
+            
+            for item in aChatIds {
+                markers.append(IMConversationMarker(aChatId: item, icon: IMAvatar(data: data, format: "jpg")))
+            }
+            self.conversionViewModel?.setConversationMarker(markers: markers)
+
+        }
     }
     
     func onShowConversationMarker(aChatIds: [String]) {
@@ -164,15 +172,44 @@ class TMChatListController: UIViewController, IMDelegate, IMConversationDelegate
     }
     
     @objc private func folderMassageClick() {
-        let value = Int(arc4random()%47) + 1
-        let image = UIImage.init(named: "head_" + String(value))
         
-        if let viewModel = self.conversionViewModel {
-            
-            if let data = image?.pngData() {
-                viewModel.setFolder(aChatId: "_not-interested-folder_", content: "4 contacts", name: "Not 4 contacts", folderIcon: IMAvatar(data: data, format: "jpg"))
+        let alertController = UIAlertController(title: "tip",
+                        message: "请输入aChatId", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        let okAction = UIAlertAction(title: "确定", style: .default, handler: {
+            action in
+            let textField: UITextField = (alertController.textFields?[0])!;
+            if let str = textField.text, str.count > 1 {
+                let value = Int(arc4random()%47) + 1
+                let image = UIImage.init(named: "head_" + String(value))
+                
+                if let viewModel = self.conversionViewModel {
+                    
+                    if let data = image?.pngData() {
+                        viewModel.setFolder(aChatId: "_not-interested-folder_", content: "1 contacts", name: "Not 1 contacts", folderIcon: IMAvatar(data: data, format: "jpg"))
+
+                        let curremtSelector = viewModel.getCurremtSelector()
+                        let updateSelector = IMChatViewModelFactory.ofUnPart(ids: [str])
+                        let folderSelector = IMChatViewModelFactory.ofPart(ids: ["_not-interested-folder_"])
+                        if let andSelector = curremtSelector.and?(selector: updateSelector) {
+                            viewModel.replace(selector: andSelector)
+                            if let lastSelector = andSelector.or?(selector: folderSelector) {
+                                viewModel.replace(selector: lastSelector)
+                            }
+                            
+                        }
+                    }
+                }
             }
+        })
+        alertController.addTextField { (textfield) in
+            //这个block会在弹出对话框的时候调用,这个参数textfield就是系统为我们创建的textfield
+//            textfield.delegate = self
+            print(textfield)
         }
+        alertController.addAction(cancelAction)
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     @objc private func settingMassageClick() {
@@ -235,7 +272,7 @@ class TMChatListController: UIViewController, IMDelegate, IMConversationDelegate
         if aChatId == "_not-interested-folder_" {
             let vc = TMFolderListViewController()
             vc.hidesBottomBarWhenPushed = true
-            vc.aChatIds = ["1471000_14710000"]
+            vc.aChatIds = ["14714710_14714711"]
             self.navigationController?.pushViewController(vc, animated: true)
         }else {
             let vc = TMChatDetailController()

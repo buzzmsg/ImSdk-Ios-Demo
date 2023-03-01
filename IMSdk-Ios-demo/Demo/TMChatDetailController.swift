@@ -126,8 +126,24 @@ class TMChatDetailController: UIViewController, IMChatDelegate {
         btn1.setTitleColor(UIColor.blue, for: .normal)
         let item2=UIBarButtonItem(customView: btn1)
         
-        self.navigationItem.rightBarButtonItems = [item2];
+        let btn2=UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 40))
+        btn2.setTitle("Maker", for: .normal)
+        btn2.addTarget(self, action: #selector(subTitleClick), for: .touchUpInside)
+        btn2.setTitleColor(UIColor.blue, for: .normal)
+        let item3=UIBarButtonItem(customView: btn2)
+        
+        let btn3 = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 40))
+        btn3.setTitle("副标题", for: .normal)
+        btn3.addTarget(self, action: #selector(selectImageClick), for: .touchUpInside)
+        btn3.setTitleColor(UIColor.blue, for: .normal)
+        let item4=UIBarButtonItem(customView: btn3)
+        
+        self.navigationItem.rightBarButtonItems = [item2,item3, item4];
 
+
+//
+//        self.navigationItem.leftBarButtonItems = [item4];
+        
     }
     
     var keyBoardHeight = 0.0

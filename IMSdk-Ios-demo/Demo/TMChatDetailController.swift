@@ -247,8 +247,7 @@ class TMChatDetailController: UIViewController, IMChatDelegate {
         self.imSdk?.disableCardMessage(aMid: aMid, buttonIds: [buttonId])
         print("cell button did click \(buttonId)")
     }
-    
-    func onImageMessageClick(preView: IMImageBrowserView, selectImageInfo: TMMImageSelectViewInfo) {
+    func onImageMessageClick(aMid: String, preView: IMImageBrowserView, selectImageInfo: TMMImageSelectViewInfo) {
         let vc = TMImageBrowserViewController()
         vc.imageBrowserView = preView
         vc.viewFrame = selectImageInfo.viewFrame;
@@ -257,7 +256,7 @@ class TMChatDetailController: UIViewController, IMChatDelegate {
         self.navigationController?.pushViewController(vc, animated: false)
     }
     
-    func getCustomView(aMid: String, body: String, handleCustomView: ((UIView) -> ())?, tapCustomView: ((UIView) -> ())?) {
+    func onShowCustomMessageView(aMid: String, body: String, handleCustomView: ((UIView) -> ())?, tapCustomView: ((UIView) -> ())?) {
         let sendView = TMCostomizeView(frame: CGRect(x: 0, y: 0, width: UIDevice.YH_Width * 0.8, height: 80))
         sendView.aMid = aMid
         sendView.restorationIdentifier = aMid
@@ -283,10 +282,6 @@ class TMChatDetailController: UIViewController, IMChatDelegate {
     
     func onMiddleMessageClick(aMid: String, tmpId: String, buttonId: String) {
         print("当前点击：\(buttonId)")
-    }
-    
-    func getMessageUnReadCount(count: Int) {
-        print("当前未读消息数量: \(count)")
     }
     
     func onNoticeMessageClick(aMid: String, buttonId: String) {

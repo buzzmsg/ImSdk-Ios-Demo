@@ -60,12 +60,12 @@ class TMChatListController: UIViewController, IMDelegate, IMConversationDelegate
             if let viewModel = self.conversionViewModel {
                 viewModel.setDelegate(delegate: self)
 
-//                viewModel.setSort(sortCalsure: { t1, t2 in
-//                    if (t1.topTimeStamp != t2.topTimeStamp) {
-//                        return t1.topTimeStamp > t2.topTimeStamp
-//                    }
-//                    return t1.timeStamp > t2.timeStamp
-//                })
+                viewModel.setSort(sortCalsure: { t1, t2 in
+                    if (t1.topTimeStamp != t2.topTimeStamp) {
+                        return t1.topTimeStamp > t2.topTimeStamp
+                    }
+                    return t1.timeStamp > t2.timeStamp
+                })
                 self.chatView = viewModel.getConversionView()
                 if let chatView = self.chatView {
                     chatView.setDelegate(delegate: self)
@@ -128,39 +128,22 @@ class TMChatListController: UIViewController, IMDelegate, IMConversationDelegate
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
-//        let items1=UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: nil)
-//        self.navigationItem.rightBarButtonItems=[items1]
-        
+
         let btn1=UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 40))
         btn1.setTitle("创建chat", for: .normal)
         btn1.addTarget(self, action: #selector(sendMassageClick), for: .touchUpInside)
         btn1.setTitleColor(UIColor.blue, for: .normal)
         let item2=UIBarButtonItem(customView: btn1)
-//        self.navigationItem.rightBarButtonItem = item2
-        
-        let btn2 = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 40))
-        btn2.setTitle("删除floder", for: .normal)
-        btn2.addTarget(self, action: #selector(deletefolderMassageClick), for: .touchUpInside)
-        btn2.setTitleColor(UIColor.blue, for: .normal)
-        let item3=UIBarButtonItem(customView: btn2)
-        
-        
-        let btn3 = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 40))
-        btn3.setTitle("不感兴趣", for: .normal)
-        btn3.addTarget(self, action: #selector(folderMassageClick), for: .touchUpInside)
-        btn3.setTitleColor(UIColor.blue, for: .normal)
-        let item4=UIBarButtonItem(customView: btn3)
-        
+
         let btn4 = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 40))
-        btn4.setTitle("修改floder", for: .normal)
-        btn4.addTarget(self, action: #selector(changefolderMassageClick), for: .touchUpInside)
+        btn4.setTitle("设置", for: .normal)
+        btn4.addTarget(self, action: #selector(settingMassageClick), for: .touchUpInside)
         btn4.setTitleColor(UIColor.blue, for: .normal)
         let item5=UIBarButtonItem(customView: btn4)
         
-        self.navigationItem.rightBarButtonItems = [item2,item4];
+        self.navigationItem.rightBarButtonItems = [item2];
 
-        self.navigationItem.leftBarButtonItems = [item3, item5]
+        self.navigationItem.leftBarButtonItems = [item5]
         
         let originY: CGFloat = 0.0
         let tabbarH: CGFloat = self.tabBarController?.tabBar.frame.height ?? 0.0
@@ -180,12 +163,42 @@ class TMChatListController: UIViewController, IMDelegate, IMConversationDelegate
         }
     }
     
-    @objc private func changefolderMassageClick() {
+    @objc private func settingMassageClick() {
+        
+        let confirmAlertController = UIAlertController(title: nil, message: "设置", preferredStyle: .actionSheet)
+        
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        
+        let action1 = UIAlertAction(title: "设置不感兴趣", style: .default) {[weak self] (action) in
+            guard let self = self else {return}
+            self.folderMassageClick()
+        }
+        
+        let action2 = UIAlertAction(title: "修改不感兴趣", style: .default) {[weak self] (action) in
+            guard let self = self else {return}
+            self.changefolderMassageClick()
+        }
+
+        let action3 = UIAlertAction(title: "删除不感兴趣", style: .default) {[weak self] (action) in
+            guard let self = self else {return}
+            self.deletefolderMassageClick()
+        }
+        
+        confirmAlertController.addAction(cancelAction)
+        confirmAlertController.addAction(action1)
+        confirmAlertController.addAction(action2)
+        confirmAlertController.addAction(action3)
+
+        self.present(confirmAlertController , animated: true, completion: nil)
+
+    }
+    
+    func changefolderMassageClick() {
         let value = Int(arc4random()%47) + 1
         let image = UIImage.init(named: "head_" + String(value))
-        
+
         if let viewModel = self.conversionViewModel {
-            
+
             if let data = image?.pngData() {
                 viewModel.setFolder(aChatId: "_not-interested-folder_", content: "1 contacts", name: "Not 1 contacts", folderIcon: IMAvatar(data: data, format: "jpg"))
             }

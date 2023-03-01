@@ -8,10 +8,14 @@
 import UIKit
 import SnapKit
 import IMSDK
+import QMUIKit
 
 class TMChatDetailController: UIViewController, IMChatDelegate {
     
     var aChatId = ""
+    
+    var navHeight = 0.0
+    
     var imSdk: IMSdk? {
         return TMUserUtil.shared.imSdk
     }
@@ -28,18 +32,20 @@ class TMChatDetailController: UIViewController, IMChatDelegate {
 
     private var chatListView: IMChatView?
 
-    private lazy var sendView: TMSendMessageFootView = {
-        let sendView = TMSendMessageFootView(frame: .zero)
-        sendView.sendMessageBtn.addTarget(self, action: #selector(sendMessageClick), for: .touchUpInside)
-        sendView.editBtn.addTarget(self, action: #selector(subTitleClick), for: .touchUpInside)
-        sendView.textBtn.addTarget(self, action: #selector(selectImageClick), for: .touchUpInside)
-        return sendView
-    }()
+//    private lazy var sendView: TMSendMessageFootView = {
+//        let sendView = TMSendMessageFootView(frame: .zero)
+//        sendView.sendMessageBtn.addTarget(self, action: #selector(sendMessageClick), for: .touchUpInside)
+//        sendView.editBtn.addTarget(self, action: #selector(subTitleClick), for: .touchUpInside)
+//        sendView.textBtn.addTarget(self, action: #selector(selectImageClick), for: .touchUpInside)
+//        return sendView
+//    }()
     
-    private lazy var inputV: UITextField = {
-        let v = UITextField(frame: .zero)
+    private lazy var inputV: QMUITextView = {
+        let v = QMUITextView(frame: .zero)
         v.placeholder = "请输入内容"
         v.backgroundColor = .white
+        v.returnKeyType = .send
+        v.delegate = self
         return v
     }()
 
@@ -70,28 +76,37 @@ class TMChatDetailController: UIViewController, IMChatDelegate {
         
         self.view.backgroundColor = UIColor.white
         
-        self.view.addSubview(self.sendView)
-        self.sendView.snp_makeConstraints { make in
-            make.left.bottom.right.equalToSuperview()
-            make.height.equalTo(140)
-        }
+//        self.view.addSubview(self.sendView)
+//        self.sendView.snp_makeConstraints { make in
+//            make.left.bottom.right.equalToSuperview()
+//            make.height.equalTo(140)
+//        }
+        self.navHeight = 44.0
         
+        if let w = UIApplication.shared.keyWindow {
+            self.navHeight = self.navHeight + w.safeAreaInsets.top
+        }
+        self.view.addSubview(self.inputV)
+        let height = 90.0
+        let y = self.view.frame.height - height - self.navHeight
+        self.inputV.frame = CGRect(x: 0, y: y, width: self.view.frame.width, height: height)
+
         self.chatListView = self.imSdk?.creatChatView(aChatId: self.aChatId)
         
         if let v = self.chatListView {
             v.backgroundColor = .white
             v.setDelegate(delegate: self)
             self.view.addSubview(v)
-            v.snp_makeConstraints { make in
-                make.left.top.right.equalToSuperview()
-                make.bottom.equalTo(self.sendView.snp_top)
-            }
+
+            v.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: y)
+//            v.snp_makeConstraints { make in
+//                make.left.top.right.equalToSuperview()
+//                make.bottom.equalTo(self.inputV.snp_top)
+//            }
             let tap = UITapGestureRecognizer(target: self, action: #selector(tapAct(gesture:)))
             v.addGestureRecognizer(tap)
         }
-        
-        self.view.addSubview(self.inputV)
-        self.inputV.isHidden = true
+
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
@@ -100,12 +115,19 @@ class TMChatDetailController: UIViewController, IMChatDelegate {
         self.inputV.endEditing(true)
     }
     
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+
         
-        let height = 140.0
-        let y = self.view.frame.height - height
-        self.inputV.frame = CGRect(x: 0, y: y, width: self.view.frame.width, height: height)
+        let btn1=UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 40))
+        btn1.setTitle("发消息", for: .normal)
+        btn1.addTarget(self, action: #selector(sendMessageClick), for: .touchUpInside)
+        btn1.setTitleColor(UIColor.blue, for: .normal)
+        let item2=UIBarButtonItem(customView: btn1)
+        
+        self.navigationItem.rightBarButtonItems = [item2];
+
     }
     
     var keyBoardHeight = 0.0
@@ -139,6 +161,7 @@ class TMChatDetailController: UIViewController, IMChatDelegate {
             newOffsetY = oldOffsetY + diff
         }
         let newOffset = CGPoint(x: 0, y: newOffsetY)
+        self.view.bringSubviewToFront(self.inputV)
         UIView.animate(withDuration: 0.2) {
             self.inputV.frame = newFrame
             self.chatListView?.setTableViewContentOffset(offset: newOffset, animated: false)
@@ -292,4 +315,19 @@ class TMChatDetailController: UIViewController, IMChatDelegate {
         self.present(tipAlert, animated: true)
     }
     
+}
+
+extension TMChatDetailController: QMUITextViewDelegate {
+    func textViewShouldReturn(_ textView: QMUITextView!) -> Bool {
+        self.sendTextClick()
+        return true
+    }
+
+    private func sendTextClick() {
+        if self.inputV.text.count > 0 {
+            let mid = IMSDKMessageId.create(uid: "f1ab109be266e394")
+            self.imSdk?.sendTextMessage(aChatId: self.aChatId, aMid: mid, content: self.inputV.text)
+            self.inputV.text = nil
+        }
+    }
 }

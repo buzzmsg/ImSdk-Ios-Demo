@@ -245,7 +245,9 @@ class TMChatDetailController: UIViewController, IMChatDelegate {
     
     func onButtonMessageClick(aMid: String, buttonId: String) {
         self.imSdk?.disableCardMessage(aMid: aMid, buttonIds: [buttonId])
+        print("cell button did click \(buttonId)")
     }
+    
     func onImageMessageClick(preView: IMImageBrowserView, selectImageInfo: TMMImageSelectViewInfo) {
         let vc = TMImageBrowserViewController()
         vc.imageBrowserView = preView

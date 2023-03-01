@@ -47,6 +47,7 @@ class TMChatListController: UIViewController, IMDelegate, IMConversationDelegate
             imSdk.setLanguage(language: IMLanguageType.English)
             
             self.conversionViewModel = imSdk.createConversationViewModel(selector: IMChatViewModelFactory.ofAll())
+<<<<<<< Updated upstream
 //            self.conversionViewModel = imSdk.createConversationViewModel(selector: IMChatViewModelFactory.ofPart(ids: ["147100_1471000"]))
 
             let value = Int(arc4random()%47) + 1
@@ -56,6 +57,17 @@ class TMChatListController: UIViewController, IMDelegate, IMConversationDelegate
                 let userInfo = IMUserInfoModel(aUid: loginInfo.auid, profile: UserProfile(avatar: IMAvatar(data: data, format: "png"), name1: "testUser", name3: ""))
                 imSdk.setUserInfo(userInfos: [userInfo])
             }
+=======
+            self.conversionViewModel?.setDelegate(delegate: self)
+            
+//            let value = Int(arc4random()%47) + 1
+//            let image = UIImage.init(named: "head_" + String(value))
+//            if let data = image?.pngData() {
+//                // auid = 04c82e2f89f20837
+//                let userInfo = IMUserInfoModel(aUid: loginInfo.auid, profile: UserProfile(avatar: IMAvatar(data: data, format: "png"), name1: "testUser", name3: ""))
+//                imSdk.setUserInfo(userInfos: [userInfo])
+//            }
+>>>>>>> Stashed changes
 
             if let viewModel = self.conversionViewModel {
                 viewModel.setDelegate(delegate: self)

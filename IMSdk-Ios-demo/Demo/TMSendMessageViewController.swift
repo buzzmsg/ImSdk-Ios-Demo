@@ -65,24 +65,39 @@ class TMSendMessageViewController: UIViewController {
         sendTextBtn.layer.cornerRadius = 5.0
         sendTextBtn.layer.masksToBounds = true
         sendTextBtn.backgroundColor = UIColor.blue
-        sendTextBtn.addTarget(self, action: #selector(sendCardClick), for: .touchUpInside)
+        sendTextBtn.addTarget(self, action: #selector(sendCardMsg), for: .touchUpInside)
         return sendTextBtn
     }()
     
-    private lazy var sendCVBtn: UIButton = {
+    private lazy var sendCustomMsgBtn: UIButton = {
         let sendTextBtn = UIButton(type: .roundedRect)
-        sendTextBtn.setTitle("发送简历", for: .normal)
+        sendTextBtn.setTitle("发送自定义消息", for: .normal)
         sendTextBtn.setTitleColor(UIColor.white, for: .normal)
         sendTextBtn.layer.cornerRadius = 5.0
         sendTextBtn.layer.masksToBounds = true
         sendTextBtn.backgroundColor = UIColor.blue
-        sendTextBtn.addTarget(self, action: #selector(sendCVClick), for: .touchUpInside)
+        sendTextBtn.addTarget(self, action: #selector(sendCustomMsg), for: .touchUpInside)
+        return sendTextBtn
+    }()
+    
+    private lazy var sendSystemMsgBtn: UIButton = {
+        let sendTextBtn = UIButton(type: .roundedRect)
+        sendTextBtn.setTitle("发送系统消息", for: .normal)
+        sendTextBtn.setTitleColor(UIColor.white, for: .normal)
+        sendTextBtn.layer.cornerRadius = 5.0
+        sendTextBtn.layer.masksToBounds = true
+        sendTextBtn.backgroundColor = UIColor.blue
+        sendTextBtn.addTarget(self, action: #selector(sendSystemMsg), for: .touchUpInside)
         return sendTextBtn
     }()
     
     var aChatId = ""
     var imSdk: IMSdk? {
         return TMUserUtil.shared.imSdk
+    }
+    
+    var loginInfo: TMDemoLoginResponse? {
+        return TMUserUtil.shared.loginInfo
     }
     
     override func viewDidLoad() {
@@ -132,11 +147,18 @@ class TMSendMessageViewController: UIViewController {
             make.height.equalTo(42)
         }
         
-        
-        self.view.addSubview(self.sendCVBtn)
-        self.sendCVBtn.snp_makeConstraints { make in
+        self.view.addSubview(self.sendCustomMsgBtn)
+        self.sendCustomMsgBtn.snp_makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(self.sendCardBtn.snp_bottom).offset(30)
+            make.width.equalTo(200)
+            make.height.equalTo(42)
+        }
+        
+        self.view.addSubview(self.sendSystemMsgBtn)
+        self.sendSystemMsgBtn.snp_makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(self.sendCustomMsgBtn.snp_bottom).offset(30)
             make.width.equalTo(200)
             make.height.equalTo(42)
         }
@@ -224,7 +246,6 @@ class TMSendMessageViewController: UIViewController {
             cardMsg.buttons = [btn1, btn2, btn3]
         }
         
-        
         let value1 = Int(arc4random()%47) + 1
 
         let image = UIImage.init(named: "head_" + String(value1))
@@ -239,13 +260,30 @@ class TMSendMessageViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    @objc private func sendCVClick() {
-        if let loginInfo = TMUserUtil.shared.loginInfo {
-            let time: Int = Date().milliStamp
-            SendCardAndTempMessageApi.execute(aChatId: self.aChatId, aUid: loginInfo.auid, sendTime: time).then { _ -> Promise<Void> in
-                self.navigationController?.popViewController(animated: true)
-                return Promise<Void>.resolve()
-            }
+    @objc private func sendCardMsg() {
+        guard let loginInfo = loginInfo else { return }
+        let amid = IMSDKMessageId.create(uid: loginInfo.auid)
+        SendCardMessageApi.execute(amid: amid, achatId: self.aChatId, senderId: loginInfo.auid).then { _ -> Promise<Void> in
+            self.navigationController?.popViewController(animated: true)
+            return Promise<Void>.resolve()
+        }
+    }
+    
+    @objc private func sendCustomMsg() {
+        guard let loginInfo = loginInfo else { return }
+        let amid = IMSDKMessageId.create(uid: loginInfo.auid)
+        SendCustomMessageApi.execute(amid: amid, achatId: self.aChatId).then { _ -> Promise<Void> in
+            self.navigationController?.popViewController(animated: true)
+            return Promise<Void>.resolve()
+        }
+    }
+    
+    @objc private func sendSystemMsg() {
+        guard let loginInfo = loginInfo else { return }
+        let amid = IMSDKMessageId.create(uid: loginInfo.auid)
+        SendNoticeMessageApi.execute(amid: amid, achatId: self.aChatId, senderId: loginInfo.auid).then { _ -> Promise<Void> in
+            self.navigationController?.popViewController(animated: true)
+            return Promise<Void>.resolve()
         }
     }
 }

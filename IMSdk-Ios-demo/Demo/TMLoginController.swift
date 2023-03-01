@@ -61,8 +61,6 @@ class TMLoginController: UIViewController {
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 15.0)
         btn.addTarget(self, action: #selector(clickLoginAct(btn:)), for: .touchUpInside)
         self.view.addSubview(btn)
-    
-        
     }
     
 
@@ -70,7 +68,6 @@ class TMLoginController: UIViewController {
         SVProgressHUD.show()
         if let text = self.telTextField.text, text.count > 0 {
             TMDemoLogin.execute(prefix: "", phone: text).then { response -> Promise<Void> in
-                
                 return TMDemoGetAuth.execute(token: response.token).then { authRespon -> Promise<Void> in
                     var tempResponse = response
                     tempResponse.ak = authRespon.ak

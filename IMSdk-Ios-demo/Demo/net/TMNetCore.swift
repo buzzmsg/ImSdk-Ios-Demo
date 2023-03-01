@@ -260,6 +260,7 @@ public class TMNetCore {
             log += "URL:               \(netUrl)\n"
             log += "Method:            \(method.rawValue)\n"
             log += "Headers:           \(headers ?? [:])\n"
+            log += "Params:           \(parameters ?? [:])\n"
     //        log += "Parameters:        \(parameters ?? [:])\n"
             
 //            let stimstr: String = TMTimeTool.default.checkDateString(time: TimeInterval(startTime / 1000), formatString: "yyyy-MM-dd HH:mm:ss")

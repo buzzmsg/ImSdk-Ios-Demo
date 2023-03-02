@@ -232,13 +232,107 @@ class TMChatListController: UIViewController, IMDelegate, IMConversationDelegate
             self.deletefolderMassageClick()
         }
         
+        let action4 = UIAlertAction(title: "只显示某回话", style: .default) {[weak self] (action) in
+            guard let self = self else {return}
+            self.onlyShowChat()
+        }
+        
+        let action5 = UIAlertAction(title: "不显示某回话", style: .default) {[weak self] (action) in
+            guard let self = self else {return}
+            self.showNoChat()
+        }
+        
+        let action6 = UIAlertAction(title: "显示全部回话", style: .default) {[weak self] (action) in
+            guard let self = self else {return}
+            self.showAll()
+        }
+        
         confirmAlertController.addAction(cancelAction)
         confirmAlertController.addAction(action1)
         confirmAlertController.addAction(action2)
         confirmAlertController.addAction(action3)
+        confirmAlertController.addAction(action4)
+        confirmAlertController.addAction(action5)
+        confirmAlertController.addAction(action6)
 
         self.present(confirmAlertController , animated: true, completion: nil)
 
+    }
+    
+    
+    func showNoChat() {
+        let alertController = UIAlertController(title: "tip",
+                        message: "不显示某回话", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        let okAction = UIAlertAction(title: "确定", style: .default, handler: {
+            action in
+            let textField: UITextField = (alertController.textFields?[0])!;
+            if let str = textField.text, str.count > 1 {
+                if let viewModel = self.conversionViewModel {
+
+//                    let curremtSelector = viewModel.getCurremtSelector()
+                    let upDateSelector = IMChatViewModelFactory.ofUnPart(ids: [str])
+                    
+                    
+                    viewModel.replace(selector: upDateSelector)
+
+                    
+//                    if let lastSelector = curremtSelector.and?(selector: upDateSelector) {
+//                        viewModel.replace(selector: lastSelector)
+//                    }
+                }
+            }
+        })
+        alertController.addTextField { (textfield) in
+            //这个block会在弹出对话框的时候调用,这个参数textfield就是系统为我们创建的textfield
+//            textfield.delegate = self
+            print(textfield)
+        }
+        alertController.addAction(cancelAction)
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func onlyShowChat() {
+        let alertController = UIAlertController(title: "tip",
+                        message: "只显示某回话", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        let okAction = UIAlertAction(title: "确定", style: .default, handler: {
+            action in
+            let textField: UITextField = (alertController.textFields?[0])!;
+            if let str = textField.text, str.count > 1 {
+                if let viewModel = self.conversionViewModel {
+
+//                    let curremtSelector = viewModel.getCurremtSelector()
+                    let upDateSelector = IMChatViewModelFactory.ofPart(ids: [str])
+                    
+                    viewModel.replace(selector: upDateSelector)
+
+//                    if let lastSelector = curremtSelector.and?(selector: upDateSelector) {
+//                        viewModel.replace(selector: lastSelector)
+//                    }
+                }
+            }
+        })
+        alertController.addTextField { (textfield) in
+            //这个block会在弹出对话框的时候调用,这个参数textfield就是系统为我们创建的textfield
+//            textfield.delegate = self
+            print(textfield)
+        }
+        alertController.addAction(cancelAction)
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func showAll() {
+        if let viewModel = self.conversionViewModel {
+
+            let curremtSelector = viewModel.getCurremtSelector()
+            let upDateSelector = IMChatViewModelFactory.ofAll()
+            if let lastSelector = curremtSelector.or?(selector: upDateSelector) {
+                viewModel.replace(selector: lastSelector)
+            }
+        }
     }
     
     func changefolderMassageClick() {
@@ -256,16 +350,12 @@ class TMChatListController: UIViewController, IMDelegate, IMConversationDelegate
     @objc private func deletefolderMassageClick() {
         if let viewModel = self.conversionViewModel {
             viewModel.removeFolder(aChatId: "_not-interested-folder_")
-            
-            
-            
+
             let curremtSelector = viewModel.getCurremtSelector()
             let updateSelector = IMChatViewModelFactory.ofAll()
-//            let folderSelector = IMChatViewModelFactory.ofPart(ids: ["_not-interested-folder_"])
             if let andSelector = curremtSelector.or?(selector: updateSelector) {
                 viewModel.replace(selector: andSelector)
             }
-            
         }
     }
     

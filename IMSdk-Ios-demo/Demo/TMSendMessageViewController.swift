@@ -91,14 +91,31 @@ class TMSendMessageViewController: UIViewController {
         return sendTextBtn
     }()
     
+    private lazy var chatTopBtn: UIButton = {
+        let sendTextBtn = UIButton(type: .roundedRect)
+        sendTextBtn.setTitle("置顶", for: .normal)
+        sendTextBtn.setTitleColor(UIColor.white, for: .normal)
+        sendTextBtn.layer.cornerRadius = 5.0
+        sendTextBtn.layer.masksToBounds = true
+        sendTextBtn.backgroundColor = UIColor.blue
+        sendTextBtn.addTarget(self, action: #selector(chatTopMsg), for: .touchUpInside)
+        return sendTextBtn
+    }()
+    
     var aChatId = ""
     var imSdk: IMSdk? {
         return TMUserUtil.shared.imSdk
     }
-    
+
+    lazy var viewModel: IMConversationViewModel? = {
+        return imSdk?.createConversationViewModel(selector: IMChatViewModelFactory.ofPart(ids: [aChatId]))
+    }()
+
     var loginInfo: TMDemoLoginResponse? {
         return TMUserUtil.shared.loginInfo
     }
+    
+    var isTop = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -161,6 +178,24 @@ class TMSendMessageViewController: UIViewController {
             make.top.equalTo(self.sendCustomMsgBtn.snp_bottom).offset(30)
             make.width.equalTo(200)
             make.height.equalTo(42)
+        }
+        
+        self.view.addSubview(self.chatTopBtn)
+        self.chatTopBtn.snp_makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(self.sendSystemMsgBtn.snp_bottom).offset(30)
+            make.width.equalTo(200)
+            make.height.equalTo(42)
+        }
+        
+        
+        if let vm = self.viewModel {
+            self.isTop = vm.getChatIsTop(aChatId: self.aChatId)
+            if isTop {
+                chatTopBtn.setTitle("取消置顶", for: .normal)
+            }else {
+                chatTopBtn.setTitle("置顶", for: .normal)
+            }
         }
     }
     
@@ -284,6 +319,27 @@ class TMSendMessageViewController: UIViewController {
         SendNoticeMessageApi.execute(amid: amid, achatId: self.aChatId, senderId: loginInfo.auid).then { _ -> Promise<Void> in
             self.navigationController?.popViewController(animated: true)
             return Promise<Void>.resolve()
+        }
+    }
+    
+    @objc private func chatTopMsg() {
+        
+        if let vm = self.viewModel {
+            if self.isTop {
+                vm.setChatCloseTop(aChatId: self.aChatId) {
+                    self.isTop = false
+                    self.chatTopBtn.setTitle("置顶", for: .normal)
+                } fail: { str in
+                    
+                }
+            }else {
+                vm.setChatTop(aChatId: self.aChatId) {
+                    self.isTop = true
+                    self.chatTopBtn.setTitle("取消置顶", for: .normal)
+                } fail: { str in
+                    
+                }
+            }
         }
     }
 }

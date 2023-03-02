@@ -37,7 +37,6 @@
 		830578A7298BF145008E29AE /* TMUserUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83057879298BF145008E29AE /* TMUserUtil.swift */; };
 		830578A8298BF145008E29AE /* TMSendMessageFootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8305787B298BF145008E29AE /* TMSendMessageFootView.swift */; };
 		830578A9298BF145008E29AE /* TMDemoGetAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8305787D298BF145008E29AE /* TMDemoGetAuth.swift */; };
-		830578AA298BF145008E29AE /* SendCardAndTempMessageApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8305787E298BF145008E29AE /* SendCardAndTempMessageApi.swift */; };
 		830578AB298BF145008E29AE /* SetMessageStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8305787F298BF145008E29AE /* SetMessageStatus.swift */; };
 		830578AC298BF145008E29AE /* TMDemoLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83057880298BF145008E29AE /* TMDemoLogin.swift */; };
 		830578AD298BF145008E29AE /* Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83057882298BF145008E29AE /* Thread.swift */; };
@@ -48,6 +47,10 @@
 		830578B2298BF145008E29AE /* DetailKeyBordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83057888298BF145008E29AE /* DetailKeyBordView.swift */; };
 		830578B3298BF145008E29AE /* TMCostomizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83057889298BF145008E29AE /* TMCostomizeView.swift */; };
 		830578B4298BF145008E29AE /* TMChatListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8305788A298BF145008E29AE /* TMChatListController.swift */; };
+		833DF9D129AC634A0048BCCD /* CommonModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833DF9C129AC63120048BCCD /* CommonModule.framework */; };
+		833DF9D429AC634E0048BCCD /* IMSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833DF9CA29AC632A0048BCCD /* IMSDK.framework */; };
+		834AFDC629ADB17C0012EBDF /* SDKAssest.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 834AFDC129ADB17C0012EBDF /* SDKAssest.bundle */; };
+		83F3456929AF510600DD8675 /* SendTestMessageApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F3456829AF510600DD8675 /* SendTestMessageApi.swift */; };
 		83F4022428F4242A004D19D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F4022328F4242A004D19D4 /* AppDelegate.swift */; };
 		83F4022828F4242A004D19D4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F4022728F4242A004D19D4 /* ViewController.swift */; };
 		83F4022B28F4242A004D19D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83F4022928F4242A004D19D4 /* Main.storyboard */; };
@@ -61,6 +64,34 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		833DF9C029AC63120048BCCD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 833DF9BB29AC63120048BCCD /* CommonModule.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F919F26C2990EC520068A7EF;
+			remoteInfo = CommonModule;
+		};
+		833DF9C229AC63120048BCCD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 833DF9BB29AC63120048BCCD /* CommonModule.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F919F2762990EC520068A7EF;
+			remoteInfo = CommonModuleTests;
+		};
+		833DF9C929AC632A0048BCCD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 833DF9C429AC632A0048BCCD /* IMSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CF4141A0292A6A14009D5DA3;
+			remoteInfo = IMSDK;
+		};
+		833DF9CB29AC632A0048BCCD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 833DF9C429AC632A0048BCCD /* IMSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CF4141AA292A6A14009D5DA3;
+			remoteInfo = IMSDKTests;
+		};
 		83F4023A28F4242C004D19D4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 83F4021828F4242A004D19D4 /* Project object */;
@@ -113,7 +144,6 @@
 		83057879298BF145008E29AE /* TMUserUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMUserUtil.swift; sourceTree = "<group>"; };
 		8305787B298BF145008E29AE /* TMSendMessageFootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMSendMessageFootView.swift; sourceTree = "<group>"; };
 		8305787D298BF145008E29AE /* TMDemoGetAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMDemoGetAuth.swift; sourceTree = "<group>"; };
-		8305787E298BF145008E29AE /* SendCardAndTempMessageApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendCardAndTempMessageApi.swift; sourceTree = "<group>"; };
 		8305787F298BF145008E29AE /* SetMessageStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetMessageStatus.swift; sourceTree = "<group>"; };
 		83057880298BF145008E29AE /* TMDemoLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMDemoLogin.swift; sourceTree = "<group>"; };
 		83057882298BF145008E29AE /* Thread.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thread.swift; sourceTree = "<group>"; };
@@ -125,6 +155,10 @@
 		83057888298BF145008E29AE /* DetailKeyBordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailKeyBordView.swift; sourceTree = "<group>"; };
 		83057889298BF145008E29AE /* TMCostomizeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMCostomizeView.swift; sourceTree = "<group>"; };
 		8305788A298BF145008E29AE /* TMChatListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMChatListController.swift; sourceTree = "<group>"; };
+		833DF9BB29AC63120048BCCD /* CommonModule.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CommonModule.xcodeproj; path = ../../TMMTMM/IMSdkCommon/CommonModule/CommonModule.xcodeproj; sourceTree = "<group>"; };
+		833DF9C429AC632A0048BCCD /* IMSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = IMSDK.xcodeproj; path = ../../TMMTMM/IMSdk/IMSDK/IMSDK.xcodeproj; sourceTree = "<group>"; };
+		834AFDC129ADB17C0012EBDF /* SDKAssest.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SDKAssest.bundle; sourceTree = "<group>"; };
+		83F3456829AF510600DD8675 /* SendTestMessageApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SendTestMessageApi.swift; path = ../../../../../../Downloads/SendTestMessageApi.swift; sourceTree = "<group>"; };
 		83F4022028F4242A004D19D4 /* IMSdk-Ios-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IMSdk-Ios-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		83F4022328F4242A004D19D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83F4022728F4242A004D19D4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +181,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				833DF9D429AC634E0048BCCD /* IMSDK.framework in Frameworks */,
+				833DF9D129AC634A0048BCCD /* CommonModule.framework in Frameworks */,
 				9BA42D47B393549220E5CA7A /* Pods_IMSdk_Ios_demo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -188,6 +224,7 @@
 		83057852298BF145008E29AE /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				834AFDC129ADB17C0012EBDF /* SDKAssest.bundle */,
 				8305787C298BF145008E29AE /* Api */,
 				83057874298BF145008E29AE /* constant */,
 				83057888298BF145008E29AE /* DetailKeyBordView.swift */,
@@ -280,8 +317,8 @@
 		8305787C298BF145008E29AE /* Api */ = {
 			isa = PBXGroup;
 			children = (
+				83F3456829AF510600DD8675 /* SendTestMessageApi.swift */,
 				8305787D298BF145008E29AE /* TMDemoGetAuth.swift */,
-				8305787E298BF145008E29AE /* SendCardAndTempMessageApi.swift */,
 				8305787F298BF145008E29AE /* SetMessageStatus.swift */,
 				83057880298BF145008E29AE /* TMDemoLogin.swift */,
 			);
@@ -299,9 +336,29 @@
 			path = Promise;
 			sourceTree = "<group>";
 		};
+		833DF9BC29AC63120048BCCD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				833DF9C129AC63120048BCCD /* CommonModule.framework */,
+				833DF9C329AC63120048BCCD /* CommonModuleTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		833DF9C529AC632A0048BCCD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				833DF9CA29AC632A0048BCCD /* IMSDK.framework */,
+				833DF9CC29AC632A0048BCCD /* IMSDKTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		83F4021728F4242A004D19D4 = {
 			isa = PBXGroup;
 			children = (
+				833DF9C429AC632A0048BCCD /* IMSDK.xcodeproj */,
+				833DF9BB29AC63120048BCCD /* CommonModule.xcodeproj */,
 				83F4022228F4242A004D19D4 /* IMSdk-Ios-demo */,
 				83F4023C28F4242C004D19D4 /* IMSdk-Ios-demoTests */,
 				83F4024628F4242C004D19D4 /* IMSdk-Ios-demoUITests */,
@@ -365,7 +422,6 @@
 				83F4021D28F4242A004D19D4 /* Frameworks */,
 				83F4021E28F4242A004D19D4 /* Resources */,
 				EFA8291FA5748A5BFDD9529D /* [CP] Embed Pods Frameworks */,
-				8A58ED5DFC65C3FB281036E5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -449,6 +505,16 @@
 			mainGroup = 83F4021728F4242A004D19D4;
 			productRefGroup = 83F4022128F4242A004D19D4 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 833DF9BC29AC63120048BCCD /* Products */;
+					ProjectRef = 833DF9BB29AC63120048BCCD /* CommonModule.xcodeproj */;
+				},
+				{
+					ProductGroup = 833DF9C529AC632A0048BCCD /* Products */;
+					ProjectRef = 833DF9C429AC632A0048BCCD /* IMSDK.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				83F4021F28F4242A004D19D4 /* IMSdk-Ios-demo */,
@@ -458,6 +524,37 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		833DF9C129AC63120048BCCD /* CommonModule.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CommonModule.framework;
+			remoteRef = 833DF9C029AC63120048BCCD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		833DF9C329AC63120048BCCD /* CommonModuleTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CommonModuleTests.xctest;
+			remoteRef = 833DF9C229AC63120048BCCD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		833DF9CA29AC632A0048BCCD /* IMSDK.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = IMSDK.framework;
+			remoteRef = 833DF9C929AC632A0048BCCD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		833DF9CC29AC632A0048BCCD /* IMSDKTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = IMSDKTests.xctest;
+			remoteRef = 833DF9CB29AC632A0048BCCD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		83F4021E28F4242A004D19D4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
@@ -466,6 +563,7 @@
 				83F4023328F4242C004D19D4 /* LaunchScreen.storyboard in Resources */,
 				83F4023028F4242C004D19D4 /* Assets.xcassets in Resources */,
 				83F4022B28F4242A004D19D4 /* Main.storyboard in Resources */,
+				834AFDC629ADB17C0012EBDF /* SDKAssest.bundle in Resources */,
 				8305788C298BF145008E29AE /* Localize.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -509,23 +607,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8A58ED5DFC65C3FB281036E5 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-IMSdk-Ios-demo/Pods-IMSdk-Ios-demo-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-IMSdk-Ios-demo/Pods-IMSdk-Ios-demo-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IMSdk-Ios-demo/Pods-IMSdk-Ios-demo-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		EFA8291FA5748A5BFDD9529D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -560,6 +641,7 @@
 				830578B3298BF145008E29AE /* TMCostomizeView.swift in Sources */,
 				830578A9298BF145008E29AE /* TMDemoGetAuth.swift in Sources */,
 				830578AD298BF145008E29AE /* Thread.swift in Sources */,
+				83F3456929AF510600DD8675 /* SendTestMessageApi.swift in Sources */,
 				83F4022828F4242A004D19D4 /* ViewController.swift in Sources */,
 				8305789D298BF145008E29AE /* IMSDKMessageId.swift in Sources */,
 				83057891298BF145008E29AE /* TMTokenManager.swift in Sources */,
@@ -591,7 +673,6 @@
 				83057892298BF145008E29AE /* ApiNoTokenService.swift in Sources */,
 				830578B4298BF145008E29AE /* TMChatListController.swift in Sources */,
 				830578A8298BF145008E29AE /* TMSendMessageFootView.swift in Sources */,
-				830578AA298BF145008E29AE /* SendCardAndTempMessageApi.swift in Sources */,
 				83057895298BF145008E29AE /* TMNet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

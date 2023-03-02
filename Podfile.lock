@@ -4,27 +4,6 @@ PODS:
   - AWSCore (2.25.0)
   - AWSS3 (2.25.0):
     - AWSCore (= 2.25.0)
-  - BuzzMsg (0.0.4):
-    - Alamofire (~> 4.9.1)
-    - AliyunOSSiOS (~> 2.10.15)
-    - AWSS3 (~> 2.25.0)
-    - CocoaLumberjack/Swift (~> 3.7.2)
-    - HandyJSON (~> 5.0.2)
-    - Localize-Swift (~> 3.2.0)
-    - Masonry (~> 1.1.0)
-    - MJRefresh (~> 3.7.5)
-    - MMKV (~> 1.2.10)
-    - "NSObject+Rx (~> 5.2.2)"
-    - QMUIKit (~> 4.5.1)
-    - R.swift (= 6.1.0)
-    - RxGesture (~> 4.0.2)
-    - RxSwiftExt (~> 6.0.1)
-    - SDWebImage (~> 5.11.1)
-    - SnapKit (~> 4.2.0)
-    - Texture (~> 3.0.0)
-    - WCDB.swift (~> 1.0.8.2)
-    - YYModel (~> 1.0.4)
-    - YYText (~> 1.0.7)
   - CocoaLumberjack/Core (3.7.4)
   - CocoaLumberjack/Swift (3.7.4):
     - CocoaLumberjack/Core
@@ -408,8 +387,27 @@ PODS:
   - YYText (1.0.7)
 
 DEPENDENCIES:
-  - BuzzMsg (= 0.0.4)
+  - Alamofire (~> 4.9.1)
+  - AliyunOSSiOS (~> 2.10.15)
+  - AWSS3 (~> 2.25.0)
+  - CocoaLumberjack/Swift (~> 3.7.2)
+  - HandyJSON (~> 5.0.2)
+  - Localize-Swift (~> 3.2.0)
+  - Masonry (~> 1.1.0)
+  - MJRefresh (~> 3.7.5)
+  - MMKV (~> 1.2.10)
+  - "NSObject+Rx (~> 5.2.2)"
+  - QMUIKit (~> 4.5.1)
+  - R.swift (= 6.1.0)
+  - RxGesture (~> 4.0.2)
+  - RxSwiftExt (~> 6.0.1)
+  - SDWebImage (~> 5.11.1)
+  - SnapKit (~> 4.2.0)
   - SVProgressHUD
+  - Texture (~> 3.0.0)
+  - WCDB.swift (~> 1.0.8.2)
+  - YYModel (~> 1.0.4)
+  - YYText (~> 1.0.7)
 
 SPEC REPOS:
   trunk:
@@ -417,7 +415,6 @@ SPEC REPOS:
     - AliyunOSSiOS
     - AWSCore
     - AWSS3
-    - BuzzMsg
     - CocoaLumberjack
     - HandyJSON
     - Localize-Swift
@@ -452,7 +449,6 @@ SPEC CHECKSUMS:
   AliyunOSSiOS: d624effdd24535da414a2bacf0027bedf64cc90e
   AWSCore: 9c51a3004e9e91528160ea978fd0c5d92780a45e
   AWSS3: 2c211728c36d1dbf4d0075d0e8ba317a561bc80c
-  BuzzMsg: 95c0c98f473e4f38e6042259508a3a7dc30c8eb0
   CocoaLumberjack: 543c79c114dadc3b1aba95641d8738b06b05b646
   HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
   Localize-Swift: 6f4475136bdb0d7b2882ea3d4ea919d70142b232
@@ -482,6 +478,6 @@ SPEC CHECKSUMS:
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: 2c667aa24ca7ea58180ef53064dd06d4860249a9
+PODFILE CHECKSUM: 7a182faf7a67d813a2c5eb3dbc517dd49267ac17
 
 COCOAPODS: 1.11.2

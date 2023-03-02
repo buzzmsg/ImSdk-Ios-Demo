@@ -184,7 +184,6 @@ class TMChatDetailController: UIViewController, IMChatDelegate {
         let newFrame = CGRect(x: oldFrame.origin.x, y: self.view.frame.height - oldFrame.size.height, width: oldFrame.size.width, height: oldFrame.size.height)
         
         let inset: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        self.chatListView?.setTableViewContentInset(inset: inset)
         let safeAreaH: CGFloat = (self.chatListView?.frame.height ?? 0.0) - inset.bottom - inset.top
         let contentH: CGFloat = self.chatListView?.getTableViewContentSize().height ?? 0.0
         let oldOffsetY: CGFloat = self.chatListView?.getTableViewContentOffset().y ?? 0.0
@@ -200,6 +199,7 @@ class TMChatDetailController: UIViewController, IMChatDelegate {
         let newOffset = CGPoint(x: 0, y: newOffsetY)
         UIView.animate(withDuration: 0.2) {
             self.inputV.frame = newFrame
+            self.chatListView?.setTableViewContentInset(inset: inset)
             self.chatListView?.setTableViewContentOffset(offset: newOffset, animated: false)
         }
         self.keyBoardHeight = 0.0

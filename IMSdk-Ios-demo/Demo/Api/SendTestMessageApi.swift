@@ -98,8 +98,8 @@ struct SendNoticeMessageApi {
         
         let params: [String: Any] = [
             "amid": amid,
-            "achat_id": achatId,
-            "sender_id": senderId,
+//            "achat_id": achatId,
+//            "sender_id": senderId,
         ]
         
         return ApiNoTokenService.post(path: "/sendNotificationMessage", parameters: params).then { value in

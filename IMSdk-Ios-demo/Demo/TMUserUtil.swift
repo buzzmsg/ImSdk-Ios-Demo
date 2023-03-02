@@ -56,7 +56,7 @@ class TMUserUtil: NSObject {
         uiSetting.setMessageMenu(menuTypes: [IMMessageMenuType.copy.rawValue, IMMessageMenuType.deleteForEveryone.rawValue, IMMessageMenuType.deleteForMe.rawValue])
         uiSetting.showRightAvatar(isShow: true)
         uiSetting.setMessageSwipeEnable(isMessageSwipeEnable: true)
-        imSdk?.uiSetting = uiSetting
+        imSdk?.setUISetting(setting: uiSetting)
     }
     
     func saveLoginInfo(info: TMDemoLoginResponse) {

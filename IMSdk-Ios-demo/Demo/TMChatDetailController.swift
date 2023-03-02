@@ -258,11 +258,19 @@ class TMChatDetailController: UIViewController, IMChatDelegate {
         self.navigationController?.pushViewController(vc, animated: true)
     }
 
-    
     func onButtonMessageClick(aMid: String, buttonId: String) {
+        print("did click button message with buttonId: \(buttonId)")
+        if let data = buttonId.data(using: .utf8), let json = try? JSONSerialization.jsonObject(with: data) {
+            if let jsonObj = json as? [String: Any] {
+                let type = jsonObj["type"] as? Int ?? 0
+                if type == 21 { // system notice message don`t to disbaleCardMessage
+                    return
+                }
+            }
+        }
         self.imSdk?.disableCardMessage(aMid: aMid, buttonIds: [buttonId])
-        print("cell button did click \(buttonId)")
     }
+    
     func onImageMessageClick(aMid: String, preView: IMImageBrowserView, selectImageInfo: TMMImageSelectViewInfo) {
         let vc = TMImageBrowserViewController()
         vc.imageBrowserView = preView
@@ -290,7 +298,6 @@ class TMChatDetailController: UIViewController, IMChatDelegate {
             closure(sendView)
         }
     }
-
     
     @objc private func whenLongClick(gesture: UIGestureRecognizer) {
         print("业务层长按手势来了")

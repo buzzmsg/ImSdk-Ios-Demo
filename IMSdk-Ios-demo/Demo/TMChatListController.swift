@@ -93,9 +93,9 @@ class TMChatListController: UIViewController, IMDelegate, IMConversationDelegate
         let image = UIImage.init(named: "head_" + String(value))
         
         if let data = image?.pngData() {
-            let userProfile = UserProfile(avatar: IMAvatar(data: data, format: "jpg"), name1: "小胖子", name3: "")
+            let userProfile = IMUserInfoItem(avatar: IMAvatar(data: data, format: "jpg"), name1: "小胖子", name3: "")
             if let aUid = datas.first?.aUid {
-                let model = IMUserInfoModel(aUid: aUid, profile: userProfile)
+                let model = IMUserinfo(aUid: aUid, profile: userProfile)
                 self.imSdk?.setUserInfo(userInfos: [model])
             }
         }

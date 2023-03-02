@@ -31,6 +31,7 @@ class TMChatDetailController: UIViewController, IMChatDelegate {
     public var tapMap: [String: ((UIView) -> ())] = [:]
 
     private var chatListView: IMChatView?
+    private var isPush = false
 
 //    private lazy var sendView: TMSendMessageFootView = {
 //        let sendView = TMSendMessageFootView(frame: .zero)i
@@ -209,6 +210,8 @@ class TMChatDetailController: UIViewController, IMChatDelegate {
     // MARK: -
 
     @objc private func sendMessageClick() {
+        self.view.endEditing(true)
+
         let vc = TMSendMessageViewController()
         vc.hidesBottomBarWhenPushed = true
         vc.aChatId = self.aChatId
@@ -232,7 +235,8 @@ class TMChatDetailController: UIViewController, IMChatDelegate {
     }
     
     @objc private func subTitleClick() {
-        
+        self.view.endEditing(true)
+
         let vc: TMInputViewController = TMInputViewController()
         vc.doneBlock = { [weak self] text in
             guard let self = self else {
@@ -248,6 +252,8 @@ class TMChatDetailController: UIViewController, IMChatDelegate {
     }
     
     func onFileMessageClick(aMid: String, preView: IMFilePreView) {
+        self.view.endEditing(true)
+
         let vc: TMFilePreController = TMFilePreController()
         vc.preView = preView
         self.navigationController?.pushViewController(vc, animated: true)
@@ -272,6 +278,8 @@ class TMChatDetailController: UIViewController, IMChatDelegate {
         if self.inputV.isFirstResponder {
             self.inputV.resignFirstResponder()
         }
+        self.view.endEditing(true)
+
         let vc = TMImageBrowserViewController()
         vc.imageBrowserView = preView
         vc.viewFrame = selectImageInfo.viewFrame;

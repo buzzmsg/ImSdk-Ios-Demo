@@ -54,9 +54,8 @@ class TMUserUtil: NSObject {
         // UISetting config
         let uiSetting = IMUISetting()
         uiSetting.setMessageMenu(menuTypes: [IMMessageMenuType.copy.rawValue, IMMessageMenuType.deleteForEveryone.rawValue, IMMessageMenuType.deleteForMe.rawValue])
-        uiSetting.showAvatarOnPrivateChat(left: true, right: true)
-        let img = UIImage(named: "head_1")?.pngData()
-        uiSetting.setAvatarPlaceholder(imageData: img)
+        uiSetting.showRightAvatar(isShow: true)
+        uiSetting.setMessageSwipeEnable(isMessageSwipeEnable: true)
         imSdk?.uiSetting = uiSetting
     }
     

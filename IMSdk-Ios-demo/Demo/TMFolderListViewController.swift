@@ -14,7 +14,7 @@ class TMFolderListViewController: UIViewController, IMConversationDelegate, IMCo
     var imSdk: IMSdk? {
         return TMUserUtil.shared.imSdk
     }
-    var conversionViewModel: IMConversionViewModel?
+    var conversionViewModel: IMConversationViewModel?
     private var chatView: IMConversationView?
     
     override func viewDidLoad() {

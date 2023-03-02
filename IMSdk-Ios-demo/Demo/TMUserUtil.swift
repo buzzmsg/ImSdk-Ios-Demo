@@ -55,7 +55,6 @@ class TMUserUtil: NSObject {
         let uiSetting = IMUISetting()
         uiSetting.setMessageMenu(menuTypes: [IMMessageMenuType.copy.rawValue, IMMessageMenuType.deleteForEveryone.rawValue, IMMessageMenuType.deleteForMe.rawValue])
         uiSetting.showRightAvatar(isShow: true)
-        uiSetting.setMessageSwipeEnable(isMessageSwipeEnable: true)
         imSdk?.setUISetting(setting: uiSetting)
     }
     

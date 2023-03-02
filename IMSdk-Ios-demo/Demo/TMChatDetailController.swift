@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 import IMSDK
 import QMUIKit
+import SVProgressHUD
 
 class TMChatDetailController: UIViewController, IMChatDelegate {
     
@@ -32,7 +33,7 @@ class TMChatDetailController: UIViewController, IMChatDelegate {
     private var chatListView: IMChatView?
 
 //    private lazy var sendView: TMSendMessageFootView = {
-//        let sendView = TMSendMessageFootView(frame: .zero)
+//        let sendView = TMSendMessageFootView(frame: .zero)i
 //        sendView.sendMessageBtn.addTarget(self, action: #selector(sendMessageClick), for: .touchUpInside)
 //        sendView.editBtn.addTarget(self, action: #selector(subTitleClick), for: .touchUpInside)
 //        sendView.textBtn.addTarget(self, action: #selector(selectImageClick), for: .touchUpInside)
@@ -253,6 +254,7 @@ class TMChatDetailController: UIViewController, IMChatDelegate {
     }
 
     func onButtonMessageClick(aMid: String, buttonId: String) {
+        SVProgressHUD.showSuccess(withStatus: "点击按钮")
         print("did click button message with buttonId: \(buttonId)")
         if let data = buttonId.data(using: .utf8), let json = try? JSONSerialization.jsonObject(with: data) {
             if let jsonObj = json as? [String: Any] {
@@ -263,6 +265,7 @@ class TMChatDetailController: UIViewController, IMChatDelegate {
             }
         }
         self.imSdk?.disableCardMessage(aMid: aMid, buttonIds: [buttonId])
+        
     }
     
     func onImageMessageClick(aMid: String, preView: IMImageBrowserView, selectImageInfo: TMMImageSelectViewInfo) {
@@ -306,10 +309,12 @@ class TMChatDetailController: UIViewController, IMChatDelegate {
     
     func onMiddleMessageClick(aMid: String, tmpId: String, buttonId: String) {
         print("当前点击：\(buttonId)")
+        SVProgressHUD.showSuccess(withStatus: "点击中间人消息")
     }
     
     func onNoticeMessageClick(aMid: String, buttonId: String) {
         print("当前点击通知消息：\(buttonId)")
+        SVProgressHUD.showSuccess(withStatus: "点击通知消息")
     }
     
     // 仅对当前用户删除该消息

@@ -26,7 +26,7 @@ class TMChatListController: UIViewController, IMDelegate, IMConversationDelegate
     var imSdk: IMSdk? {
         return TMUserUtil.shared.imSdk
     }
-    var conversionViewModel: IMConversationViewModel?
+    var conversionViewModel: IMConversionViewModel?
     private var chatView: IMConversationView?
     
     override func viewDidLoad() {
@@ -83,15 +83,8 @@ class TMChatListController: UIViewController, IMDelegate, IMConversationDelegate
     
     func authCodeExpire(aUid: String, errorCode: IMSDK.IMSdkError) {
         print("登录失败来了, errorCode: \(errorCode)")
-        SVProgressHUD.showError(withStatus: "嘿。兄弟，401了！")
         
-        if let loginInfo = loginInfo {
-            TMDemoGetAuth.execute(token: loginInfo.token).then { authRespon -> Promise<Void> in
-                self.imSdk?.setAuthCode(auth: authRespon.authcode)
-                return Promise<Void>.resolve()
-            }
-
-        }
+        SVProgressHUD.show(withStatus: "嘿。兄弟，401了！")
     }
     
     func onShowUserInfo(datas: [IMShowUserInfo]) {
@@ -398,11 +391,6 @@ class TMChatListController: UIViewController, IMDelegate, IMConversationDelegate
             let textField: UITextField = (alertController.textFields?[0])!;
             if let str = textField.text, str.count > 1 {
                 if let loginInfo = self.loginInfo {
-                    
-                    
-                    
-                    
-                    
                     let chatId = self.createAchatId(uid1: loginInfo.phone, uid2: str)
                     let auid = str.DDMD5Encrypt(.lowercase16)
                     self.imSdk?.createChat(aChatId: chatId, chatName: chatId, aUids: [auid], success: {
@@ -439,12 +427,12 @@ class TMChatListController: UIViewController, IMDelegate, IMConversationDelegate
     
 }
 
-extension TMChatListController: ConversationViewModelDelegate {
-    func onHideConversation(aChatIds: [String]) -> [String] {
+extension TMChatListController: ConversionViewModelDelegate {
+    func hideConversation(aChatIds: [String]) -> [String] {
         return []
     }
     
-    func unReadChange(count: Int) {
+    func conversationUnReadNumChange(count: Int) {
         print("未读数:\(count)")
     }
 }

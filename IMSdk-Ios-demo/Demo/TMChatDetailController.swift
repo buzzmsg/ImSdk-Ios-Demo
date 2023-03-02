@@ -19,10 +19,8 @@ class TMChatDetailController: UIViewController, IMChatDelegate {
     var imSdk: IMSdk? {
         return TMUserUtil.shared.imSdk
     }
-
-    lazy var viewModel: IMConversationViewModel? = {
-        return imSdk?.createConversationViewModel(selector: IMChatViewModelFactory.ofPart(ids: [aChatId]))
-    }()
+    
+    var viewModel: IMConversionViewModel?
 
     deinit {
         print("TMChatDetailController - swift 灰飞烟灭")
@@ -318,7 +316,7 @@ class TMChatDetailController: UIViewController, IMChatDelegate {
         let tipAlert = UIAlertController(title: "Tips", message: "Confirm to delete this Message for me?", preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: .default)
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { [weak self] action in
-            self?.imSdk?.deleteMessages(aMids: [aMid], success: nil, fail: nil)
+            self?.imSdk?.deleteMessage(aMids: [aMid], success: nil, fail: nil)
         }
         tipAlert.addAction(cancelAction)
         tipAlert.addAction(deleteAction)
@@ -330,7 +328,7 @@ class TMChatDetailController: UIViewController, IMChatDelegate {
         let tipAlert = UIAlertController(title: "Tips", message: "Confirm to delete this Message for everyone?", preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: .default)
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { [weak self] action in
-            self?.imSdk?.retractMessages(aMids: [aMid], success: nil, fail: nil)
+            self?.imSdk?.revokeMessage(aMids: [aMid], success: nil, fail: nil)
         }
         tipAlert.addAction(cancelAction)
         tipAlert.addAction(deleteAction)

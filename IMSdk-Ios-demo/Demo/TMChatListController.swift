@@ -40,6 +40,9 @@ class TMChatListController: UIViewController, IMDelegate, IMConversationDelegate
         self.navigationItem.rightBarButtonItem = item2
         
         if let imSdk = self.imSdk, let loginInfo = loginInfo {
+            
+            self.title = loginInfo.phone
+
             imSdk.setIMDelegate(delegate: self)
             
             imSdk.setAuthCode(auth: loginInfo.authcode)
@@ -48,7 +51,7 @@ class TMChatListController: UIViewController, IMDelegate, IMConversationDelegate
             
             self.conversionViewModel = imSdk.createConversationViewModel(selector: IMChatViewModelFactory.ofAll())
 //            self.conversionViewModel = imSdk.createConversationViewModel(selector: IMChatViewModelFactory.ofPart(ids: ["14714710_14714711"]))
-//            self.conversionViewModel = imSdk.createConversationViewModel(selector: IMChatViewModelFactory.ofUnPart(ids: ["14714710_14714711"]))
+//            self.conversionViewModel = imSdk.createConversationViewModel(selector: IMChatViewModelFactory.ofUnPart(ids: ["147100_1471000"]))
 
             self.conversionViewModel?.setDelegate(delegate: self)
             
@@ -109,21 +112,21 @@ class TMChatListController: UIViewController, IMDelegate, IMConversationDelegate
 //            let subTitle = ConversationSubTitle(aChatId: "1471471479_18522221111", subTitle: "开发工程师")
 //            self.kit?.setConversationSubTitle(subTitles: [subTitle])
 //        }
-        let value = Int(arc4random()%47) + 1
-        let image = UIImage.init(named: "head_" + String(value))
-        
-        if let data = image?.pngData() {
-//            let userProfile = UserProfile(avatar: data, format: "jpg", name: "小胖子")
-//            let model = UserInfoModel(aUid: aUids.first ?? "", profile: userProfile)
-//            self.kit?.setUserInfo(userInfos: [model])
-            var markers: [IMConversationMarker] = []
-            
-            for item in aChatIds {
-                markers.append(IMConversationMarker(aChatId: item, icon: IMAvatar(data: data, format: "jpg")))
-            }
-            self.conversionViewModel?.setConversationMarker(markers: markers)
-
-        }
+//        let value = Int(arc4random()%47) + 1
+//        let image = UIImage.init(named: "head_" + String(value))
+//        
+//        if let data = image?.pngData() {
+////            let userProfile = UserProfile(avatar: data, format: "jpg", name: "小胖子")
+////            let model = UserInfoModel(aUid: aUids.first ?? "", profile: userProfile)
+////            self.kit?.setUserInfo(userInfos: [model])
+//            var markers: [IMConversationMarker] = []
+//            
+//            for item in aChatIds {
+//                markers.append(IMConversationMarker(aChatId: item, icon: IMAvatar(data: data, format: "jpg")))
+//            }
+//            self.conversionViewModel?.setConversationMarker(markers: markers)
+//
+//        }
     }
     
     func onShowConversationMarker(aChatIds: [String]) {
@@ -139,13 +142,12 @@ class TMChatListController: UIViewController, IMDelegate, IMConversationDelegate
         
     }
      
-    
-    func onReceiveMessage(aMids: [String]) {
-        for mid in aMids {
-            print("receive new messages amid: \(mid), aChatId: null")
+    func onReceiveMessage(receiveMessageList: [IMReceiveMessageInfo]) {
+        for item in receiveMessageList {
+            print("receive new messages amid: \(item.amid), aChatId: \(item.aChatId)")
         }
     }
-    
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
@@ -182,9 +184,9 @@ class TMChatListController: UIViewController, IMDelegate, IMConversationDelegate
             if let str = textField.text, str.count > 1 {
                 let value = Int(arc4random()%47) + 1
                 let image = UIImage.init(named: "head_" + String(value))
-                
+
                 if let viewModel = self.conversionViewModel {
-                    
+
                     if let data = image?.pngData() {
                         viewModel.setFolder(aChatId: "_not-interested-folder_", content: "1 contacts", name: "Not 1 contacts", folderIcon: IMAvatar(data: data, format: "jpg"))
 
@@ -192,20 +194,17 @@ class TMChatListController: UIViewController, IMDelegate, IMConversationDelegate
                         let updateSelector = IMChatViewModelFactory.ofUnPart(ids: [str])
                         let folderSelector = IMChatViewModelFactory.ofPart(ids: ["_not-interested-folder_"])
                         if let andSelector = curremtSelector.and?(selector: updateSelector) {
-                            viewModel.replace(selector: andSelector)
                             if let lastSelector = andSelector.or?(selector: folderSelector) {
                                 viewModel.replace(selector: lastSelector)
                             }
-                            
+
                         }
                     }
                 }
             }
         })
         alertController.addTextField { (textfield) in
-            //这个block会在弹出对话框的时候调用,这个参数textfield就是系统为我们创建的textfield
-//            textfield.delegate = self
-            print(textfield)
+
         }
         alertController.addAction(cancelAction)
         alertController.addAction(okAction)
@@ -257,6 +256,16 @@ class TMChatListController: UIViewController, IMDelegate, IMConversationDelegate
     @objc private func deletefolderMassageClick() {
         if let viewModel = self.conversionViewModel {
             viewModel.removeFolder(aChatId: "_not-interested-folder_")
+            
+            
+            
+            let curremtSelector = viewModel.getCurremtSelector()
+            let updateSelector = IMChatViewModelFactory.ofAll()
+//            let folderSelector = IMChatViewModelFactory.ofPart(ids: ["_not-interested-folder_"])
+            if let andSelector = curremtSelector.or?(selector: updateSelector) {
+                viewModel.replace(selector: andSelector)
+            }
+            
         }
     }
     

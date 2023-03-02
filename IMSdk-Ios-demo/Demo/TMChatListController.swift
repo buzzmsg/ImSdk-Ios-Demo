@@ -383,7 +383,6 @@ class TMChatListController: UIViewController, IMDelegate, IMConversationDelegate
             let vc = TMChatDetailController()
             vc.hidesBottomBarWhenPushed = true
             vc.aChatId = aChatId
-            vc.viewModel = self.conversionViewModel
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

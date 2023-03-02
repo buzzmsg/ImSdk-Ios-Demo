@@ -153,6 +153,10 @@ class TMChatListController: UIViewController, IMDelegate, IMConversationDelegate
             print("receive new messages amid: \(item.amid), aChatId: \(item.aChatId)")
         }
     }
+    
+    func onSendMessageFailed(aMid: String, aChatId: String, error: IMMessaageSendError) {
+        print("消息发送失败，aMid：\(aMid),aChatId:\(aChatId),error:\(error)")
+    }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()

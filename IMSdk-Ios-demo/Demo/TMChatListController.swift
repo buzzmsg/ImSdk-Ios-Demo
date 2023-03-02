@@ -377,6 +377,7 @@ class TMChatListController: UIViewController, IMDelegate, IMConversationDelegate
             let vc = TMChatDetailController()
             vc.hidesBottomBarWhenPushed = true
             vc.aChatId = aChatId
+            vc.viewModel = self.conversionViewModel
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -396,6 +397,7 @@ class TMChatListController: UIViewController, IMDelegate, IMConversationDelegate
                         let vc = TMChatDetailController()
                         vc.hidesBottomBarWhenPushed = true
                         vc.aChatId = chatId
+                        vc.viewModel = self.conversionViewModel
                         self.navigationController?.pushViewController(vc, animated: true)
                     }, fail: { error in
                         print("create chat error: \(error)")

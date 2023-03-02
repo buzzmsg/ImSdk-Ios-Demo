@@ -20,9 +20,7 @@ class TMChatDetailController: UIViewController, IMChatDelegate {
         return TMUserUtil.shared.imSdk
     }
     
-    lazy var viewModel: IMConversionViewModel? = {
-        return imSdk?.createConversationViewModel(selector: IMChatViewModelFactory.ofPart(ids: [aChatId]))
-    }()
+    var viewModel: IMConversionViewModel?
 
     deinit {
         print("TMChatDetailController - swift 灰飞烟灭")
@@ -103,17 +101,12 @@ class TMChatDetailController: UIViewController, IMChatDelegate {
 //                make.left.top.right.equalToSuperview()
 //                make.bottom.equalTo(self.inputV.snp_top)
 //            }
-            let tap = UITapGestureRecognizer(target: self, action: #selector(tapAct(gesture:)))
-            v.addGestureRecognizer(tap)
         }
 
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-    @objc private func tapAct(gesture: UIGestureRecognizer) {
-        self.inputV.endEditing(true)
-    }
     
     
     override func viewDidLayoutSubviews() {
@@ -128,13 +121,13 @@ class TMChatDetailController: UIViewController, IMChatDelegate {
         
         let btn2=UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 40))
         btn2.setTitle("Maker", for: .normal)
-        btn2.addTarget(self, action: #selector(subTitleClick), for: .touchUpInside)
+        btn2.addTarget(self, action: #selector(markerClick), for: .touchUpInside)
         btn2.setTitleColor(UIColor.blue, for: .normal)
         let item3=UIBarButtonItem(customView: btn2)
         
         let btn3 = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 40))
         btn3.setTitle("副标题", for: .normal)
-        btn3.addTarget(self, action: #selector(selectImageClick), for: .touchUpInside)
+        btn3.addTarget(self, action: #selector(subTitleClick), for: .touchUpInside)
         btn3.setTitleColor(UIColor.blue, for: .normal)
         let item4=UIBarButtonItem(customView: btn3)
         
@@ -221,7 +214,7 @@ class TMChatDetailController: UIViewController, IMChatDelegate {
     }
     
     // 设置会话标识
-    @objc private func subTitleClick() {
+    @objc private func markerClick() {
         let value = Int(arc4random()%47) + 1
         let image = UIImage.init(named: "head_" + String(value))
         
@@ -236,7 +229,7 @@ class TMChatDetailController: UIViewController, IMChatDelegate {
         }
     }
     
-    @objc private func selectImageClick() {
+    @objc private func subTitleClick() {
         
         let vc: TMInputViewController = TMInputViewController()
         vc.doneBlock = { [weak self] text in
@@ -245,7 +238,7 @@ class TMChatDetailController: UIViewController, IMChatDelegate {
             }
             
             let subTitle = IMConversationSubTitle(aChatId: self.aChatId, subTitle: text)
-            self.imSdk?.setConversationSubTitle(subTitles: [subTitle])
+            self.viewModel?.setConversationSubTitle(subTitles: [subTitle])
             self.navigationController?.popViewController(animated: true)
         }
         vc.hidesBottomBarWhenPushed = true
@@ -264,12 +257,19 @@ class TMChatDetailController: UIViewController, IMChatDelegate {
         print("cell button did click \(buttonId)")
     }
     func onImageMessageClick(aMid: String, preView: IMImageBrowserView, selectImageInfo: TMMImageSelectViewInfo) {
+        if self.inputV.isFirstResponder {
+            self.inputV.resignFirstResponder()
+        }
         let vc = TMImageBrowserViewController()
         vc.imageBrowserView = preView
         vc.viewFrame = selectImageInfo.viewFrame;
         vc.image = selectImageInfo.image;
         vc.screenShopImage = UIApplication.shared.keyWindow?.screenshotsImage()
         self.navigationController?.pushViewController(vc, animated: false)
+    }
+    
+    func onCloseKeyBoard() {
+        self.inputV.endEditing(true)
     }
     
     func onShowCustomMessageView(aMid: String, body: String, handleCustomView: ((UIView) -> ())?, tapCustomView: ((UIView) -> ())?) {

@@ -285,8 +285,23 @@ class TMChatDetailController: UIViewController, IMChatDelegate {
         vc.imageBrowserView = preView
         vc.viewFrame = selectImageInfo.viewFrame;
         vc.image = selectImageInfo.image;
-        vc.screenShopImage = UIApplication.shared.keyWindow?.screenshotsImage()
+        
+        vc.screenShopImage = self.screenshots(time: 1)
         self.navigationController?.pushViewController(vc, animated: false)
+    }
+    
+    func screenshots(time: Int) -> UIImage {
+        print("尝试第 \(time) 次截屏失败")
+        if let img = UIApplication.shared.keyWindow?.screenshotsImage() {
+            return img
+        }
+        
+        if time >= 5 {
+            print("尝试5次截屏失败")
+            return UIImage()
+        }
+        
+        return self.screenshots(time: time + 1)
     }
     
     func onCloseKeyBoard() {

@@ -144,9 +144,6 @@ class TMChatDetailController: UIViewController, IMChatDelegate {
     
     var keyBoardHeight = 0.0
     @objc private func keyboardWillShow(notification: Notification) {
-        if self.keyBoardHeight != 0 {
-            return
-        }
         let info: NSDictionary? = notification.userInfo as NSDictionary?
         var keyBoardH = 0.0
         if let f = info {
@@ -154,6 +151,10 @@ class TMChatDetailController: UIViewController, IMChatDelegate {
             let keyRect = (keyValue as AnyObject).cgRectValue
             let height = keyRect?.size.height
             keyBoardH = height ?? 0.0
+        }
+        let keyBoardHeightDiff = keyBoardH - self.keyBoardHeight
+        if keyBoardHeightDiff <= 0 {
+            return
         }
         
         let inset: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyBoardH, right: 0)
@@ -168,7 +169,7 @@ class TMChatDetailController: UIViewController, IMChatDelegate {
         if safeAreaH < contentH {
             var diff: CGFloat = contentH - safeAreaH
             if diff > keyBoardH {
-                diff = keyBoardH
+                diff = keyBoardHeightDiff
             }
             newOffsetY = oldOffsetY + diff
         }
@@ -275,10 +276,10 @@ class TMChatDetailController: UIViewController, IMChatDelegate {
     }
     
     func onImageMessageClick(aMid: String, preView: IMImageBrowserView, selectImageInfo: TMMImageSelectViewInfo) {
-        if self.inputV.isFirstResponder {
-            self.inputV.resignFirstResponder()
-        }
-        self.view.endEditing(true)
+//        if self.inputV.isFirstResponder {
+//            self.inputV.resignFirstResponder()
+//        }
+//        self.view.endEditing(true)
 
         let vc = TMImageBrowserViewController()
         vc.imageBrowserView = preView

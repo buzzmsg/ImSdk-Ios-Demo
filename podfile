@@ -1,4 +1,4 @@
-#source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '11.0'
 target 'IMSdk-Ios-demo' do
   use_frameworks!
@@ -8,6 +8,27 @@ target 'IMSdk-Ios-demo' do
 #  pod 'STIMSDKIOS', '0.0.20'
 #  pod 'STIMSDKIOS',:git =>"https://github.com/TmmTmmIM/STIMSDKIOS.git"
 #  pod 'BuzzMsg',:git =>"https://github.com/buzzmsg/ImSdk-Ios.git"
-  pod 'BuzzMsg', '0.0.4'
+#  pod 'BuzzMsg', '0.0.4'
+pod "Alamofire", '~> 4.9.1'
+pod "HandyJSON", '~> 5.0.2'
+pod "RxSwiftExt", '~> 6.0.1'
+pod "MMKV", '~> 1.2.10'
+pod "SnapKit", '~> 4.2.0'
+pod "AliyunOSSiOS", '~> 2.10.15'
+pod "AWSS3", '~> 2.25.0'
+pod "Masonry", '~> 1.1.0'
+pod "CocoaLumberjack/Swift", '~> 3.7.2'
+pod "Localize-Swift", '~> 3.2.0'
+pod "RxGesture", '~> 4.0.2'
+pod "Texture", '~> 3.0.0'
+pod "NSObject+Rx", '~> 5.2.2'
+pod "R.swift", '= 6.1.0'
+pod "MJRefresh", '~> 3.7.5'
+pod "QMUIKit", '~> 4.5.1'
+pod "YYText", '~> 1.0.7'
+pod "YYModel", '~> 1.0.4'
+pod "SDWebImage", '~> 5.11.1'
+
+pod "BuzzWCDB", '~> 1.1.1'
 
 end

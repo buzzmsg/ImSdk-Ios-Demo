@@ -10,17 +10,30 @@ import IMSDK
 
 let TM_DEMO_UID_KEY: String = "demo_uid_key"
 
+//let IMSDKApiHostMap: [IMEnvironmentType : String] = [
+//    IMEnvironmentType.alpha : "https://demo-sdk-api.rpgqp.com",
+//    // TMMIMEnvironmentType.pre : "https://imsi-pre.tmmtmm.com.tr:6501",
+//    IMEnvironmentType.pro : "https://sci.rpgqp.com:5501",
+//]
+//
+//let IMSDKSocketHostMap: [IMEnvironmentType : String] = [
+//    IMEnvironmentType.alpha : "wss://dev-sdk-tcp.rpgqp.com/wsConnect",
+//    // TMMIMEnvironmentType.pre : "wss://imsws-pre.tmmtmm.com.tr:6502/wsConnect",
+//    IMEnvironmentType.pro : "wss://ws.rpgqp.com:5503",
+//]
 let IMSDKApiHostMap: [IMEnvironmentType : String] = [
-    IMEnvironmentType.alpha : "https://demo-sdk-api.rpgqp.com",
+    IMEnvironmentType.alpha : "https://demo-sdk-api.buzzmsg.com",
     // TMMIMEnvironmentType.pre : "https://imsi-pre.tmmtmm.com.tr:6501",
-    IMEnvironmentType.pro : "https://sci.rpgqp.com:5501",
+    //IMEnvironmentType.pro : "https://sci.rpgqp.com:5501",
 ]
 
 let IMSDKSocketHostMap: [IMEnvironmentType : String] = [
-    IMEnvironmentType.alpha : "wss://dev-sdk-tcp.rpgqp.com/wsConnect",
+    IMEnvironmentType.alpha : "wss://dev-sdk-tcp.buzzmsg.com/wsConnect",
     // TMMIMEnvironmentType.pre : "wss://imsws-pre.tmmtmm.com.tr:6502/wsConnect",
-    IMEnvironmentType.pro : "wss://ws.rpgqp.com:5503",
+    //IMEnvironmentType.pro : "wss://ws.rpgqp.com:5503",
 ]
+
+let SdkEnvType: IMEnvironmentType = .alpha
 
 class TMUserUtil: NSObject {
 

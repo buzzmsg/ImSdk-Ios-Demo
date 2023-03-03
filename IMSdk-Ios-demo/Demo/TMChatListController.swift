@@ -10,9 +10,6 @@ import SVProgressHUD
 import IMSDK
 
 
-
-let SdkEnvType: IMEnvironmentType = .alpha
-
 class TMChatListController: UIViewController, IMDelegate, IMConversationDelegate, IMConversionSelector {
     
     

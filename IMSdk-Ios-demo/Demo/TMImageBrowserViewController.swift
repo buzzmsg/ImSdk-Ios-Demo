@@ -55,6 +55,7 @@ class TMImageBrowserViewController: UIViewController, IMImageBrowserViewDelegate
         self.view.backgroundColor = UIColor.white
         
         if let pView = imageBrowserView {
+            pView.isHidden = true
             self.view.addSubview(pView)
             pView.setDelegate(delegate: self)
         }

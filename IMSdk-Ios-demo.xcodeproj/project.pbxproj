@@ -37,7 +37,6 @@
 		830578A7298BF145008E29AE /* TMUserUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83057879298BF145008E29AE /* TMUserUtil.swift */; };
 		830578A8298BF145008E29AE /* TMSendMessageFootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8305787B298BF145008E29AE /* TMSendMessageFootView.swift */; };
 		830578A9298BF145008E29AE /* TMDemoGetAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8305787D298BF145008E29AE /* TMDemoGetAuth.swift */; };
-		830578AA298BF145008E29AE /* SendCardAndTempMessageApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8305787E298BF145008E29AE /* SendCardAndTempMessageApi.swift */; };
 		830578AB298BF145008E29AE /* SetMessageStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8305787F298BF145008E29AE /* SetMessageStatus.swift */; };
 		830578AC298BF145008E29AE /* TMDemoLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83057880298BF145008E29AE /* TMDemoLogin.swift */; };
 		830578AD298BF145008E29AE /* Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83057882298BF145008E29AE /* Thread.swift */; };
@@ -57,6 +56,7 @@
 		83F4023E28F4242C004D19D4 /* IMSdk_Ios_demoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F4023D28F4242C004D19D4 /* IMSdk_Ios_demoTests.swift */; };
 		83F4024828F4242C004D19D4 /* IMSdk_Ios_demoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F4024728F4242C004D19D4 /* IMSdk_Ios_demoUITests.swift */; };
 		83F4024A28F4242C004D19D4 /* IMSdk_Ios_demoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F4024928F4242C004D19D4 /* IMSdk_Ios_demoUITestsLaunchTests.swift */; };
+		83F82A3E29B0CCE80049706B /* SendTestMessageApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F82A3D29B0CCE80049706B /* SendTestMessageApi.swift */; };
 		9BA42D47B393549220E5CA7A /* Pods_IMSdk_Ios_demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEEA9B3BC05F4F2F00D27B07 /* Pods_IMSdk_Ios_demo.framework */; };
 /* End PBXBuildFile section */
 
@@ -113,7 +113,6 @@
 		83057879298BF145008E29AE /* TMUserUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMUserUtil.swift; sourceTree = "<group>"; };
 		8305787B298BF145008E29AE /* TMSendMessageFootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMSendMessageFootView.swift; sourceTree = "<group>"; };
 		8305787D298BF145008E29AE /* TMDemoGetAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMDemoGetAuth.swift; sourceTree = "<group>"; };
-		8305787E298BF145008E29AE /* SendCardAndTempMessageApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendCardAndTempMessageApi.swift; sourceTree = "<group>"; };
 		8305787F298BF145008E29AE /* SetMessageStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetMessageStatus.swift; sourceTree = "<group>"; };
 		83057880298BF145008E29AE /* TMDemoLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMDemoLogin.swift; sourceTree = "<group>"; };
 		83057882298BF145008E29AE /* Thread.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thread.swift; sourceTree = "<group>"; };
@@ -138,6 +137,7 @@
 		83F4024328F4242C004D19D4 /* IMSdk-Ios-demoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "IMSdk-Ios-demoUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		83F4024728F4242C004D19D4 /* IMSdk_Ios_demoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSdk_Ios_demoUITests.swift; sourceTree = "<group>"; };
 		83F4024928F4242C004D19D4 /* IMSdk_Ios_demoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSdk_Ios_demoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		83F82A3D29B0CCE80049706B /* SendTestMessageApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendTestMessageApi.swift; sourceTree = "<group>"; };
 		E9D07147EBF49BFE2CB44255 /* Pods-IMSdk-Ios-demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IMSdk-Ios-demo.release.xcconfig"; path = "Target Support Files/Pods-IMSdk-Ios-demo/Pods-IMSdk-Ios-demo.release.xcconfig"; sourceTree = "<group>"; };
 		FEEA9B3BC05F4F2F00D27B07 /* Pods_IMSdk_Ios_demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IMSdk_Ios_demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -280,8 +280,8 @@
 		8305787C298BF145008E29AE /* Api */ = {
 			isa = PBXGroup;
 			children = (
+				83F82A3D29B0CCE80049706B /* SendTestMessageApi.swift */,
 				8305787D298BF145008E29AE /* TMDemoGetAuth.swift */,
-				8305787E298BF145008E29AE /* SendCardAndTempMessageApi.swift */,
 				8305787F298BF145008E29AE /* SetMessageStatus.swift */,
 				83057880298BF145008E29AE /* TMDemoLogin.swift */,
 			);
@@ -365,7 +365,7 @@
 				83F4021D28F4242A004D19D4 /* Frameworks */,
 				83F4021E28F4242A004D19D4 /* Resources */,
 				EFA8291FA5748A5BFDD9529D /* [CP] Embed Pods Frameworks */,
-				8A58ED5DFC65C3FB281036E5 /* [CP] Copy Pods Resources */,
+				0955FB25DA2F777CED8275BE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -487,6 +487,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0955FB25DA2F777CED8275BE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IMSdk-Ios-demo/Pods-IMSdk-Ios-demo-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IMSdk-Ios-demo/Pods-IMSdk-Ios-demo-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IMSdk-Ios-demo/Pods-IMSdk-Ios-demo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		5802E631D3C8D52FAA39A4E6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -507,23 +524,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8A58ED5DFC65C3FB281036E5 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-IMSdk-Ios-demo/Pods-IMSdk-Ios-demo-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-IMSdk-Ios-demo/Pods-IMSdk-Ios-demo-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IMSdk-Ios-demo/Pods-IMSdk-Ios-demo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EFA8291FA5748A5BFDD9529D /* [CP] Embed Pods Frameworks */ = {
@@ -560,6 +560,7 @@
 				830578B3298BF145008E29AE /* TMCostomizeView.swift in Sources */,
 				830578A9298BF145008E29AE /* TMDemoGetAuth.swift in Sources */,
 				830578AD298BF145008E29AE /* Thread.swift in Sources */,
+				83F82A3E29B0CCE80049706B /* SendTestMessageApi.swift in Sources */,
 				83F4022828F4242A004D19D4 /* ViewController.swift in Sources */,
 				8305789D298BF145008E29AE /* IMSDKMessageId.swift in Sources */,
 				83057891298BF145008E29AE /* TMTokenManager.swift in Sources */,
@@ -591,7 +592,6 @@
 				83057892298BF145008E29AE /* ApiNoTokenService.swift in Sources */,
 				830578B4298BF145008E29AE /* TMChatListController.swift in Sources */,
 				830578A8298BF145008E29AE /* TMSendMessageFootView.swift in Sources */,
-				830578AA298BF145008E29AE /* SendCardAndTempMessageApi.swift in Sources */,
 				83057895298BF145008E29AE /* TMNet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

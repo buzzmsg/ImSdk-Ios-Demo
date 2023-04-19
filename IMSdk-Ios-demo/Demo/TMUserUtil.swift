@@ -23,18 +23,18 @@ let TM_DEMO_UID_KEY: String = "demo_uid_key"
 //]
 
 let IMSDKApiHostMap: [IMEnvironmentType : String] = [
-    IMEnvironmentType.alpha : "https://demo-sdk-api.rpgqp.com",
-    IMEnvironmentType.pro : "https://dev-sdk-api.rpgqp.com:7501",
+    IMEnvironmentType.alpha : "https://dev-sdk-api.buzzmsg.com",
+    IMEnvironmentType.pro : "https://sci.buzzmsg.com",
     // TMMIMEnvironmentType.pre : "https://imsi-pre.tmmtmm.com.tr:6501",
 ]
 
 let IMSDKSocketHostMap: [IMEnvironmentType : String] = [
-    IMEnvironmentType.alpha : "wss://dev-sdk-tcp.rpgqp.com/wsConnect",
-    IMEnvironmentType.pro : "wss://dev-sdk-tcp.rpgqp.com:7503",
+    IMEnvironmentType.alpha : "wss://dev-sdk-tcp.buzzmsg.com",
+    IMEnvironmentType.pro : "wss://ws.buzzmsg.com",
     // TMMIMEnvironmentType.pre : "wss://imsws-pre.tmmtmm.com.tr:6502/wsConnect",
 ]
 
-let SdkEnvType: IMEnvironmentType = .alpha
+let SdkEnvType: IMEnvironmentType = .pro
 
 class TMUserUtil: NSObject {
 

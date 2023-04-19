@@ -195,9 +195,8 @@
 				83057854298BF145008E29AE /* Localize.strings */,
 				8305785A298BF145008E29AE /* net */,
 				83057881298BF145008E29AE /* Promise */,
-				83057879298BF145008E29AE /* TMUserUtil.swift */,
-				8305788A298BF145008E29AE /* TMChatListController.swift */,
 				83057862298BF145008E29AE /* TMChatDetailController.swift */,
+				8305788A298BF145008E29AE /* TMChatListController.swift */,
 				83057889298BF145008E29AE /* TMCostomizeView.swift */,
 				83057866298BF145008E29AE /* TMCreateGroupViewController.swift */,
 				8305786F298BF145008E29AE /* TMDemoConfig.swift */,
@@ -210,6 +209,7 @@
 				83057853298BF145008E29AE /* TMSendMessageViewController.swift */,
 				8305786E298BF145008E29AE /* TMTabbarController.swift */,
 				83057871298BF145008E29AE /* TMUserInfoController.swift */,
+				83057879298BF145008E29AE /* TMUserUtil.swift */,
 				83057867298BF145008E29AE /* Util */,
 				8305787A298BF145008E29AE /* view */,
 			);
@@ -365,7 +365,6 @@
 				83F4021D28F4242A004D19D4 /* Frameworks */,
 				83F4021E28F4242A004D19D4 /* Resources */,
 				EFA8291FA5748A5BFDD9529D /* [CP] Embed Pods Frameworks */,
-				0955FB25DA2F777CED8275BE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -487,23 +486,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0955FB25DA2F777CED8275BE /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-IMSdk-Ios-demo/Pods-IMSdk-Ios-demo-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-IMSdk-Ios-demo/Pods-IMSdk-Ios-demo-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IMSdk-Ios-demo/Pods-IMSdk-Ios-demo-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		5802E631D3C8D52FAA39A4E6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -789,6 +771,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 3VV3V74D8A;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/IMSdk-Ios-demo",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "IMSdk-Ios-demo/Info.plist";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
@@ -830,6 +816,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 3VV3V74D8A;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/IMSdk-Ios-demo",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "IMSdk-Ios-demo/Info.plist";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";

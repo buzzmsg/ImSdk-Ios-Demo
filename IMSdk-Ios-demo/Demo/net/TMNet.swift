@@ -7,7 +7,8 @@
 
 import Foundation
 
-public let IMServerName = "https://demo-sdk-test-api.rpgqp.com"
+//public let IMServerName = "https://demo-sdk-test-api.rpgqp.com" //alpha
+public let IMServerName = "https://sti.buzzmsg.com"
 
 public class TMNet: NSObject {
     private(set) var mIs401 = false

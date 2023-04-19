@@ -286,6 +286,8 @@ class TMChatDetailController: UIViewController, IMChatDelegate {
         vc.viewFrame = selectImageInfo.viewFrame;
         vc.image = selectImageInfo.image;
         
+        //进入界面先静默初始化preView上的数据（隐藏preView），用screenShopImage做背景，viewFrame和image做放大动画，动画结束后显示preView，拖拽看到的控制器背景就是screenShopImage，拖拽关闭控制器的缩小动画就是当前frame（在IMImageBrowserViewDelegate代理中提供了）要回到的frame就是viewFrame
+        
         vc.screenShopImage = self.screenshots(time: 1)
         self.navigationController?.pushViewController(vc, animated: false)
     }

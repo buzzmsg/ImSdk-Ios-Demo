@@ -26,18 +26,11 @@ class TMChatListController: UIViewController, IMDelegate, IMConversationDelegate
     var conversionViewModel: IMConversationViewModel?
     private var chatView: IMConversationView?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
 
-        self.title = "聊天"
+        if var imSdk = self.imSdk, let loginInfo = loginInfo {
 
-        let btn1=UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 40))
-        btn1.setTitle("发消息", for: .normal)
-        let item2=UIBarButtonItem(customView: btn1)
-        self.navigationItem.rightBarButtonItem = item2
-        
-        if let imSdk = self.imSdk, let loginInfo = loginInfo {
-            
             self.title = loginInfo.phone
 
             imSdk.setIMDelegate(delegate: self)
@@ -76,6 +69,27 @@ class TMChatListController: UIViewController, IMDelegate, IMConversationDelegate
                 }
             }
         }
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        self.title = "聊天"
+
+        let btn1=UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 40))
+        btn1.setTitle("发消息", for: .normal)
+        let item2=UIBarButtonItem(customView: btn1)
+        self.navigationItem.rightBarButtonItem = item2
+        
+        
+        
+        
+
     }
     
     func authCodeExpire(aUid: String, errorCode: IMSDK.IMSdkError) {
@@ -181,7 +195,7 @@ class TMChatListController: UIViewController, IMDelegate, IMConversationDelegate
     }
     
     @objc private func folderMassageClick() {
-        
+
         let alertController = UIAlertController(title: "tip",
                         message: "请输入aChatId", preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)

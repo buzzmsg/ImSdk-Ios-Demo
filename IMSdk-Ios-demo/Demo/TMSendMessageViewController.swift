@@ -324,6 +324,9 @@ class TMSendMessageViewController: UIViewController {
     
     @objc private func chatTopMsg() {
         
+        
+        imSdk?.setLanguage(language: IMLanguageType.SimplifiedChinese)
+
         if let vm = self.viewModel {
             if self.isTop {
                 vm.setChatCloseTop(aChatId: self.aChatId) {

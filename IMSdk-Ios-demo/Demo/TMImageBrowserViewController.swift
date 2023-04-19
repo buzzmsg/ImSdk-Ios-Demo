@@ -10,18 +10,18 @@ import IMSDK
 
 class TMImageBrowserViewController: UIViewController, IMImageBrowserViewDelegate {
 
-    var imageBrowserView: IMImageBrowserView?
+    var imageBrowserView: IMImageBrowserView?  //展示资源的view
     
     
-    private var placeholderBackgroundView: UIView?
-    private var placeholderImgView: UIImageView?
-    private var screenShopImageView: UIImageView?
+    private var placeholderBackgroundView: UIView? //手势滑动看到下面的view
+    private var placeholderImgView: UIImageView?//进入TMImageBrowserViewController看到的放大动画
+    private var screenShopImageView: UIImageView?//手势滑动看到下面的image，因为push控制器不能穿透看到上一个控制器的内容所以截屏了上一个控制器作为背景，那么滑动看到的背景就被认为是上一个控制器的界面
 
-    @objc var viewFrame: CGRect = .zero
-    @objc var image: UIImage?
+    @objc var viewFrame: CGRect = .zero //点击跳转到TMImageBrowserViewController时点击的那个图片在window上的frame，为了做放大缩小动画用的
+    @objc var image: UIImage? //是上一个控制器点击的图片，做放大缩小用的
     
     private var dragImageFrame: CGRect = .zero
-    @objc var screenShopImage: UIImage?
+    @objc var screenShopImage: UIImage? //截取的上一个控制器的界面，做TMImageBrowserViewController的背景
     
     private lazy var countLbl: UILabel = {
         let lbl: UILabel = UILabel()
@@ -54,12 +54,14 @@ class TMImageBrowserViewController: UIViewController, IMImageBrowserViewDelegate
         
         self.view.backgroundColor = UIColor.white
         
+        //先让数据初始化
         if let pView = imageBrowserView {
             pView.isHidden = true
             self.view.addSubview(pView)
             pView.setDelegate(delegate: self)
         }
         
+        //添加背景
         placeholderImgView = UIImageView()
         placeholderImgView?.contentMode = .scaleAspectFit
         view.addSubview(placeholderImgView!)
@@ -70,6 +72,7 @@ class TMImageBrowserViewController: UIViewController, IMImageBrowserViewDelegate
     }
     
     func showPlaceholderView() {
+        
          placeholderImgView?.image = self.image
          placeholderImgView?.frame = self.viewFrame
                  
@@ -117,6 +120,7 @@ class TMImageBrowserViewController: UIViewController, IMImageBrowserViewDelegate
     
     // MARK: - IMImageBrowserViewDelegate
     
+    //拖拽预览图片松手后调用
     func finish(scrollFrame: CGRect, color: UIColor, alpha: CGFloat) {
         self.imageBrowserView?.isHidden = true
 

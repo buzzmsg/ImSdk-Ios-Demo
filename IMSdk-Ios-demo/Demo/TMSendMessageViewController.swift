@@ -65,7 +65,7 @@ class TMSendMessageViewController: UIViewController {
         sendTextBtn.layer.cornerRadius = 5.0
         sendTextBtn.layer.masksToBounds = true
         sendTextBtn.backgroundColor = UIColor.blue
-        sendTextBtn.addTarget(self, action: #selector(sendCardMsg), for: .touchUpInside)
+        sendTextBtn.addTarget(self, action: #selector(sendCardClick), for: .touchUpInside)
         return sendTextBtn
     }()
     
@@ -252,7 +252,7 @@ class TMSendMessageViewController: UIViewController {
         
         
         let btn1: ButtonItem = ButtonItem()
-        btn1.txt = "不来"
+        btn1.txt = "不来看见啊书法考级阿斯看见啊书法考级阿斯顿发贺卡收到看见啊书法考级阿斯顿发贺卡收到顿发贺卡收到回复"
         btn1.enableColor = "#0BCADE"
         btn1.disableColor = "#E9EAF0"
         btn1.buttonId = "btn1Context"

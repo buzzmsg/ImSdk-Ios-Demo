@@ -1,0 +1,51 @@
+PODS:
+  - Alamofire (4.9.1)
+  - AliyunOSSiOS (2.10.15)
+  - AWSCore (2.25.0)
+  - AWSS3 (2.25.0):
+    - AWSCore (= 2.25.0)
+  - BuzzWCDB (1.1.1):
+    - SQLiteRepairKit (~> 1.3.0)
+    - WCDBOptimizedSQLCipher (~> 1.3.0)
+  - CocoaLumberjack/Core (3.7.2)
+  - CocoaLumberjack/Swift (3.7.2):
+    - CocoaLumberjack/Core
+  - HandyJSON (5.0.2)
+  - SQLiteRepairKit (1.3.0):
+    - WCDBOptimizedSQLCipher (~> 1.3.0)
+  - WCDBOptimizedSQLCipher (1.3.0)
+
+DEPENDENCIES:
+  - Alamofire (= 4.9.1)
+  - AliyunOSSiOS (= 2.10.15)
+  - AWSS3 (= 2.25.0)
+  - BuzzWCDB (= 1.1.1)
+  - CocoaLumberjack/Swift (= 3.7.2)
+  - HandyJSON (= 5.0.2)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - AliyunOSSiOS
+    - AWSCore
+    - AWSS3
+    - BuzzWCDB
+    - CocoaLumberjack
+    - HandyJSON
+    - SQLiteRepairKit
+    - WCDBOptimizedSQLCipher
+
+SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  AliyunOSSiOS: 5d7c50ce7b39b2b0b10f603a5971cccb0f25eee2
+  AWSCore: 9c51a3004e9e91528160ea978fd0c5d92780a45e
+  AWSS3: 2c211728c36d1dbf4d0075d0e8ba317a561bc80c
+  BuzzWCDB: 8483de718563e701c118d66de89219efbb096b04
+  CocoaLumberjack: b7e05132ff94f6ae4dfa9d5bce9141893a21d9da
+  HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
+  SQLiteRepairKit: a66145aadae91886c800f75e16f5cc6476af1a93
+  WCDBOptimizedSQLCipher: fc5d49fe6761e54aad29e88da01b6fc1283e5759
+
+PODFILE CHECKSUM: 51cad491d25c6231f93abe4502b129199109cbc8
+
+COCOAPODS: 1.12.1

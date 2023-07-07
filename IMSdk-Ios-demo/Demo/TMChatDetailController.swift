@@ -108,6 +108,16 @@ class TMChatDetailController: UIViewController, IMChatDelegate {
 
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        let s = IMDraftMessages()
+        s.normalText = "额u如果v的睡不醒"
+        imSdk?.saveDraftMessage(aChatId: self.aChatId, aMid: "ikjhgf546tyuhgfre", draft: s)
+        
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            
+            self.imSdk?.sendTextMessage(aChatId: self.aChatId, aMid: "kiu7654wedh65rwed", content: "额u如果v的睡不醒")
+        }
     }
     
     
@@ -310,24 +320,29 @@ class TMChatDetailController: UIViewController, IMChatDelegate {
         self.inputV.endEditing(true)
     }
     
-    func onShowCustomMessageView(aMid: String, body: String, handleCustomView: ((UIView) -> ())?, tapCustomView: ((UIView) -> ())?) {
-        let sendView = TMCostomizeView(frame: CGRect(x: 0, y: 0, width: UIDevice.YH_Width * 0.8, height: 80))
-        sendView.aMid = aMid
-        sendView.restorationIdentifier = aMid
-        sendView.timeLbl.text = aMid + body
-        let tapTwoGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.whenTapTwoClick(gesture:)))
-        tapTwoGestureRecognizer.view?.restorationIdentifier = aMid
-        sendView.addGestureRecognizer(tapTwoGestureRecognizer)
+    func onShowCustomMessageView(aMid: String, body: String, time: Int, handleCustomView: ((UIView) -> ())?, tapCustomView: ((UIView) -> ())?) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            
+            let sendView = TMCostomizeView(frame: CGRect(x: 0, y: 0, width: UIDevice.YH_Width * 0.8, height: 80))
+            sendView.aMid = aMid
+            sendView.restorationIdentifier = aMid
+            sendView.timeLbl.text = aMid + body
+            let tapTwoGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.whenTapTwoClick(gesture:)))
+            tapTwoGestureRecognizer.view?.restorationIdentifier = aMid
+            sendView.addGestureRecognizer(tapTwoGestureRecognizer)
 
-        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(self.whenLongClick(gesture:)))
-        sendView.addGestureRecognizer(longPress)
+            let longPress = UILongPressGestureRecognizer(target: self, action: #selector(self.whenLongClick(gesture:)))
+            sendView.addGestureRecognizer(longPress)
 
-        self.tapMap[aMid] = tapCustomView
+            self.tapMap[aMid] = tapCustomView
 
-        if let closure = handleCustomView {
-            closure(sendView)
+            if let closure = handleCustomView {
+                closure(sendView)
+            }
         }
+
     }
+
     
     @objc private func whenLongClick(gesture: UIGestureRecognizer) {
         print("业务层长按手势来了")

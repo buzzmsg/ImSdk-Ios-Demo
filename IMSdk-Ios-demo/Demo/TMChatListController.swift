@@ -11,6 +11,10 @@ import IMSDK
 
 
 class TMChatListController: UIViewController, IMDelegate, IMConversationDelegate, IMConversionSelector {
+    func onShowConversationInfo(aChatIds: [String]) {
+        
+    }
+    
     
     
     func onUnReadCountChange(count: Int) {
@@ -29,6 +33,26 @@ class TMChatListController: UIViewController, IMDelegate, IMConversationDelegate
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
+
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        self.title = "聊天"
+
+        let btn1=UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 40))
+        btn1.setTitle("发消息", for: .normal)
+        let item2=UIBarButtonItem(customView: btn1)
+        self.navigationItem.rightBarButtonItem = item2
+        
+        
+        
         if var imSdk = self.imSdk, let loginInfo = loginInfo {
 
             self.title = loginInfo.phone
@@ -37,7 +61,7 @@ class TMChatListController: UIViewController, IMDelegate, IMConversationDelegate
             
             imSdk.setAuthCode(auth: loginInfo.authcode)
             imSdk.initUser(aUid: loginInfo.auid)
-            imSdk.setLanguage(language: IMLanguageType.English)
+            imSdk.setLanguage(language: IMLanguageType.Indonesia)
             
             self.conversionViewModel = imSdk.createConversationViewModel(selector: IMChatViewModelFactory.ofAll())
 //            self.conversionViewModel = imSdk.createConversationViewModel(selector: IMChatViewModelFactory.ofPart(ids: ["14714710_14714711"]))
@@ -68,27 +92,7 @@ class TMChatListController: UIViewController, IMDelegate, IMConversationDelegate
                     self.view.addSubview(chatView)
                 }
             }
-        }
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        self.title = "聊天"
-
-        let btn1=UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 40))
-        btn1.setTitle("发消息", for: .normal)
-        let item2=UIBarButtonItem(customView: btn1)
-        self.navigationItem.rightBarButtonItem = item2
-        
-        
-        
-        
+        }98
 
     }
     
@@ -268,6 +272,11 @@ class TMChatListController: UIViewController, IMDelegate, IMConversationDelegate
             self.showAll()
         }
         
+        let action7 = UIAlertAction(title: "筛选只有未读的会话", style: .default) {[weak self] (action) in
+            guard let self = self else {return}
+            self.showUnRead()
+        }
+        
         confirmAlertController.addAction(cancelAction)
         confirmAlertController.addAction(action1)
         confirmAlertController.addAction(action2)
@@ -275,11 +284,21 @@ class TMChatListController: UIViewController, IMDelegate, IMConversationDelegate
         confirmAlertController.addAction(action4)
         confirmAlertController.addAction(action5)
         confirmAlertController.addAction(action6)
+        confirmAlertController.addAction(action7)
 
         self.present(confirmAlertController , animated: true, completion: nil)
 
     }
     
+    
+    func showUnRead() {
+        let unreadSelector = IMChatViewModelFactory.unRead()
+        
+        if let andSelector = self.conversionViewModel?.getCurremtSelector().and?(selector: unreadSelector) {
+            self.conversionViewModel?.replace(selector: andSelector)
+        }
+        
+    }
     
     func showNoChat() {
         let alertController = UIAlertController(title: "tip",

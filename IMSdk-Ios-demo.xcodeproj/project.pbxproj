@@ -47,6 +47,7 @@
 		830578B2298BF145008E29AE /* DetailKeyBordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83057888298BF145008E29AE /* DetailKeyBordView.swift */; };
 		830578B3298BF145008E29AE /* TMCostomizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83057889298BF145008E29AE /* TMCostomizeView.swift */; };
 		830578B4298BF145008E29AE /* TMChatListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8305788A298BF145008E29AE /* TMChatListController.swift */; };
+		8324B6692A388E5300A3CD60 /* SDKAssest.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8324B6682A388E5300A3CD60 /* SDKAssest.bundle */; };
 		83F4022428F4242A004D19D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F4022328F4242A004D19D4 /* AppDelegate.swift */; };
 		83F4022828F4242A004D19D4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F4022728F4242A004D19D4 /* ViewController.swift */; };
 		83F4022B28F4242A004D19D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83F4022928F4242A004D19D4 /* Main.storyboard */; };
@@ -124,6 +125,10 @@
 		83057888298BF145008E29AE /* DetailKeyBordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailKeyBordView.swift; sourceTree = "<group>"; };
 		83057889298BF145008E29AE /* TMCostomizeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMCostomizeView.swift; sourceTree = "<group>"; };
 		8305788A298BF145008E29AE /* TMChatListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMChatListController.swift; sourceTree = "<group>"; };
+		8324B6682A388E5300A3CD60 /* SDKAssest.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SDKAssest.bundle; sourceTree = "<group>"; };
+		83E50E352A1B330200DEB091 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Main.strings; sourceTree = "<group>"; };
+		83E50E362A1B330200DEB091 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		83E50E372A1B330300DEB091 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localize.strings; sourceTree = "<group>"; };
 		83F4022028F4242A004D19D4 /* IMSdk-Ios-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IMSdk-Ios-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		83F4022328F4242A004D19D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83F4022728F4242A004D19D4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -188,6 +193,7 @@
 		83057852298BF145008E29AE /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				8324B6682A388E5300A3CD60 /* SDKAssest.bundle */,
 				8305787C298BF145008E29AE /* Api */,
 				83057874298BF145008E29AE /* constant */,
 				83057888298BF145008E29AE /* DetailKeyBordView.swift */,
@@ -444,6 +450,7 @@
 				"zh-Hans",
 				"zh-Hant",
 				tr,
+				id,
 			);
 			mainGroup = 83F4021728F4242A004D19D4;
 			productRefGroup = 83F4022128F4242A004D19D4 /* Products */;
@@ -465,6 +472,7 @@
 				83F4023328F4242C004D19D4 /* LaunchScreen.storyboard in Resources */,
 				83F4023028F4242C004D19D4 /* Assets.xcassets in Resources */,
 				83F4022B28F4242A004D19D4 /* Main.storyboard in Resources */,
+				8324B6692A388E5300A3CD60 /* SDKAssest.bundle in Resources */,
 				8305788C298BF145008E29AE /* Localize.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -618,6 +626,7 @@
 				83057857298BF145008E29AE /* en */,
 				83057870298BF145008E29AE /* zh-Hant */,
 				83057873298BF145008E29AE /* tr */,
+				83E50E372A1B330300DEB091 /* id */,
 			);
 			name = Localize.strings;
 			sourceTree = "<group>";
@@ -626,6 +635,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				83F4022A28F4242A004D19D4 /* Base */,
+				83E50E352A1B330200DEB091 /* id */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -634,6 +644,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				83F4023228F4242C004D19D4 /* Base */,
+				83E50E362A1B330200DEB091 /* id */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -766,6 +777,7 @@
 				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
@@ -811,6 +823,7 @@
 				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;

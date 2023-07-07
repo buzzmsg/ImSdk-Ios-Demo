@@ -1,0 +1,19 @@
+#source 'https://github.com/CocoaPods/Specs.git'
+platform :ios,'11.0'
+
+target 'CommonModule' do
+  use_frameworks!
+  
+#  pod 'WCDB.swift', '1.0.8.2'
+  pod 'Alamofire', '4.9.1'
+  pod 'HandyJSON', '5.0.2'
+  pod 'AliyunOSSiOS', '2.10.15'
+  pod 'AWSS3', '2.25.0'
+  pod 'CocoaLumberjack/Swift', '3.7.2'
+#  pod 'BuzzWCDB',:git =>"git-> https://github.com/buzzmsg/Buzz-WCDB.git"
+  
+  
+#    pod 'BuzzWCDB',:git =>"https://github.com/buzzmsg/Buzz-WCDB.git"
+  pod 'BuzzWCDB', '1.1.1'
+
+end

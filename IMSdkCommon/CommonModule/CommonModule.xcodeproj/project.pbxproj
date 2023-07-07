@@ -1,0 +1,1349 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		83B6B0472A120E7500A80866 /* DefaultDownLoadOssDisplayStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B6B0462A120E7500A80866 /* DefaultDownLoadOssDisplayStatus.swift */; };
+		83B6B0492A120EA500A80866 /* DownLoadFailedOssDisplayStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B6B0482A120EA500A80866 /* DownLoadFailedOssDisplayStatus.swift */; };
+		83B6B04B2A120EB800A80866 /* DownLoadingOssDisplayStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B6B04A2A120EB800A80866 /* DownLoadingOssDisplayStatus.swift */; };
+		83B6B04D2A120EC500A80866 /* DownLoadPauseOssDisplayStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B6B04C2A120EC500A80866 /* DownLoadPauseOssDisplayStatus.swift */; };
+		83B6B04F2A120ED400A80866 /* DownLoadSuccessOssDisplayStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B6B04E2A120ED400A80866 /* DownLoadSuccessOssDisplayStatus.swift */; };
+		83B6B0552A120EFF00A80866 /* DefaultDownLoadOssStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B6B0502A120EFE00A80866 /* DefaultDownLoadOssStatus.swift */; };
+		83B6B0562A120EFF00A80866 /* DownLoadFailedOssStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B6B0512A120EFE00A80866 /* DownLoadFailedOssStatus.swift */; };
+		83B6B0572A120EFF00A80866 /* DownLoadPauseOssStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B6B0522A120EFF00A80866 /* DownLoadPauseOssStatus.swift */; };
+		83B6B0582A120EFF00A80866 /* DownLoadingOssStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B6B0532A120EFF00A80866 /* DownLoadingOssStatus.swift */; };
+		83B6B0592A120EFF00A80866 /* DownLoadSuccessOssStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B6B0542A120EFF00A80866 /* DownLoadSuccessOssStatus.swift */; };
+		83B6B05B2A120FE900A80866 /* WaitDownLoadOssStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B6B05A2A120FE900A80866 /* WaitDownLoadOssStatus.swift */; };
+		83B6B05D2A12101700A80866 /* OssDownLoadFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B6B05C2A12101700A80866 /* OssDownLoadFactory.swift */; };
+		83B6B05F2A12115900A80866 /* OssDownLoadStatusConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B6B05E2A12115900A80866 /* OssDownLoadStatusConstant.swift */; };
+		83B6B0612A12136C00A80866 /* OssDownLoadStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B6B0602A12136C00A80866 /* OssDownLoadStatus.swift */; };
+		83B6B0632A1218DC00A80866 /* DownLoadOssBaseStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B6B0622A1218DC00A80866 /* DownLoadOssBaseStatus.swift */; };
+		83B6B0652A121C6300A80866 /* OssDownLoadDisplayStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B6B0642A121C6300A80866 /* OssDownLoadDisplayStatus.swift */; };
+		83B6B0672A121D7300A80866 /* OssDownLoadViewStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B6B0662A121D7300A80866 /* OssDownLoadViewStatus.swift */; };
+		83B6B0692A121E5300A80866 /* DownLoadOssBaseDisplayStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B6B0682A121E5300A80866 /* DownLoadOssBaseDisplayStatus.swift */; };
+		83B6B07F2A13733700A80866 /* IMConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B6B07E2A13733700A80866 /* IMConfigManager.swift */; };
+		83CAECFE2991FDEB002B6A6B /* IMThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CAECFA2991FDEB002B6A6B /* IMThread.swift */; };
+		83CAECFF2991FDEB002B6A6B /* Promise.h in Headers */ = {isa = PBXBuildFile; fileRef = 83CAECFB2991FDEB002B6A6B /* Promise.h */; };
+		83CAED002991FDEB002B6A6B /* IMAsync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CAECFC2991FDEB002B6A6B /* IMAsync.swift */; };
+		83CAED012991FDEB002B6A6B /* Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CAECFD2991FDEB002B6A6B /* Promise.swift */; };
+		83D2B5DB29BB2B6A004F11AE /* MultipleStatementInsert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D2B5DA29BB2B6A004F11AE /* MultipleStatementInsert.swift */; };
+		A6DABFE1F1181093BEA6B498 /* Pods_CommonModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 452D93318C4E40CDA965B694 /* Pods_CommonModule.framework */; };
+		F919F2712990EC520068A7EF /* CommonModule.docc in Sources */ = {isa = PBXBuildFile; fileRef = F919F2702990EC520068A7EF /* CommonModule.docc */; };
+		F919F2772990EC520068A7EF /* CommonModule.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F919F26C2990EC520068A7EF /* CommonModule.framework */; };
+		F919F27C2990EC520068A7EF /* CommonModuleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F27B2990EC520068A7EF /* CommonModuleTests.swift */; };
+		F919F27D2990EC520068A7EF /* CommonModule.h in Headers */ = {isa = PBXBuildFile; fileRef = F919F26F2990EC520068A7EF /* CommonModule.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F919F336299100E50068A7EF /* CreatDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F2F7299100E40068A7EF /* CreatDB.swift */; };
+		F919F337299100E50068A7EF /* IMAliCloudApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F2FA299100E40068A7EF /* IMAliCloudApi.swift */; };
+		F919F338299100E50068A7EF /* IMAliCloudApi+download.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F2FB299100E40068A7EF /* IMAliCloudApi+download.swift */; };
+		F919F339299100E50068A7EF /* IMAliCloudApi+upload.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F2FC299100E40068A7EF /* IMAliCloudApi+upload.swift */; };
+		F919F33A299100E50068A7EF /* IMTransferUploadControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F2FD299100E40068A7EF /* IMTransferUploadControler.swift */; };
+		F919F33B299100E50068A7EF /* IMOSS.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F2FE299100E40068A7EF /* IMOSS.swift */; };
+		F919F33C299100E50068A7EF /* IMAWSUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F301299100E40068A7EF /* IMAWSUploader.swift */; };
+		F919F33D299100E50068A7EF /* IMLogUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F302299100E40068A7EF /* IMLogUploader.swift */; };
+		F919F33E299100E50068A7EF /* IMUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F303299100E40068A7EF /* IMUploader.swift */; };
+		F919F33F299100E50068A7EF /* IMAlUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F304299100E40068A7EF /* IMAlUploader.swift */; };
+		F919F340299100E50068A7EF /* IMTransferFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F305299100E40068A7EF /* IMTransferFactory.swift */; };
+		F919F341299100E50068A7EF /* IMNormalDownLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F307299100E40068A7EF /* IMNormalDownLoader.swift */; };
+		F919F342299100E50068A7EF /* IMAliLocalDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F308299100E40068A7EF /* IMAliLocalDownloader.swift */; };
+		F919F343299100E50068A7EF /* IMDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F309299100E40068A7EF /* IMDownloader.swift */; };
+		F919F344299100E50068A7EF /* IMLocalDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F30A299100E40068A7EF /* IMLocalDownloader.swift */; };
+		F919F345299100E50068A7EF /* IMImageUrlParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F30B299100E40068A7EF /* IMImageUrlParse.swift */; };
+		F919F346299100E50068A7EF /* IMAlOriginDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F30C299100E40068A7EF /* IMAlOriginDownloader.swift */; };
+		F919F347299100E50068A7EF /* IMAlThumDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F30D299100E40068A7EF /* IMAlThumDownloader.swift */; };
+		F919F348299100E50068A7EF /* IMThumDownLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F30E299100E40068A7EF /* IMThumDownLoader.swift */; };
+		F919F349299100E50068A7EF /* IMFileProgressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F311299100E40068A7EF /* IMFileProgressModel.swift */; };
+		F919F34A299100E50068A7EF /* IMFileProgressDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F312299100E40068A7EF /* IMFileProgressDao.swift */; };
+		F919F34B299100E50068A7EF /* IMPathManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F313299100E40068A7EF /* IMPathManager.swift */; };
+		F919F34C299100E50068A7EF /* IMFileUploadProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F315299100E40068A7EF /* IMFileUploadProgress.swift */; };
+		F919F34D299100E50068A7EF /* IMFilesTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F316299100E40068A7EF /* IMFilesTool.swift */; };
+		F919F34E299100E50068A7EF /* IMGetAwsObjectExists.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F318299100E40068A7EF /* IMGetAwsObjectExists.swift */; };
+		F919F34F299100E50068A7EF /* IMAWSUploadDownManager+download.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F319299100E40068A7EF /* IMAWSUploadDownManager+download.swift */; };
+		F919F350299100E50068A7EF /* IMAwsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F31A299100E40068A7EF /* IMAwsService.swift */; };
+		F919F351299100E50068A7EF /* IMAWSUploadDownManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F31B299100E40068A7EF /* IMAWSUploadDownManager.swift */; };
+		F919F352299100E50068A7EF /* IMTransferInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F31C299100E40068A7EF /* IMTransferInfo.swift */; };
+		F919F353299100E50068A7EF /* IMAWSUploadDownManager+upload.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F31D299100E40068A7EF /* IMAWSUploadDownManager+upload.swift */; };
+		F919F354299100E50068A7EF /* IMTransferDownloadControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F31E299100E40068A7EF /* IMTransferDownloadControler.swift */; };
+		F919F355299100E50068A7EF /* IMDelegate401.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F320299100E40068A7EF /* IMDelegate401.swift */; };
+		F919F356299100E50068A7EF /* IMApiNoTokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F321299100E40068A7EF /* IMApiNoTokenService.swift */; };
+		F919F357299100E50068A7EF /* IMNetError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F322299100E40068A7EF /* IMNetError.swift */; };
+		F919F358299100E50068A7EF /* IMNetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F323299100E40068A7EF /* IMNetworkingError.swift */; };
+		F919F359299100E50068A7EF /* IMNetFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F324299100E40068A7EF /* IMNetFactory.swift */; };
+		F919F35A299100E50068A7EF /* IMNetCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F325299100E40068A7EF /* IMNetCore.swift */; };
+		F919F35C299100E50068A7EF /* IMNet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F327299100E40068A7EF /* IMNet.swift */; };
+		F919F35D299100E50068A7EF /* IMApiBaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F328299100E40068A7EF /* IMApiBaseService.swift */; };
+		F919F35E299100E50068A7EF /* IMNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F32A299100E40068A7EF /* IMNotificationCenter.swift */; };
+		F919F35F299100E50068A7EF /* IMNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F32B299100E40068A7EF /* IMNotificationManager.swift */; };
+		F919F360299100E50068A7EF /* IMSRWebSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = F919F32D299100E50068A7EF /* IMSRWebSocket.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F919F361299100E50068A7EF /* IMSocketDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F32E299100E50068A7EF /* IMSocketDelegate.swift */; };
+		F919F362299100E50068A7EF /* IMSRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = F919F32F299100E50068A7EF /* IMSRWebSocket.m */; };
+		F919F363299100E50068A7EF /* IMSocketTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F330299100E50068A7EF /* IMSocketTool.swift */; };
+		F919F364299100E50068A7EF /* IMBucketInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F333299100E50068A7EF /* IMBucketInfoModel.swift */; };
+		F919F365299100E50068A7EF /* IMBucketDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F334299100E50068A7EF /* IMBucketDao.swift */; };
+		F919F366299100E50068A7EF /* IMContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F335299100E50068A7EF /* IMContext.swift */; };
+		F919F36D2991FC3F0068A7EF /* IMLibsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F919F36A2991FC3F0068A7EF /* IMLibsManager.m */; };
+		F919F36E2991FC3F0068A7EF /* IMLibsManager.h in Headers */ = {isa = PBXBuildFile; fileRef = F919F36B2991FC3F0068A7EF /* IMLibsManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F919F36F2991FC3F0068A7EF /* YHLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F36C2991FC3F0068A7EF /* YHLog.swift */; };
+		F919F3712991FEBB0068A7EF /* IMStartBucketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F3702991FEBB0068A7EF /* IMStartBucketModel.swift */; };
+		F919F3762992011C0068A7EF /* IMFileDownloadEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F3742992011B0068A7EF /* IMFileDownloadEvent.swift */; };
+		F919F3772992011C0068A7EF /* IMFileUploadEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F3752992011B0068A7EF /* IMFileUploadEvent.swift */; };
+		F919F37A29921C170068A7EF /* IMFileTransferStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F37929921C170068A7EF /* IMFileTransferStatus.swift */; };
+		F919F37D299224860068A7EF /* IMTokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F37C299224860068A7EF /* IMTokenManager.swift */; };
+		F919F38229922BEE0068A7EF /* Dictionary+HYExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F38129922BEE0068A7EF /* Dictionary+HYExtension.swift */; };
+		F919F38729922D390068A7EF /* IMTokenDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F38529922D390068A7EF /* IMTokenDao.swift */; };
+		F919F38829922D390068A7EF /* IMTokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F38629922D390068A7EF /* IMTokenModel.swift */; };
+		F919F38D2992302C0068A7EF /* IMImageTempModel.h in Headers */ = {isa = PBXBuildFile; fileRef = F919F38B2992302C0068A7EF /* IMImageTempModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F919F38E2992302C0068A7EF /* IMImageTempModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F919F38C2992302C0068A7EF /* IMImageTempModel.m */; };
+		F919F390299230580068A7EF /* IMThumbUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F38F299230580068A7EF /* IMThumbUtils.swift */; };
+		F919F393299231810068A7EF /* IMCompressPicManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F919F391299231810068A7EF /* IMCompressPicManager.m */; };
+		F919F394299231810068A7EF /* IMCompressPicManager.h in Headers */ = {isa = PBXBuildFile; fileRef = F919F392299231810068A7EF /* IMCompressPicManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F919F397299231BD0068A7EF /* IMPhotoManager.h in Headers */ = {isa = PBXBuildFile; fileRef = F919F395299231BD0068A7EF /* IMPhotoManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F919F398299231BD0068A7EF /* IMPhotoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F919F396299231BD0068A7EF /* IMPhotoManager.m */; };
+		F919F39A299232460068A7EF /* IMFileName.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F399299232460068A7EF /* IMFileName.swift */; };
+		F919F39C299232DF0068A7EF /* IMFilePrefixType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F39B299232DF0068A7EF /* IMFilePrefixType.swift */; };
+		F919F39E2992333D0068A7EF /* IMAvatarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F39D2992333D0068A7EF /* IMAvatarModel.swift */; };
+		F919F3A0299234720068A7EF /* IMBucketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F39F299234720068A7EF /* IMBucketManager.swift */; };
+		F919F3A5299235C00068A7EF /* IMStartBucketApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F3A3299235C00068A7EF /* IMStartBucketApi.swift */; };
+		F919F3A6299235C00068A7EF /* IMBucketInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F3A4299235C00068A7EF /* IMBucketInfo.swift */; };
+		F919F3AE299236CC0068A7EF /* IMUserValueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F3A8299236CC0068A7EF /* IMUserValueModel.swift */; };
+		F919F3AF299236CC0068A7EF /* IMShareUserDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F3A9299236CC0068A7EF /* IMShareUserDao.swift */; };
+		F919F3B0299236CC0068A7EF /* IMGeneralDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F3AA299236CC0068A7EF /* IMGeneralDao.swift */; };
+		F919F3B1299236CC0068A7EF /* IMGeneralModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F3AB299236CC0068A7EF /* IMGeneralModel.swift */; };
+		F919F3B2299236CC0068A7EF /* IMShareUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F3AC299236CC0068A7EF /* IMShareUserModel.swift */; };
+		F919F3B3299236CC0068A7EF /* IMUserValueDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F3AD299236CC0068A7EF /* IMUserValueDao.swift */; };
+		F919F3B92992370C0068A7EF /* IMShareLogic+googleMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F3B52992370C0068A7EF /* IMShareLogic+googleMap.swift */; };
+		F919F3BA2992370C0068A7EF /* IMShareLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F3B62992370C0068A7EF /* IMShareLogic.swift */; };
+		F919F3BB2992370C0068A7EF /* IMShareLogic+shareUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F3B72992370C0068A7EF /* IMShareLogic+shareUser.swift */; };
+		F919F3BC2992370C0068A7EF /* IMShareLogic+ak.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F3B82992370C0068A7EF /* IMShareLogic+ak.swift */; };
+		F919F3BE299237730068A7EF /* HandyJSONExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F3BD299237730068A7EF /* HandyJSONExtension.swift */; };
+		F919F3C0299238830068A7EF /* IMDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F3BF299238830068A7EF /* IMDateExtension.swift */; };
+		F919F3C2299239460068A7EF /* IMUIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F3C1299239460068A7EF /* IMUIImageExtension.swift */; };
+		F919F3C529923C2D0068A7EF /* IMAwsUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = F919F3C329923C2D0068A7EF /* IMAwsUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F919F3C629923C2D0068A7EF /* IMAwsUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F919F3C429923C2D0068A7EF /* IMAwsUtil.m */; };
+		F919F3CA299245850068A7EF /* IMSHA1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F3C9299245850068A7EF /* IMSHA1.swift */; };
+		F919F3CC29924C590068A7EF /* String+HYExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919F3CB29924C590068A7EF /* String+HYExtension.swift */; };
+		F9AC42912A0B75A800834132 /* IMOSSDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC42902A0B75A800834132 /* IMOSSDelegate.swift */; };
+		F9AC42A52A1214AD00834132 /* IMDownloadChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC42A42A1214AD00834132 /* IMDownloadChannel.swift */; };
+		F9AC42A72A12155D00834132 /* IMSmallFileDownloadChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC42A62A12155D00834132 /* IMSmallFileDownloadChannel.swift */; };
+		F9AC42A92A1215C900834132 /* IMBigFileDownloadChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC42A82A1215C900834132 /* IMBigFileDownloadChannel.swift */; };
+		F9AC42AB2A1215F200834132 /* IMShareDownloadChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC42AA2A1215F200834132 /* IMShareDownloadChannel.swift */; };
+		F9AC42C72A1B45C700834132 /* IMBaseDownloadChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AC42C62A1B45C700834132 /* IMBaseDownloadChannel.swift */; };
+		F9E9432F29B1CCC4004E93CE /* IMShareLogic+dbUpgrade.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E9432E29B1CCC4004E93CE /* IMShareLogic+dbUpgrade.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F919F2782990EC520068A7EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F919F2632990EC520068A7EF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F919F26B2990EC520068A7EF;
+			remoteInfo = CommonModule;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		24D56787C74A08A89701FB06 /* Pods-CommonModule.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommonModule.release.xcconfig"; path = "Target Support Files/Pods-CommonModule/Pods-CommonModule.release.xcconfig"; sourceTree = "<group>"; };
+		452D93318C4E40CDA965B694 /* Pods_CommonModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CommonModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		82E5F7997058D9F3FD13DA62 /* Pods-CommonModule.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommonModule.debug.xcconfig"; path = "Target Support Files/Pods-CommonModule/Pods-CommonModule.debug.xcconfig"; sourceTree = "<group>"; };
+		83B6B0462A120E7500A80866 /* DefaultDownLoadOssDisplayStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDownLoadOssDisplayStatus.swift; sourceTree = "<group>"; };
+		83B6B0482A120EA500A80866 /* DownLoadFailedOssDisplayStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownLoadFailedOssDisplayStatus.swift; sourceTree = "<group>"; };
+		83B6B04A2A120EB800A80866 /* DownLoadingOssDisplayStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownLoadingOssDisplayStatus.swift; sourceTree = "<group>"; };
+		83B6B04C2A120EC500A80866 /* DownLoadPauseOssDisplayStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownLoadPauseOssDisplayStatus.swift; sourceTree = "<group>"; };
+		83B6B04E2A120ED400A80866 /* DownLoadSuccessOssDisplayStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownLoadSuccessOssDisplayStatus.swift; sourceTree = "<group>"; };
+		83B6B0502A120EFE00A80866 /* DefaultDownLoadOssStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultDownLoadOssStatus.swift; sourceTree = "<group>"; };
+		83B6B0512A120EFE00A80866 /* DownLoadFailedOssStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownLoadFailedOssStatus.swift; sourceTree = "<group>"; };
+		83B6B0522A120EFF00A80866 /* DownLoadPauseOssStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownLoadPauseOssStatus.swift; sourceTree = "<group>"; };
+		83B6B0532A120EFF00A80866 /* DownLoadingOssStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownLoadingOssStatus.swift; sourceTree = "<group>"; };
+		83B6B0542A120EFF00A80866 /* DownLoadSuccessOssStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownLoadSuccessOssStatus.swift; sourceTree = "<group>"; };
+		83B6B05A2A120FE900A80866 /* WaitDownLoadOssStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitDownLoadOssStatus.swift; sourceTree = "<group>"; };
+		83B6B05C2A12101700A80866 /* OssDownLoadFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OssDownLoadFactory.swift; sourceTree = "<group>"; };
+		83B6B05E2A12115900A80866 /* OssDownLoadStatusConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OssDownLoadStatusConstant.swift; sourceTree = "<group>"; };
+		83B6B0602A12136C00A80866 /* OssDownLoadStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OssDownLoadStatus.swift; sourceTree = "<group>"; };
+		83B6B0622A1218DC00A80866 /* DownLoadOssBaseStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownLoadOssBaseStatus.swift; sourceTree = "<group>"; };
+		83B6B0642A121C6300A80866 /* OssDownLoadDisplayStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OssDownLoadDisplayStatus.swift; sourceTree = "<group>"; };
+		83B6B0662A121D7300A80866 /* OssDownLoadViewStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OssDownLoadViewStatus.swift; sourceTree = "<group>"; };
+		83B6B0682A121E5300A80866 /* DownLoadOssBaseDisplayStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownLoadOssBaseDisplayStatus.swift; sourceTree = "<group>"; };
+		83B6B07E2A13733700A80866 /* IMConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMConfigManager.swift; sourceTree = "<group>"; };
+		83CAECFA2991FDEB002B6A6B /* IMThread.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMThread.swift; sourceTree = "<group>"; };
+		83CAECFB2991FDEB002B6A6B /* Promise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Promise.h; sourceTree = "<group>"; };
+		83CAECFC2991FDEB002B6A6B /* IMAsync.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMAsync.swift; sourceTree = "<group>"; };
+		83CAECFD2991FDEB002B6A6B /* Promise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Promise.swift; sourceTree = "<group>"; };
+		83D2B5DA29BB2B6A004F11AE /* MultipleStatementInsert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleStatementInsert.swift; sourceTree = "<group>"; };
+		F919F26C2990EC520068A7EF /* CommonModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CommonModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F919F26F2990EC520068A7EF /* CommonModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonModule.h; sourceTree = "<group>"; };
+		F919F2702990EC520068A7EF /* CommonModule.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = CommonModule.docc; sourceTree = "<group>"; };
+		F919F2762990EC520068A7EF /* CommonModuleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CommonModuleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F919F27B2990EC520068A7EF /* CommonModuleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonModuleTests.swift; sourceTree = "<group>"; };
+		F919F2F7299100E40068A7EF /* CreatDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatDB.swift; sourceTree = "<group>"; };
+		F919F2FA299100E40068A7EF /* IMAliCloudApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMAliCloudApi.swift; sourceTree = "<group>"; };
+		F919F2FB299100E40068A7EF /* IMAliCloudApi+download.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IMAliCloudApi+download.swift"; sourceTree = "<group>"; };
+		F919F2FC299100E40068A7EF /* IMAliCloudApi+upload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IMAliCloudApi+upload.swift"; sourceTree = "<group>"; };
+		F919F2FD299100E40068A7EF /* IMTransferUploadControler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMTransferUploadControler.swift; sourceTree = "<group>"; };
+		F919F2FE299100E40068A7EF /* IMOSS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMOSS.swift; sourceTree = "<group>"; };
+		F919F301299100E40068A7EF /* IMAWSUploader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMAWSUploader.swift; sourceTree = "<group>"; };
+		F919F302299100E40068A7EF /* IMLogUploader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMLogUploader.swift; sourceTree = "<group>"; };
+		F919F303299100E40068A7EF /* IMUploader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMUploader.swift; sourceTree = "<group>"; };
+		F919F304299100E40068A7EF /* IMAlUploader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMAlUploader.swift; sourceTree = "<group>"; };
+		F919F305299100E40068A7EF /* IMTransferFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMTransferFactory.swift; sourceTree = "<group>"; };
+		F919F307299100E40068A7EF /* IMNormalDownLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMNormalDownLoader.swift; sourceTree = "<group>"; };
+		F919F308299100E40068A7EF /* IMAliLocalDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMAliLocalDownloader.swift; sourceTree = "<group>"; };
+		F919F309299100E40068A7EF /* IMDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMDownloader.swift; sourceTree = "<group>"; };
+		F919F30A299100E40068A7EF /* IMLocalDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMLocalDownloader.swift; sourceTree = "<group>"; };
+		F919F30B299100E40068A7EF /* IMImageUrlParse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMImageUrlParse.swift; sourceTree = "<group>"; };
+		F919F30C299100E40068A7EF /* IMAlOriginDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMAlOriginDownloader.swift; sourceTree = "<group>"; };
+		F919F30D299100E40068A7EF /* IMAlThumDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMAlThumDownloader.swift; sourceTree = "<group>"; };
+		F919F30E299100E40068A7EF /* IMThumDownLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMThumDownLoader.swift; sourceTree = "<group>"; };
+		F919F311299100E40068A7EF /* IMFileProgressModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMFileProgressModel.swift; sourceTree = "<group>"; };
+		F919F312299100E40068A7EF /* IMFileProgressDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMFileProgressDao.swift; sourceTree = "<group>"; };
+		F919F313299100E40068A7EF /* IMPathManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMPathManager.swift; sourceTree = "<group>"; };
+		F919F315299100E40068A7EF /* IMFileUploadProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMFileUploadProgress.swift; sourceTree = "<group>"; };
+		F919F316299100E40068A7EF /* IMFilesTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMFilesTool.swift; sourceTree = "<group>"; };
+		F919F318299100E40068A7EF /* IMGetAwsObjectExists.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMGetAwsObjectExists.swift; sourceTree = "<group>"; };
+		F919F319299100E40068A7EF /* IMAWSUploadDownManager+download.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IMAWSUploadDownManager+download.swift"; sourceTree = "<group>"; };
+		F919F31A299100E40068A7EF /* IMAwsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMAwsService.swift; sourceTree = "<group>"; };
+		F919F31B299100E40068A7EF /* IMAWSUploadDownManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMAWSUploadDownManager.swift; sourceTree = "<group>"; };
+		F919F31C299100E40068A7EF /* IMTransferInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMTransferInfo.swift; sourceTree = "<group>"; };
+		F919F31D299100E40068A7EF /* IMAWSUploadDownManager+upload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IMAWSUploadDownManager+upload.swift"; sourceTree = "<group>"; };
+		F919F31E299100E40068A7EF /* IMTransferDownloadControler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMTransferDownloadControler.swift; sourceTree = "<group>"; };
+		F919F320299100E40068A7EF /* IMDelegate401.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMDelegate401.swift; sourceTree = "<group>"; };
+		F919F321299100E40068A7EF /* IMApiNoTokenService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMApiNoTokenService.swift; sourceTree = "<group>"; };
+		F919F322299100E40068A7EF /* IMNetError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMNetError.swift; sourceTree = "<group>"; };
+		F919F323299100E40068A7EF /* IMNetworkingError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMNetworkingError.swift; sourceTree = "<group>"; };
+		F919F324299100E40068A7EF /* IMNetFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMNetFactory.swift; sourceTree = "<group>"; };
+		F919F325299100E40068A7EF /* IMNetCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMNetCore.swift; sourceTree = "<group>"; };
+		F919F327299100E40068A7EF /* IMNet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMNet.swift; sourceTree = "<group>"; };
+		F919F328299100E40068A7EF /* IMApiBaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMApiBaseService.swift; sourceTree = "<group>"; };
+		F919F32A299100E40068A7EF /* IMNotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMNotificationCenter.swift; sourceTree = "<group>"; };
+		F919F32B299100E40068A7EF /* IMNotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMNotificationManager.swift; sourceTree = "<group>"; };
+		F919F32D299100E50068A7EF /* IMSRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMSRWebSocket.h; sourceTree = "<group>"; };
+		F919F32E299100E50068A7EF /* IMSocketDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMSocketDelegate.swift; sourceTree = "<group>"; };
+		F919F32F299100E50068A7EF /* IMSRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMSRWebSocket.m; sourceTree = "<group>"; };
+		F919F330299100E50068A7EF /* IMSocketTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMSocketTool.swift; sourceTree = "<group>"; };
+		F919F333299100E50068A7EF /* IMBucketInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMBucketInfoModel.swift; sourceTree = "<group>"; };
+		F919F334299100E50068A7EF /* IMBucketDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMBucketDao.swift; sourceTree = "<group>"; };
+		F919F335299100E50068A7EF /* IMContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMContext.swift; sourceTree = "<group>"; };
+		F919F36A2991FC3F0068A7EF /* IMLibsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMLibsManager.m; sourceTree = "<group>"; };
+		F919F36B2991FC3F0068A7EF /* IMLibsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMLibsManager.h; sourceTree = "<group>"; };
+		F919F36C2991FC3F0068A7EF /* YHLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YHLog.swift; sourceTree = "<group>"; };
+		F919F3702991FEBB0068A7EF /* IMStartBucketModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMStartBucketModel.swift; sourceTree = "<group>"; };
+		F919F3742992011B0068A7EF /* IMFileDownloadEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMFileDownloadEvent.swift; sourceTree = "<group>"; };
+		F919F3752992011B0068A7EF /* IMFileUploadEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMFileUploadEvent.swift; sourceTree = "<group>"; };
+		F919F37929921C170068A7EF /* IMFileTransferStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMFileTransferStatus.swift; sourceTree = "<group>"; };
+		F919F37C299224860068A7EF /* IMTokenManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMTokenManager.swift; sourceTree = "<group>"; };
+		F919F38129922BEE0068A7EF /* Dictionary+HYExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+HYExtension.swift"; sourceTree = "<group>"; };
+		F919F38529922D390068A7EF /* IMTokenDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMTokenDao.swift; sourceTree = "<group>"; };
+		F919F38629922D390068A7EF /* IMTokenModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMTokenModel.swift; sourceTree = "<group>"; };
+		F919F38B2992302C0068A7EF /* IMImageTempModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMImageTempModel.h; sourceTree = "<group>"; };
+		F919F38C2992302C0068A7EF /* IMImageTempModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMImageTempModel.m; sourceTree = "<group>"; };
+		F919F38F299230580068A7EF /* IMThumbUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMThumbUtils.swift; sourceTree = "<group>"; };
+		F919F391299231810068A7EF /* IMCompressPicManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMCompressPicManager.m; sourceTree = "<group>"; };
+		F919F392299231810068A7EF /* IMCompressPicManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMCompressPicManager.h; sourceTree = "<group>"; };
+		F919F395299231BD0068A7EF /* IMPhotoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMPhotoManager.h; sourceTree = "<group>"; };
+		F919F396299231BD0068A7EF /* IMPhotoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMPhotoManager.m; sourceTree = "<group>"; };
+		F919F399299232460068A7EF /* IMFileName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMFileName.swift; sourceTree = "<group>"; };
+		F919F39B299232DF0068A7EF /* IMFilePrefixType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMFilePrefixType.swift; sourceTree = "<group>"; };
+		F919F39D2992333D0068A7EF /* IMAvatarModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMAvatarModel.swift; sourceTree = "<group>"; };
+		F919F39F299234720068A7EF /* IMBucketManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMBucketManager.swift; sourceTree = "<group>"; };
+		F919F3A3299235C00068A7EF /* IMStartBucketApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMStartBucketApi.swift; sourceTree = "<group>"; };
+		F919F3A4299235C00068A7EF /* IMBucketInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMBucketInfo.swift; sourceTree = "<group>"; };
+		F919F3A8299236CC0068A7EF /* IMUserValueModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMUserValueModel.swift; sourceTree = "<group>"; };
+		F919F3A9299236CC0068A7EF /* IMShareUserDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMShareUserDao.swift; sourceTree = "<group>"; };
+		F919F3AA299236CC0068A7EF /* IMGeneralDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMGeneralDao.swift; sourceTree = "<group>"; };
+		F919F3AB299236CC0068A7EF /* IMGeneralModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMGeneralModel.swift; sourceTree = "<group>"; };
+		F919F3AC299236CC0068A7EF /* IMShareUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMShareUserModel.swift; sourceTree = "<group>"; };
+		F919F3AD299236CC0068A7EF /* IMUserValueDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMUserValueDao.swift; sourceTree = "<group>"; };
+		F919F3B52992370C0068A7EF /* IMShareLogic+googleMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IMShareLogic+googleMap.swift"; sourceTree = "<group>"; };
+		F919F3B62992370C0068A7EF /* IMShareLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMShareLogic.swift; sourceTree = "<group>"; };
+		F919F3B72992370C0068A7EF /* IMShareLogic+shareUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IMShareLogic+shareUser.swift"; sourceTree = "<group>"; };
+		F919F3B82992370C0068A7EF /* IMShareLogic+ak.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IMShareLogic+ak.swift"; sourceTree = "<group>"; };
+		F919F3BD299237730068A7EF /* HandyJSONExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandyJSONExtension.swift; sourceTree = "<group>"; };
+		F919F3BF299238830068A7EF /* IMDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMDateExtension.swift; sourceTree = "<group>"; };
+		F919F3C1299239460068A7EF /* IMUIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMUIImageExtension.swift; sourceTree = "<group>"; };
+		F919F3C329923C2D0068A7EF /* IMAwsUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMAwsUtil.h; sourceTree = "<group>"; };
+		F919F3C429923C2D0068A7EF /* IMAwsUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMAwsUtil.m; sourceTree = "<group>"; };
+		F919F3C9299245850068A7EF /* IMSHA1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMSHA1.swift; sourceTree = "<group>"; };
+		F919F3CB29924C590068A7EF /* String+HYExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+HYExtension.swift"; sourceTree = "<group>"; };
+		F9AC42902A0B75A800834132 /* IMOSSDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMOSSDelegate.swift; sourceTree = "<group>"; };
+		F9AC42A42A1214AD00834132 /* IMDownloadChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMDownloadChannel.swift; sourceTree = "<group>"; };
+		F9AC42A62A12155D00834132 /* IMSmallFileDownloadChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSmallFileDownloadChannel.swift; sourceTree = "<group>"; };
+		F9AC42A82A1215C900834132 /* IMBigFileDownloadChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMBigFileDownloadChannel.swift; sourceTree = "<group>"; };
+		F9AC42AA2A1215F200834132 /* IMShareDownloadChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMShareDownloadChannel.swift; sourceTree = "<group>"; };
+		F9AC42C62A1B45C700834132 /* IMBaseDownloadChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMBaseDownloadChannel.swift; sourceTree = "<group>"; };
+		F9E9432E29B1CCC4004E93CE /* IMShareLogic+dbUpgrade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IMShareLogic+dbUpgrade.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F919F2692990EC520068A7EF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6DABFE1F1181093BEA6B498 /* Pods_CommonModule.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F919F2732990EC520068A7EF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F919F2772990EC520068A7EF /* CommonModule.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		83B6B0442A120E1E00A80866 /* status */ = {
+			isa = PBXGroup;
+			children = (
+				83B6B0502A120EFE00A80866 /* DefaultDownLoadOssStatus.swift */,
+				83B6B0452A120E4300A80866 /* display */,
+				83B6B0512A120EFE00A80866 /* DownLoadFailedOssStatus.swift */,
+				83B6B0532A120EFF00A80866 /* DownLoadingOssStatus.swift */,
+				83B6B0622A1218DC00A80866 /* DownLoadOssBaseStatus.swift */,
+				83B6B0522A120EFF00A80866 /* DownLoadPauseOssStatus.swift */,
+				83B6B0542A120EFF00A80866 /* DownLoadSuccessOssStatus.swift */,
+				83B6B05C2A12101700A80866 /* OssDownLoadFactory.swift */,
+				83B6B0602A12136C00A80866 /* OssDownLoadStatus.swift */,
+				83B6B05E2A12115900A80866 /* OssDownLoadStatusConstant.swift */,
+				83B6B05A2A120FE900A80866 /* WaitDownLoadOssStatus.swift */,
+			);
+			path = status;
+			sourceTree = "<group>";
+		};
+		83B6B0452A120E4300A80866 /* display */ = {
+			isa = PBXGroup;
+			children = (
+				83B6B0462A120E7500A80866 /* DefaultDownLoadOssDisplayStatus.swift */,
+				83B6B0482A120EA500A80866 /* DownLoadFailedOssDisplayStatus.swift */,
+				83B6B04A2A120EB800A80866 /* DownLoadingOssDisplayStatus.swift */,
+				83B6B04C2A120EC500A80866 /* DownLoadPauseOssDisplayStatus.swift */,
+				83B6B04E2A120ED400A80866 /* DownLoadSuccessOssDisplayStatus.swift */,
+				83B6B0642A121C6300A80866 /* OssDownLoadDisplayStatus.swift */,
+				83B6B0662A121D7300A80866 /* OssDownLoadViewStatus.swift */,
+				83B6B0682A121E5300A80866 /* DownLoadOssBaseDisplayStatus.swift */,
+			);
+			path = display;
+			sourceTree = "<group>";
+		};
+		83CAECF92991FDEB002B6A6B /* Promise */ = {
+			isa = PBXGroup;
+			children = (
+				83CAECFC2991FDEB002B6A6B /* IMAsync.swift */,
+				83CAECFB2991FDEB002B6A6B /* Promise.h */,
+				83CAECFD2991FDEB002B6A6B /* Promise.swift */,
+				83CAECFA2991FDEB002B6A6B /* IMThread.swift */,
+			);
+			path = Promise;
+			sourceTree = "<group>";
+		};
+		A73EBE54DDBD7FF9F0E8188A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				82E5F7997058D9F3FD13DA62 /* Pods-CommonModule.debug.xcconfig */,
+				24D56787C74A08A89701FB06 /* Pods-CommonModule.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C1232D6BA6E0C20D38562C4F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				452D93318C4E40CDA965B694 /* Pods_CommonModule.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F919F2622990EC520068A7EF = {
+			isa = PBXGroup;
+			children = (
+				F919F26E2990EC520068A7EF /* CommonModule */,
+				F919F27A2990EC520068A7EF /* CommonModuleTests */,
+				F919F26D2990EC520068A7EF /* Products */,
+				A73EBE54DDBD7FF9F0E8188A /* Pods */,
+				C1232D6BA6E0C20D38562C4F /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F919F26D2990EC520068A7EF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F919F26C2990EC520068A7EF /* CommonModule.framework */,
+				F919F2762990EC520068A7EF /* CommonModuleTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F919F26E2990EC520068A7EF /* CommonModule */ = {
+			isa = PBXGroup;
+			children = (
+				F919F3A2299235C00068A7EF /* Api */,
+				F919F38A2992302C0068A7EF /* Model */,
+				F919F37E29922B630068A7EF /* Extension */,
+				F919F37B2992247C0068A7EF /* Logic */,
+				83CAECF92991FDEB002B6A6B /* Promise */,
+				F919F2F7299100E40068A7EF /* CreatDB.swift */,
+				F919F335299100E50068A7EF /* IMContext.swift */,
+				F919F3682991FC3F0068A7EF /* Util */,
+				F919F332299100E50068A7EF /* DB */,
+				F919F31F299100E40068A7EF /* net */,
+				F919F2F8299100E40068A7EF /* OSS */,
+				F919F32C299100E50068A7EF /* SocketRocket */,
+				F919F26F2990EC520068A7EF /* CommonModule.h */,
+				F919F2702990EC520068A7EF /* CommonModule.docc */,
+			);
+			path = CommonModule;
+			sourceTree = "<group>";
+		};
+		F919F27A2990EC520068A7EF /* CommonModuleTests */ = {
+			isa = PBXGroup;
+			children = (
+				F919F27B2990EC520068A7EF /* CommonModuleTests.swift */,
+			);
+			path = CommonModuleTests;
+			sourceTree = "<group>";
+		};
+		F919F2F8299100E40068A7EF /* OSS */ = {
+			isa = PBXGroup;
+			children = (
+				83B6B0442A120E1E00A80866 /* status */,
+				F9AC42A12A120F6500834132 /* Channel */,
+				F919F2F9299100E40068A7EF /* AliCloud */,
+				F919F2FD299100E40068A7EF /* IMTransferUploadControler.swift */,
+				F919F2FE299100E40068A7EF /* IMOSS.swift */,
+				F9AC42902A0B75A800834132 /* IMOSSDelegate.swift */,
+				F919F2FF299100E40068A7EF /* FileTransfer */,
+				F919F30F299100E40068A7EF /* DB */,
+				F919F317299100E40068A7EF /* aaws */,
+				F919F31E299100E40068A7EF /* IMTransferDownloadControler.swift */,
+			);
+			path = OSS;
+			sourceTree = "<group>";
+		};
+		F919F2F9299100E40068A7EF /* AliCloud */ = {
+			isa = PBXGroup;
+			children = (
+				F919F2FA299100E40068A7EF /* IMAliCloudApi.swift */,
+				F919F2FB299100E40068A7EF /* IMAliCloudApi+download.swift */,
+				F919F2FC299100E40068A7EF /* IMAliCloudApi+upload.swift */,
+			);
+			path = AliCloud;
+			sourceTree = "<group>";
+		};
+		F919F2FF299100E40068A7EF /* FileTransfer */ = {
+			isa = PBXGroup;
+			children = (
+				F919F300299100E40068A7EF /* Uploader */,
+				F919F305299100E40068A7EF /* IMTransferFactory.swift */,
+				F919F306299100E40068A7EF /* Downloader */,
+			);
+			path = FileTransfer;
+			sourceTree = "<group>";
+		};
+		F919F300299100E40068A7EF /* Uploader */ = {
+			isa = PBXGroup;
+			children = (
+				F919F301299100E40068A7EF /* IMAWSUploader.swift */,
+				F919F302299100E40068A7EF /* IMLogUploader.swift */,
+				F919F303299100E40068A7EF /* IMUploader.swift */,
+				F919F304299100E40068A7EF /* IMAlUploader.swift */,
+			);
+			path = Uploader;
+			sourceTree = "<group>";
+		};
+		F919F306299100E40068A7EF /* Downloader */ = {
+			isa = PBXGroup;
+			children = (
+				F919F307299100E40068A7EF /* IMNormalDownLoader.swift */,
+				F919F308299100E40068A7EF /* IMAliLocalDownloader.swift */,
+				F919F309299100E40068A7EF /* IMDownloader.swift */,
+				F919F30A299100E40068A7EF /* IMLocalDownloader.swift */,
+				F919F30B299100E40068A7EF /* IMImageUrlParse.swift */,
+				F919F30C299100E40068A7EF /* IMAlOriginDownloader.swift */,
+				F919F30D299100E40068A7EF /* IMAlThumDownloader.swift */,
+				F919F30E299100E40068A7EF /* IMThumDownLoader.swift */,
+			);
+			path = Downloader;
+			sourceTree = "<group>";
+		};
+		F919F30F299100E40068A7EF /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				F919F310299100E40068A7EF /* DownloadDB */,
+				F919F313299100E40068A7EF /* IMPathManager.swift */,
+				F919F314299100E40068A7EF /* UploadDB */,
+				F919F316299100E40068A7EF /* IMFilesTool.swift */,
+			);
+			path = DB;
+			sourceTree = "<group>";
+		};
+		F919F310299100E40068A7EF /* DownloadDB */ = {
+			isa = PBXGroup;
+			children = (
+				F919F311299100E40068A7EF /* IMFileProgressModel.swift */,
+				F919F312299100E40068A7EF /* IMFileProgressDao.swift */,
+			);
+			path = DownloadDB;
+			sourceTree = "<group>";
+		};
+		F919F314299100E40068A7EF /* UploadDB */ = {
+			isa = PBXGroup;
+			children = (
+				F919F315299100E40068A7EF /* IMFileUploadProgress.swift */,
+			);
+			path = UploadDB;
+			sourceTree = "<group>";
+		};
+		F919F317299100E40068A7EF /* aaws */ = {
+			isa = PBXGroup;
+			children = (
+				F919F37929921C170068A7EF /* IMFileTransferStatus.swift */,
+				F919F318299100E40068A7EF /* IMGetAwsObjectExists.swift */,
+				F919F31A299100E40068A7EF /* IMAwsService.swift */,
+				F919F31C299100E40068A7EF /* IMTransferInfo.swift */,
+				F919F31B299100E40068A7EF /* IMAWSUploadDownManager.swift */,
+				F919F31D299100E40068A7EF /* IMAWSUploadDownManager+upload.swift */,
+				F919F319299100E40068A7EF /* IMAWSUploadDownManager+download.swift */,
+			);
+			path = aaws;
+			sourceTree = "<group>";
+		};
+		F919F31F299100E40068A7EF /* net */ = {
+			isa = PBXGroup;
+			children = (
+				F919F320299100E40068A7EF /* IMDelegate401.swift */,
+				F919F321299100E40068A7EF /* IMApiNoTokenService.swift */,
+				F919F322299100E40068A7EF /* IMNetError.swift */,
+				F919F323299100E40068A7EF /* IMNetworkingError.swift */,
+				F919F324299100E40068A7EF /* IMNetFactory.swift */,
+				F919F325299100E40068A7EF /* IMNetCore.swift */,
+				F919F327299100E40068A7EF /* IMNet.swift */,
+				F919F328299100E40068A7EF /* IMApiBaseService.swift */,
+			);
+			path = net;
+			sourceTree = "<group>";
+		};
+		F919F329299100E40068A7EF /* NC */ = {
+			isa = PBXGroup;
+			children = (
+				F919F32A299100E40068A7EF /* IMNotificationCenter.swift */,
+				F919F32B299100E40068A7EF /* IMNotificationManager.swift */,
+			);
+			path = NC;
+			sourceTree = "<group>";
+		};
+		F919F32C299100E50068A7EF /* SocketRocket */ = {
+			isa = PBXGroup;
+			children = (
+				F919F32D299100E50068A7EF /* IMSRWebSocket.h */,
+				F919F32F299100E50068A7EF /* IMSRWebSocket.m */,
+				F919F32E299100E50068A7EF /* IMSocketDelegate.swift */,
+				F919F330299100E50068A7EF /* IMSocketTool.swift */,
+			);
+			path = SocketRocket;
+			sourceTree = "<group>";
+		};
+		F919F331299100E50068A7EF /* Bucket */ = {
+			isa = PBXGroup;
+			children = (
+				F919F3702991FEBB0068A7EF /* IMStartBucketModel.swift */,
+				F919F333299100E50068A7EF /* IMBucketInfoModel.swift */,
+				F919F334299100E50068A7EF /* IMBucketDao.swift */,
+			);
+			path = Bucket;
+			sourceTree = "<group>";
+		};
+		F919F332299100E50068A7EF /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				83D2B5DA29BB2B6A004F11AE /* MultipleStatementInsert.swift */,
+				F919F3A7299236CC0068A7EF /* Share */,
+				F919F38429922D390068A7EF /* Token */,
+				F919F3732992011B0068A7EF /* Event */,
+				F919F331299100E50068A7EF /* Bucket */,
+			);
+			path = DB;
+			sourceTree = "<group>";
+		};
+		F919F3682991FC3F0068A7EF /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				F919F3C9299245850068A7EF /* IMSHA1.swift */,
+				F919F39B299232DF0068A7EF /* IMFilePrefixType.swift */,
+				F919F395299231BD0068A7EF /* IMPhotoManager.h */,
+				F919F396299231BD0068A7EF /* IMPhotoManager.m */,
+				F919F38F299230580068A7EF /* IMThumbUtils.swift */,
+				F919F399299232460068A7EF /* IMFileName.swift */,
+				F919F329299100E40068A7EF /* NC */,
+				F919F3692991FC3F0068A7EF /* Log */,
+				F919F3C329923C2D0068A7EF /* IMAwsUtil.h */,
+				F919F3C429923C2D0068A7EF /* IMAwsUtil.m */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		F919F3692991FC3F0068A7EF /* Log */ = {
+			isa = PBXGroup;
+			children = (
+				F919F36A2991FC3F0068A7EF /* IMLibsManager.m */,
+				F919F36B2991FC3F0068A7EF /* IMLibsManager.h */,
+				F919F36C2991FC3F0068A7EF /* YHLog.swift */,
+			);
+			path = Log;
+			sourceTree = "<group>";
+		};
+		F919F3732992011B0068A7EF /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				F919F3742992011B0068A7EF /* IMFileDownloadEvent.swift */,
+				F919F3752992011B0068A7EF /* IMFileUploadEvent.swift */,
+			);
+			path = Event;
+			sourceTree = "<group>";
+		};
+		F919F37B2992247C0068A7EF /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				F919F3B42992370C0068A7EF /* Share */,
+				F919F39F299234720068A7EF /* IMBucketManager.swift */,
+				F919F392299231810068A7EF /* IMCompressPicManager.h */,
+				F919F391299231810068A7EF /* IMCompressPicManager.m */,
+				F919F37C299224860068A7EF /* IMTokenManager.swift */,
+				83B6B07E2A13733700A80866 /* IMConfigManager.swift */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		F919F37E29922B630068A7EF /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				F919F3CB29924C590068A7EF /* String+HYExtension.swift */,
+				F919F3C1299239460068A7EF /* IMUIImageExtension.swift */,
+				F919F3BF299238830068A7EF /* IMDateExtension.swift */,
+				F919F3BD299237730068A7EF /* HandyJSONExtension.swift */,
+				F919F38129922BEE0068A7EF /* Dictionary+HYExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		F919F38429922D390068A7EF /* Token */ = {
+			isa = PBXGroup;
+			children = (
+				F919F38529922D390068A7EF /* IMTokenDao.swift */,
+				F919F38629922D390068A7EF /* IMTokenModel.swift */,
+			);
+			path = Token;
+			sourceTree = "<group>";
+		};
+		F919F38A2992302C0068A7EF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F919F39D2992333D0068A7EF /* IMAvatarModel.swift */,
+				F919F38B2992302C0068A7EF /* IMImageTempModel.h */,
+				F919F38C2992302C0068A7EF /* IMImageTempModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F919F3A2299235C00068A7EF /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				F919F3A3299235C00068A7EF /* IMStartBucketApi.swift */,
+				F919F3A4299235C00068A7EF /* IMBucketInfo.swift */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		F919F3A7299236CC0068A7EF /* Share */ = {
+			isa = PBXGroup;
+			children = (
+				F919F3A8299236CC0068A7EF /* IMUserValueModel.swift */,
+				F919F3A9299236CC0068A7EF /* IMShareUserDao.swift */,
+				F919F3AA299236CC0068A7EF /* IMGeneralDao.swift */,
+				F919F3AB299236CC0068A7EF /* IMGeneralModel.swift */,
+				F919F3AC299236CC0068A7EF /* IMShareUserModel.swift */,
+				F919F3AD299236CC0068A7EF /* IMUserValueDao.swift */,
+			);
+			path = Share;
+			sourceTree = "<group>";
+		};
+		F919F3B42992370C0068A7EF /* Share */ = {
+			isa = PBXGroup;
+			children = (
+				F919F3B62992370C0068A7EF /* IMShareLogic.swift */,
+				F919F3B82992370C0068A7EF /* IMShareLogic+ak.swift */,
+				F919F3B72992370C0068A7EF /* IMShareLogic+shareUser.swift */,
+				F919F3B52992370C0068A7EF /* IMShareLogic+googleMap.swift */,
+				F9E9432E29B1CCC4004E93CE /* IMShareLogic+dbUpgrade.swift */,
+			);
+			path = Share;
+			sourceTree = "<group>";
+		};
+		F9AC42A12A120F6500834132 /* Channel */ = {
+			isa = PBXGroup;
+			children = (
+				F9AC42A42A1214AD00834132 /* IMDownloadChannel.swift */,
+				F9AC42C62A1B45C700834132 /* IMBaseDownloadChannel.swift */,
+				F9AC42A62A12155D00834132 /* IMSmallFileDownloadChannel.swift */,
+				F9AC42A82A1215C900834132 /* IMBigFileDownloadChannel.swift */,
+				F9AC42AA2A1215F200834132 /* IMShareDownloadChannel.swift */,
+			);
+			path = Channel;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		F919F2672990EC520068A7EF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F919F3C529923C2D0068A7EF /* IMAwsUtil.h in Headers */,
+				F919F360299100E50068A7EF /* IMSRWebSocket.h in Headers */,
+				F919F394299231810068A7EF /* IMCompressPicManager.h in Headers */,
+				F919F36E2991FC3F0068A7EF /* IMLibsManager.h in Headers */,
+				83CAECFF2991FDEB002B6A6B /* Promise.h in Headers */,
+				F919F27D2990EC520068A7EF /* CommonModule.h in Headers */,
+				F919F397299231BD0068A7EF /* IMPhotoManager.h in Headers */,
+				F919F38D2992302C0068A7EF /* IMImageTempModel.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		F919F26B2990EC520068A7EF /* CommonModule */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F919F2802990EC520068A7EF /* Build configuration list for PBXNativeTarget "CommonModule" */;
+			buildPhases = (
+				13911AFE96A8D6DA7A065A63 /* [CP] Check Pods Manifest.lock */,
+				F919F2672990EC520068A7EF /* Headers */,
+				F919F2682990EC520068A7EF /* Sources */,
+				F919F2692990EC520068A7EF /* Frameworks */,
+				F919F26A2990EC520068A7EF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CommonModule;
+			productName = CommonModule;
+			productReference = F919F26C2990EC520068A7EF /* CommonModule.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		F919F2752990EC520068A7EF /* CommonModuleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F919F2832990EC520068A7EF /* Build configuration list for PBXNativeTarget "CommonModuleTests" */;
+			buildPhases = (
+				F919F2722990EC520068A7EF /* Sources */,
+				F919F2732990EC520068A7EF /* Frameworks */,
+				F919F2742990EC520068A7EF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F919F2792990EC520068A7EF /* PBXTargetDependency */,
+			);
+			name = CommonModuleTests;
+			productName = CommonModuleTests;
+			productReference = F919F2762990EC520068A7EF /* CommonModuleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F919F2632990EC520068A7EF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					F919F26B2990EC520068A7EF = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					F919F2752990EC520068A7EF = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = F919F2662990EC520068A7EF /* Build configuration list for PBXProject "CommonModule" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F919F2622990EC520068A7EF;
+			productRefGroup = F919F26D2990EC520068A7EF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F919F26B2990EC520068A7EF /* CommonModule */,
+				F919F2752990EC520068A7EF /* CommonModuleTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F919F26A2990EC520068A7EF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F919F2742990EC520068A7EF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		13911AFE96A8D6DA7A065A63 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CommonModule-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F919F2682990EC520068A7EF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83B6B0652A121C6300A80866 /* OssDownLoadDisplayStatus.swift in Sources */,
+				F919F3CA299245850068A7EF /* IMSHA1.swift in Sources */,
+				F919F3BC2992370C0068A7EF /* IMShareLogic+ak.swift in Sources */,
+				83CAED002991FDEB002B6A6B /* IMAsync.swift in Sources */,
+				F919F364299100E50068A7EF /* IMBucketInfoModel.swift in Sources */,
+				F919F355299100E50068A7EF /* IMDelegate401.swift in Sources */,
+				F919F33C299100E50068A7EF /* IMAWSUploader.swift in Sources */,
+				F919F39A299232460068A7EF /* IMFileName.swift in Sources */,
+				F919F34D299100E50068A7EF /* IMFilesTool.swift in Sources */,
+				F919F357299100E50068A7EF /* IMNetError.swift in Sources */,
+				F919F3CC29924C590068A7EF /* String+HYExtension.swift in Sources */,
+				F919F3AE299236CC0068A7EF /* IMUserValueModel.swift in Sources */,
+				F919F38E2992302C0068A7EF /* IMImageTempModel.m in Sources */,
+				F919F3B1299236CC0068A7EF /* IMGeneralModel.swift in Sources */,
+				F919F3BA2992370C0068A7EF /* IMShareLogic.swift in Sources */,
+				F919F3A0299234720068A7EF /* IMBucketManager.swift in Sources */,
+				F9AC42A92A1215C900834132 /* IMBigFileDownloadChannel.swift in Sources */,
+				F919F33A299100E50068A7EF /* IMTransferUploadControler.swift in Sources */,
+				F919F35F299100E50068A7EF /* IMNotificationManager.swift in Sources */,
+				F919F353299100E50068A7EF /* IMAWSUploadDownManager+upload.swift in Sources */,
+				83B6B0692A121E5300A80866 /* DownLoadOssBaseDisplayStatus.swift in Sources */,
+				F919F345299100E50068A7EF /* IMImageUrlParse.swift in Sources */,
+				F919F37A29921C170068A7EF /* IMFileTransferStatus.swift in Sources */,
+				F919F35A299100E50068A7EF /* IMNetCore.swift in Sources */,
+				F919F3C0299238830068A7EF /* IMDateExtension.swift in Sources */,
+				83B6B05D2A12101700A80866 /* OssDownLoadFactory.swift in Sources */,
+				F919F337299100E50068A7EF /* IMAliCloudApi.swift in Sources */,
+				F919F3BE299237730068A7EF /* HandyJSONExtension.swift in Sources */,
+				83B6B0632A1218DC00A80866 /* DownLoadOssBaseStatus.swift in Sources */,
+				F919F356299100E50068A7EF /* IMApiNoTokenService.swift in Sources */,
+				F9AC42A52A1214AD00834132 /* IMDownloadChannel.swift in Sources */,
+				F919F365299100E50068A7EF /* IMBucketDao.swift in Sources */,
+				F919F33F299100E50068A7EF /* IMAlUploader.swift in Sources */,
+				F919F3A5299235C00068A7EF /* IMStartBucketApi.swift in Sources */,
+				83B6B0472A120E7500A80866 /* DefaultDownLoadOssDisplayStatus.swift in Sources */,
+				F919F33B299100E50068A7EF /* IMOSS.swift in Sources */,
+				F919F34F299100E50068A7EF /* IMAWSUploadDownManager+download.swift in Sources */,
+				F919F39C299232DF0068A7EF /* IMFilePrefixType.swift in Sources */,
+				83B6B04F2A120ED400A80866 /* DownLoadSuccessOssDisplayStatus.swift in Sources */,
+				F919F3712991FEBB0068A7EF /* IMStartBucketModel.swift in Sources */,
+				F919F3BB2992370C0068A7EF /* IMShareLogic+shareUser.swift in Sources */,
+				F919F343299100E50068A7EF /* IMDownloader.swift in Sources */,
+				F919F393299231810068A7EF /* IMCompressPicManager.m in Sources */,
+				F9AC42AB2A1215F200834132 /* IMShareDownloadChannel.swift in Sources */,
+				F919F38229922BEE0068A7EF /* Dictionary+HYExtension.swift in Sources */,
+				F919F35C299100E50068A7EF /* IMNet.swift in Sources */,
+				F9AC42A72A12155D00834132 /* IMSmallFileDownloadChannel.swift in Sources */,
+				F919F390299230580068A7EF /* IMThumbUtils.swift in Sources */,
+				83B6B0672A121D7300A80866 /* OssDownLoadViewStatus.swift in Sources */,
+				83B6B0582A120EFF00A80866 /* DownLoadingOssStatus.swift in Sources */,
+				F919F363299100E50068A7EF /* IMSocketTool.swift in Sources */,
+				F9E9432F29B1CCC4004E93CE /* IMShareLogic+dbUpgrade.swift in Sources */,
+				F919F358299100E50068A7EF /* IMNetworkingError.swift in Sources */,
+				F919F38829922D390068A7EF /* IMTokenModel.swift in Sources */,
+				F919F362299100E50068A7EF /* IMSRWebSocket.m in Sources */,
+				F919F341299100E50068A7EF /* IMNormalDownLoader.swift in Sources */,
+				F919F3B3299236CC0068A7EF /* IMUserValueDao.swift in Sources */,
+				F919F3C2299239460068A7EF /* IMUIImageExtension.swift in Sources */,
+				83CAED012991FDEB002B6A6B /* Promise.swift in Sources */,
+				F919F346299100E50068A7EF /* IMAlOriginDownloader.swift in Sources */,
+				F919F342299100E50068A7EF /* IMAliLocalDownloader.swift in Sources */,
+				83B6B07F2A13733700A80866 /* IMConfigManager.swift in Sources */,
+				F919F33D299100E50068A7EF /* IMLogUploader.swift in Sources */,
+				F919F398299231BD0068A7EF /* IMPhotoManager.m in Sources */,
+				83B6B04B2A120EB800A80866 /* DownLoadingOssDisplayStatus.swift in Sources */,
+				F919F39E2992333D0068A7EF /* IMAvatarModel.swift in Sources */,
+				F9AC42912A0B75A800834132 /* IMOSSDelegate.swift in Sources */,
+				83B6B05B2A120FE900A80866 /* WaitDownLoadOssStatus.swift in Sources */,
+				83B6B04D2A120EC500A80866 /* DownLoadPauseOssDisplayStatus.swift in Sources */,
+				F919F2712990EC520068A7EF /* CommonModule.docc in Sources */,
+				83B6B0492A120EA500A80866 /* DownLoadFailedOssDisplayStatus.swift in Sources */,
+				F919F3C629923C2D0068A7EF /* IMAwsUtil.m in Sources */,
+				F919F3AF299236CC0068A7EF /* IMShareUserDao.swift in Sources */,
+				F919F35D299100E50068A7EF /* IMApiBaseService.swift in Sources */,
+				83CAECFE2991FDEB002B6A6B /* IMThread.swift in Sources */,
+				F919F344299100E50068A7EF /* IMLocalDownloader.swift in Sources */,
+				F919F34B299100E50068A7EF /* IMPathManager.swift in Sources */,
+				F919F35E299100E50068A7EF /* IMNotificationCenter.swift in Sources */,
+				F919F3B2299236CC0068A7EF /* IMShareUserModel.swift in Sources */,
+				F919F336299100E50068A7EF /* CreatDB.swift in Sources */,
+				F919F38729922D390068A7EF /* IMTokenDao.swift in Sources */,
+				83D2B5DB29BB2B6A004F11AE /* MultipleStatementInsert.swift in Sources */,
+				F919F3772992011C0068A7EF /* IMFileUploadEvent.swift in Sources */,
+				F919F366299100E50068A7EF /* IMContext.swift in Sources */,
+				F9AC42C72A1B45C700834132 /* IMBaseDownloadChannel.swift in Sources */,
+				F919F37D299224860068A7EF /* IMTokenManager.swift in Sources */,
+				F919F347299100E50068A7EF /* IMAlThumDownloader.swift in Sources */,
+				F919F349299100E50068A7EF /* IMFileProgressModel.swift in Sources */,
+				F919F350299100E50068A7EF /* IMAwsService.swift in Sources */,
+				83B6B0552A120EFF00A80866 /* DefaultDownLoadOssStatus.swift in Sources */,
+				83B6B0562A120EFF00A80866 /* DownLoadFailedOssStatus.swift in Sources */,
+				83B6B05F2A12115900A80866 /* OssDownLoadStatusConstant.swift in Sources */,
+				F919F340299100E50068A7EF /* IMTransferFactory.swift in Sources */,
+				F919F34E299100E50068A7EF /* IMGetAwsObjectExists.swift in Sources */,
+				F919F348299100E50068A7EF /* IMThumDownLoader.swift in Sources */,
+				F919F3B92992370C0068A7EF /* IMShareLogic+googleMap.swift in Sources */,
+				F919F33E299100E50068A7EF /* IMUploader.swift in Sources */,
+				83B6B0572A120EFF00A80866 /* DownLoadPauseOssStatus.swift in Sources */,
+				F919F36D2991FC3F0068A7EF /* IMLibsManager.m in Sources */,
+				F919F3A6299235C00068A7EF /* IMBucketInfo.swift in Sources */,
+				F919F3B0299236CC0068A7EF /* IMGeneralDao.swift in Sources */,
+				83B6B0612A12136C00A80866 /* OssDownLoadStatus.swift in Sources */,
+				F919F361299100E50068A7EF /* IMSocketDelegate.swift in Sources */,
+				F919F36F2991FC3F0068A7EF /* YHLog.swift in Sources */,
+				F919F3762992011C0068A7EF /* IMFileDownloadEvent.swift in Sources */,
+				F919F354299100E50068A7EF /* IMTransferDownloadControler.swift in Sources */,
+				83B6B0592A120EFF00A80866 /* DownLoadSuccessOssStatus.swift in Sources */,
+				F919F34A299100E50068A7EF /* IMFileProgressDao.swift in Sources */,
+				F919F34C299100E50068A7EF /* IMFileUploadProgress.swift in Sources */,
+				F919F338299100E50068A7EF /* IMAliCloudApi+download.swift in Sources */,
+				F919F352299100E50068A7EF /* IMTransferInfo.swift in Sources */,
+				F919F339299100E50068A7EF /* IMAliCloudApi+upload.swift in Sources */,
+				F919F359299100E50068A7EF /* IMNetFactory.swift in Sources */,
+				F919F351299100E50068A7EF /* IMAWSUploadDownManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F919F2722990EC520068A7EF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F919F27C2990EC520068A7EF /* CommonModuleTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F919F2792990EC520068A7EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F919F26B2990EC520068A7EF /* CommonModule */;
+			targetProxy = F919F2782990EC520068A7EF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		F919F27E2990EC520068A7EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F919F27F2990EC520068A7EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		F919F2812990EC520068A7EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 82E5F7997058D9F3FD13DA62 /* Pods-CommonModule.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = NO;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/AWSCore\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/AWSS3\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Alamofire\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/AliyunOSSiOS\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/CocoaLumberjack\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/HandyJSON-framework\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SQLiteRepairKit\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/WCDB.swift\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/WCDBOptimizedSQLCipher\"",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				GENERATE_MASTER_OBJECT_FILE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/AWSCore/AWSCore.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/AWSS3/AWSS3.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Alamofire/Alamofire.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/AliyunOSSiOS/AliyunOSSiOS.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/CocoaLumberjack/CocoaLumberjack.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/HandyJSON-framework/HandyJSON.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SQLiteRepairKit/sqliterk.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/WCDB.swift/WCDBSwift.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/WCDBOptimizedSQLCipher/sqlcipher.framework/Headers\"",
+				);
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				LINK_WITH_STANDARD_LIBRARIES = NO;
+				MACH_O_TYPE = staticlib;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"c++\"",
+					"-l\"resolv\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AWSCore\"",
+					"-framework",
+					"\"AWSS3\"",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"AliyunOSSiOS\"",
+					"-framework",
+					"\"CocoaLumberjack\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"HandyJSON\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"WCDBSwift\"",
+					"-framework",
+					"\"sqlcipher\"",
+					"-framework",
+					"\"sqliterk\"",
+					"-ObjC",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.SNQUNetwork.CommonModule;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F919F2822990EC520068A7EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24D56787C74A08A89701FB06 /* Pods-CommonModule.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = NO;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/AWSCore\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/AWSS3\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Alamofire\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/AliyunOSSiOS\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/CocoaLumberjack\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/HandyJSON-framework\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SQLiteRepairKit\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/WCDB.swift\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/WCDBOptimizedSQLCipher\"",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				GENERATE_MASTER_OBJECT_FILE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/AWSCore/AWSCore.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/AWSS3/AWSS3.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Alamofire/Alamofire.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/AliyunOSSiOS/AliyunOSSiOS.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/CocoaLumberjack/CocoaLumberjack.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/HandyJSON-framework/HandyJSON.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SQLiteRepairKit/sqliterk.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/WCDB.swift/WCDBSwift.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/WCDBOptimizedSQLCipher/sqlcipher.framework/Headers\"",
+				);
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				LINK_WITH_STANDARD_LIBRARIES = NO;
+				MACH_O_TYPE = staticlib;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"c++\"",
+					"-l\"resolv\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AWSCore\"",
+					"-framework",
+					"\"AWSS3\"",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"AliyunOSSiOS\"",
+					"-framework",
+					"\"CocoaLumberjack\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"HandyJSON\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"WCDBSwift\"",
+					"-framework",
+					"\"sqlcipher\"",
+					"-framework",
+					"\"sqliterk\"",
+					"-ObjC",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.SNQUNetwork.CommonModule;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F919F2842990EC520068A7EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SNQUNetwork.CommonModuleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F919F2852990EC520068A7EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SNQUNetwork.CommonModuleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F919F2662990EC520068A7EF /* Build configuration list for PBXProject "CommonModule" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F919F27E2990EC520068A7EF /* Debug */,
+				F919F27F2990EC520068A7EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F919F2802990EC520068A7EF /* Build configuration list for PBXNativeTarget "CommonModule" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F919F2812990EC520068A7EF /* Debug */,
+				F919F2822990EC520068A7EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F919F2832990EC520068A7EF /* Build configuration list for PBXNativeTarget "CommonModuleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F919F2842990EC520068A7EF /* Debug */,
+				F919F2852990EC520068A7EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F919F2632990EC520068A7EF /* Project object */;
+}
